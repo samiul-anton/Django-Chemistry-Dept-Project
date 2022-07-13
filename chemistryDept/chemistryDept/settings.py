@@ -9,11 +9,13 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-import os.path
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATES = os.path.join(BASE_DIR,"templates")
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,9 +33,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #custom apps
+    'HomeApp',
+    'AdminPanel',
+    'chemistryAdmin',
 
-    'AdminPanel.apps.AdminpanelConfig',
-    'chemistryAdmin.apps.ChemistryadminConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,7 +62,7 @@ ROOT_URLCONF = 'chemistryDept.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,12 +81,12 @@ WSGI_APPLICATION = 'chemistryDept.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
