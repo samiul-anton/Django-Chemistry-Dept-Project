@@ -1,0 +1,104 @@
+{% extends "chemistryAdmin/base.html" %}
+{% load static %}
+{% block content %}
+  <section id="subintro">
+    <div class="jumbotron subhead" id="overview">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="centered">
+              <h3>Staffs</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="breadcrumb">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <ul class="breadcrumb notop">
+            <li><a href="#">Home</a><span class="divider">/</span></li>
+            <li class="active">Staff</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="maincontent">
+    <div class="container">
+      <div class="row">
+        <div class="span2">
+          <div class="post-image">
+            <a href="#"><img src="{% static '/img/dummies/Dequan1.jpg' %}" alt="" style="height:100px; width:100px; border-radius: 8px; "/></a>
+          </div><br>
+          <div class="post-heading">
+            <h5><a href="#">Dequan Xiao, PhD</a></h5>
+            <i>Jacob F. Buckman Chair</i>
+            <em>dxiao@gmail.com</em>
+          </div>
+        </div>
+        <div class="span2">
+          <div class="post-image">
+            <a href="#"><img src="{% static '/img/dummies/Dequan1.jpg' %}" alt="" style="height:100px; width:100px; border-radius: 8px; "/></a>
+          </div><br>
+          <div class="post-heading">
+            <h5><a href="#">Dequan Xiao, PhD</a></h5>
+            <i>Jacob F. Buckman Chair</i>
+            <em>dxiao@gmail.com</em>
+          </div>
+        </div>
+        <div class="span2">
+          <div class="post-image">
+            <a href="#"><img src="{% static '/img/dummies/Dequan1.jpg' %}" alt="" style="height:100px; width:100px; border-radius: 8px; "/></a>
+          </div><br>
+          <div class="post-heading">
+            <h5><a href="#">Dequan Xiao, PhD</a></h5>
+            <i>Jacob F. Buckman Chair</i>
+            <em>dxiao@gmail.com</em>
+          </div><hr>
+        </div>
+        <div class="span5">
+          <aside>
+            <div class="widget">
+              <h4>Recent Announcement</h4>
+              <ul class="recent-posts">
+                <li><a href="#">Lorem ipsum dolor sit amet munere commodo ut nam</a>
+                  <div class="clear">
+                  </div>
+                  <span class="date"><i class="icon-calendar"></i> 6 March, 2013</span>
+                </li>
+                <li><a href="#">Sea nostrum omittantur ne mea malis nominavi insolens</a>
+                  <div class="clear">
+                  </div>
+                  <span class="date"><i class="icon-calendar"></i> 6 March, 2013</span>
+                </li>
+                <li><a href="#">Eius graece recusabo no pri odio tale quo id, mea at saepe</a>
+                  <div class="clear">
+                  </div>
+                  <span class="date"><i class="icon-calendar"></i> 4 March, 2013</span>
+                </li>
+                <li><a href="#">Malorum deserunt at nec usu ad graeco elaboraret at rebum</a>
+                  <div class="clear">
+                  </div>
+                  <span class="date"><i class="icon-calendar"></i> 3 March, 2013</span>
+                </li>
+              </ul>
+            </div>
+            <div class="widget">
+              <h4>Tags</h4>
+              <ul class="tags">
+                <li><a href="#" class="btn">Tutorial</a></li>
+                <li><a href="#" class="btn">Tricks</a></li>
+                <li><a href="#" class="btn">Design</a></li>
+                <li><a href="#" class="btn">Trends</a></li>
+                <li><a href="#" class="btn">Online</a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+ {% endblock content %}
