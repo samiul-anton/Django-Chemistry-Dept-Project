@@ -1,5 +1,6 @@
 {% extends "layouts/guest.html" %}
 {% load static %}
+
 {% block content %}
   <section id="subintro">
     <div class="jumbotron subhead" id="overview">
@@ -32,7 +33,7 @@
         <div class="span9">
           <!-- start article 1 -->
           {% for value in faculty%}
-          <article class="blog-post">
+          <article class="blog-post faculty_card">
             <div class="row">
               <div class="span2">
                 <div class="post-image">
@@ -59,15 +60,8 @@
           {% endfor %}
           <!-- end article 1 -->
 
-          <div class="pagination">
-            <ul>
-              <li><a href="#">Prev</a></li>
-              <li><a href="#">1</a></li>
-              <li class="active"><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
+          <div class="pagination" style="display:flex; justify-content:center">
+                  <button class="btn btn-sm" id="loadMore">Load More</button>
           </div>
         </div>
         <div class="span3">
@@ -140,3 +134,7 @@
     </div>
   </section>
  {% endblock content %}
+
+ {% block script %}
+      <script  src="{% static '/js/loadmore.js'%}"></script>
+ {% endblock %}
