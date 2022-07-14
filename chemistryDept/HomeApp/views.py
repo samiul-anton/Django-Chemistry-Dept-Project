@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from AdminPanel.models import faculty
+from AdminPanel.models import faculty,staff
 
 #Home page view
 
@@ -19,6 +19,12 @@ def contact(request):
 def facultys(request):
     data = faculty.objects.order_by('name')
     return render(request,'HomeApp/faculty.html',context={'faculty':data})
+
+#Staff page view
+
+def staffs(request):
+    data = staff.objects.order_by('name')
+    return render(request,'HomeApp/staff.html',context={'staff':data})
 
 #bschemistry page view
 
