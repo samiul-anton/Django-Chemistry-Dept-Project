@@ -9,5 +9,10 @@ urlpatterns =[
   path('', views.index, name='index'),
   path('contact/', views.contact, name='about'),
   path('faculty/', views.facultys, name='faculty'),
+  path('bschemistry/', views.bschemistry, name='bschemistry'),
+  path('bschemical/', views.bschemical, name='bschemical'),
+  path('mschemistry/', views.mschemistry, name='mschemistry'),
+  path('msbiomedical/', views.msbiomedical, name='msbiomedical'),
+  path('certificateprograms/', views.certificateprograms, name='certificateprograms'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
