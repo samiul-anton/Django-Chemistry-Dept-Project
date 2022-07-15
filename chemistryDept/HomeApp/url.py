@@ -15,5 +15,6 @@ urlpatterns =[
   path('mschemistry/', views.mschemistry, name='mschemistry'),
   path('msbiomedical/', views.msbiomedical, name='msbiomedical'),
   path('certificateprograms/', views.certificateprograms, name='certificateprograms'),
+  path('research_chemistry/', views.researchChemistry, name='research_chemistry'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

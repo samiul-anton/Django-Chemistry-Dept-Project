@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from AdminPanel.models import faculty,staff
+from AdminPanel.models import faculty,staff,research_by_area
 
 #Home page view
 
@@ -50,3 +50,9 @@ def msbiomedical(request):
 
 def certificateprograms(request):
     return render(request, 'HomeApp/certificateprograms.html')
+
+#Research Chemistry page view
+
+def researchChemistry(request):
+    data = research_by_area.objects.order_by("research_title")
+    return render(request, 'HomeApp/research-area-chemistry.html' , context={'research': data})

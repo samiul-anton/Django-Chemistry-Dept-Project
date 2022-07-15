@@ -1,0 +1,100 @@
+{% extends "layouts/guest.html" %}
+{% load static %}
+{% block content %}
+  <section id="subintro">
+    <div class="jumbotron subhead" id="overview">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="centered">
+              <h3>Research on Chemistry</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="breadcrumb">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <ul class="breadcrumb notop">
+            <li><a href='{% url "index" %}'>Home</a><span class="divider">/</span></li>
+            <li class="active">Chemistry Research</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="maincontent">
+    <div class="container">
+      <div class="row">
+        {% for value in research %}
+        <div class="span12">
+          <!-- start article 2 -->
+          <article class="blog-post">
+            <div class="row">
+              <div class="post-heading">
+                <h3 style="text-align: center;">{{ value.research_title }}</h3>
+              </div>
+              <div class="span3">
+                <div class="post-image">
+                  <a href="#"><img src="/media/{{ BASIC_DIR }}/{{value.research_cover}}" alt="" style="height: 200px; width:220px; border-radius: 8px; "/></a>
+                </div>
+              </div><br>
+              <div class="span6">
+                <div class="clearfix">
+                  <p>{{ value.research_description }}</p>
+                  <!-- popup content 2 -->
+                  <div id="myModal{{value.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h3 id="myModalLabel">Publications</h3>
+                    </div>
+                    <div class="modal-body">
+                      <iframe width="500" height="300" src="{{value.publication_video}}"></iframe>
+                      <h4>Publication Details</h4>
+                        {{ value.publication_details }}
+                      <!-- <h4>Conference Talks</h4>
+                        <ul>
+                          <li><span><a href="#">Dequan Xiao</a></span>,<span><a href="#">Weitao Yang</a></span>, and <span><a href="#">David N. Beratan</a></span> , "Inverse Molecular Design for Nonlinear Optical Materials", DARPA Predicting Real Optimized Materials (PROM) Program Review Meeting, San Francisco, CA, March 8-9, 2005.</li>
+                          <li>Dequan Xiao, Weitao Yang, and David N. Beratan, "Inverse Molecular Design in A Tight-Binding Framework", American Physical Society March Meeting, New Orleans, LA, March 10-14, 2008.</li>
+                          <li>Dequan Xiao, Kunhua Lin, Qiang Fu, and Qinjian Yin, "Polymeric Nanocomposite Comprising Size-Controlled Organic Nanostructures via Copolymer-Directed Self-Assembly", American Physical Society March Meeting, Pittsburgh, PA, March 16-20, 2009.</li>
+                          <li>Dequan Xiao, Robert C. Snoeberger III, and Victor S. Batista, "Inverse Design of Molecular Chromophores for Dye-Sensitized Solar Cells", Connecticut Quantum Chemistry Meeting at Yale University, January 22, 2010.</li>
+                          <li>Dequan Xiao, Robert C. Snoeberger III, Lauren A. Martini, Robert H. Crabtree, and Victor S. Batista, "Inverse Design of Molecular Chromophores for Dye-Sensitized Solar Cells", 240th American Chemical Society National Meeting and Exposition, Boston, MA, August 22-26, 2010.</li>
+                        </ul>
+                      <h4>Conference Posters</h4>
+                        <ul>
+                          <li>Dequan Xiao, Weitao Yang, and David N. Beratan, "Inverse Molecular Design for Nonlinear Optical Materials", DARPA Predicting Real Optimized Materials (PROM) Program Review Meeting, San Francisco, CA, March 8-9, 2005.</li>
+                          <li>Xiangqian Hu, Dequan Xiao, Weitao Yang, and David N. Beratan, "Inverse Design for Nonlinear Optical Materials by the Linear Combination of Atomic Potentials (LCAP) Method", Symposium on Photonics at the Frontiers of Science and Technology (Fitzpatrick Institute for Photonics 6th Annual Meeting), Durham, NC, September 28-29, 2006.</li>
+                          <li>Xiangqian Hu, Dequan Xiao, Shahar Keinan, Weitao Yang, Michael J. Therien, Koen Clays, and David N. Beratan, "Understanding and Predicting the Frequency Dependent First-Hyperpolarizabilities Based on Linear Absorption Spectra and Generalized Sum Rules", Symposium on Photonics at the Frontiers of Science and Technology (Fitzpatrick Institute for Photonics 8th Annual Meeting), Durham, NC, October 13-14, 2008.</li>
+
+                        </ul> -->
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                  <a data-toggle="modal" href="#myModal{{value.id}}" class="btn btn-success btn-small">Publication</a>
+                  <!-- END popup content 2 -->
+                </div>
+              </div>
+              <div class="span3">
+                <h6 style="text-align: center;">Projects include:</h6>
+                {{ value.project_include }}
+              </div>
+              <div class="popup" id="popup">
+                <img src="emergency.png">
+                <h2>Research</h2>
+                <p>The research details will be here!!!!</p>
+                <button class="btn btn-small btn-success" type="button" onclick="closePopup()">ok</button>
+		    </div>
+            </div>
+          </article>
+          <!-- end article 1 -->
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+ {% endblock content %}
