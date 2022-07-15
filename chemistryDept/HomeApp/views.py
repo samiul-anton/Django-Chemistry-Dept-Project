@@ -51,8 +51,14 @@ def msbiomedical(request):
 def certificateprograms(request):
     return render(request, 'HomeApp/certificateprograms.html')
 
-#Research Chemistry page view
+#Research by area view page
 
 def researchChemistry(request):
-    data = research_by_area.objects.order_by("research_title")
-    return render(request, 'HomeApp/research-area-chemistry.html' , context={'research': data})
+    data = research_by_area.objects.filter(research_fields="Chemistry")
+    return render(request, 'HomeApp/research-area.html' , context={'title':"Chemistry Research",'research': data})
+def researchChemical(request):
+    data = research_by_area.objects.filter(research_fields="Chemical Engineering")
+    return render(request, 'HomeApp/research-area.html' , context={'title':"Chemical Engineering Research",'research': data})
+def researchBiomedical(request):
+    data = research_by_area.objects.filter(research_fields="Biomedical Engineering")
+    return render(request, 'HomeApp/research-area.html' , context={'title':"Biomedical Engineering Research",'research': data})
