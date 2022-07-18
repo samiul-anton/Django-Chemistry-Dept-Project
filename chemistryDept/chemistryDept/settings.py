@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     #custom apps
     'HomeApp',
     'AdminPanel',
+    'peopleApp',
     'chemistryAdmin',
 
     'crispy_forms',

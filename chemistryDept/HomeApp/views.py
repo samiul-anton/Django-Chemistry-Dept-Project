@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from AdminPanel.models import faculty,staff,research_by_area
-
+from AdminPanel.models import research_by_area
+from peopleApp.models import faculty,staff
 #Home page view
 
 def index(request):
