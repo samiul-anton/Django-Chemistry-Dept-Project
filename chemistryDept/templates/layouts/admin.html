@@ -30,43 +30,43 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{% url 'AdminPanel' %}">
+						<a class="sidebar-link" href="#">
               				<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             			</a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{% url 'Adminprofile' %}">
+						<a class="sidebar-link" href="#">
               				<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Profile</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{% url 'blank' %}">
+						<a class="sidebar-link" href="#">
               				<i class="align-middle" data-feather="airplay"></i> <span class="align-middle">Academic Programs</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{% url 'people' %}">
+						<a class="sidebar-link" href="#">
               				<i class="align-middle" data-feather="users"></i> <span class="align-middle">People</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{% url 'blank' %}">
+						<a class="sidebar-link" href="#">
               				<i class="align-middle" data-feather="award"></i> <span class="align-middle">Research</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{% url 'blank' %}">
+						<a class="sidebar-link" href="#">
               				<i class="align-middle" data-feather="server"></i> <span class="align-middle">Resources</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{% url 'blank' %}">
+						<a class="sidebar-link" href="#">
               				<i class="align-middle" data-feather="info"></i> <span class="align-middle">News</span>
 						</a>
 					</li>
@@ -219,7 +219,7 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="{% static 'img/avatars/avatar.jpg' %}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <img src="{% static 'img/avatars/avatar.jpg' %}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">{{ user.username }}</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
