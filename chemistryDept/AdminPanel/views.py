@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.urls import reverse
 from .models import Userinfo
 
@@ -10,7 +11,10 @@ from django.contrib.auth.models import User
 #login page viewer
 def login_page(request):
     if request.method == 'GET':
-        return render(request,'AdminPanel/login.html')
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(reverse('dashboard'))
+        else:
+            return render(request,'AdminPanel/login.html')
 
 #User login authenticator
 def user_login(request):
@@ -25,9 +29,11 @@ def user_login(request):
                 return HttpResponseRedirect(reverse('dashboard'))
 
             else:
-                return HttpResponse("Account Not Active")
+                messages.warning(request, 'Account not active !')
+                return HttpResponseRedirect(reverse('login_page'))
         else:
-            return HttpResponse("Wrong Login Credentials")
+            messages.warning(request, 'Wrong credentials !')
+            return HttpResponseRedirect(reverse('login_page'))
     else:
         return HttpResponseRedirect(reverse('login_page'))
 
@@ -35,7 +41,7 @@ def user_login(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('login_page'))
 
 #Admin dashboard handler
 def dashboard(request):
