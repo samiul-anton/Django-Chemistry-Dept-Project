@@ -46,9 +46,9 @@
                   <i>{{ value.designation }}</i></br>
                 </div>
                 <div class="clearfix">
-                  <ul>
-                    <li>{{ value.experience }}</li>
-                  </ul>
+
+                  {{ value.experience|safe }}
+
                   <p>{{ value.about }}</p>
                   <a href="{{ value.url}}" class="btn btn-small btn-success" type="button">Read more</a>
                 </div>
