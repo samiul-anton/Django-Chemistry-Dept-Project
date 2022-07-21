@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'AdminPanel',
     'peopleApp',
     'chemistryAdmin',
+    'researchApp',
 
     'crispy_forms',
     'django.contrib.admin',

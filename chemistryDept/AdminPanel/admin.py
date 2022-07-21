@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import research_by_area,Userinfo
+from .models import Userinfo
 from peopleApp.models import faculty,staff
+from researchApp.models import research_by_area
 
 # Register your models here.
 admin.site.register(faculty)

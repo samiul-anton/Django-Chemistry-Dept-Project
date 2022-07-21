@@ -8,7 +8,7 @@
 	<div class="container-fluid p-0">
 		  <div class="d-flex justify-content-between pb-5">
 		  	<h1 class="h3 mb-3"><strong>People:</strong> Staff</h1>
-				<button class="btn btn-sm btn-info">Add Staff</button>
+				<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#staffModal">Add Staff</button>
 		  </div>
 
       <div>
@@ -23,11 +23,11 @@
 				            </tr>
 				        </thead>
 				        <tbody>
-									{% for value in faculty%}
+									{% for value in staff%}
 				            <tr>
 				                <td>{{ forloop.counter }}</td>
 				                <td>
-													<img src="/media/{{ BASIC_DIR }}/{{value.faculty_image}}" alt="" style="height:30px; width:30px; border-radius: 8px; "/>
+													<img src="/media/{{ BASIC_DIR }}/{{value.staff_image}}" alt="" style="height:30px; width:30px; border-radius: 8px; "/>
 													{{ value.name}}
 												</td>
 				                <td>{{ value.designation}}</td>
@@ -45,7 +45,8 @@
       </div>
   </div>
 </main>
-
+{% include '../modals/addStaff.html' %}
+{% include '../modals/deleteModal.html' %}
 {% endblock %}
 
 {% block scripts %}

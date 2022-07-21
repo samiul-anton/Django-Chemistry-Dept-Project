@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import faculty as all_faculty
+from .models import staff as all_staff
 from django.contrib import messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect,HttpResponse
@@ -32,7 +33,20 @@ def addFaculty(request):
 @login_required
 def staff(request):
     if request.method == "GET":
-        return render(request, 'peopleApp/staff.html',context={})
+        data = all_staff.objects.all().order_by('name')
+        return render(request, 'peopleApp/staff.html',context={'staff':data})
+@login_required
+def addStaff(request):
+    if request.method == "POST":
+       new_staff = all_staff()
+       new_staff.name = request.POST.get('faculty_name')
+       new_staff.email = request.POST.get('faculty_email')
+       new_staff.designation = request.POST.get('faculty_designation')
+       new_staff.staff_image = request.FILES["faculty_image"]
+       new_staff.save()
+
+       messages.success(request, 'New Staff added!')
+       return HttpResponseRedirect(reverse('staff'))
 #admin student view
 @login_required
 def student(request):

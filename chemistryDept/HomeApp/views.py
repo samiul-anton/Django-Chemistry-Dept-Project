@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from AdminPanel.models import research_by_area
+from researchApp.models import research_by_area
 from peopleApp.models import faculty,staff
 #Home page view
 
