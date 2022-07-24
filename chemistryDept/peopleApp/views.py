@@ -29,6 +29,17 @@ def addFaculty(request):
        messages.success(request, 'New faculty added!')
        return HttpResponseRedirect(reverse('faculty'))
 
+#delete faculty data
+@login_required
+def deleteFaculty(request,id):
+    if request.method == "POST":
+        all_faculty.objects.filter(id=id).delete()
+        messages.success(request, 'Faculty Data Deleted!')
+        return HttpResponseRedirect(reverse('faculty'))
+    else:
+        return HttpResponseRedirect(reverse('home'))
+
+
 #admin staff view
 @login_required
 def staff(request):
@@ -47,6 +58,16 @@ def addStaff(request):
 
        messages.success(request, 'New Staff added!')
        return HttpResponseRedirect(reverse('staff'))
+
+#delete staff data
+@login_required
+def deleteStaff(request,id):
+    if request.method == "POST":
+        all_staff.objects.filter(id=id).delete()
+        messages.success(request, 'Staff Data Deleted!')
+        return HttpResponseRedirect(reverse('staff'))
+    else:
+        return HttpResponseRedirect(reverse('home'))
 #admin student view
 @login_required
 def student(request):

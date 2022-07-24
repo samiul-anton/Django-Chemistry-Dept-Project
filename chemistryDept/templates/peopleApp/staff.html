@@ -10,7 +10,16 @@
 		  	<h1 class="h3 mb-3"><strong>People:</strong> Staff</h1>
 				<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#staffModal">Add Staff</button>
 		  </div>
-
+			{% if messages %}
+							{% for message in messages %}
+							<div {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible  show "{% endif %} role="alert">
+									{{ message }}
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+							</div>
+							{% endfor %}
+			{% endif %}
       <div>
 						<table id="example" class="display" style="width:100%">
 				        <thead>
@@ -35,7 +44,7 @@
 				                <td>
 													<button class="btn btn-sm btn-info">View</button>
 				                	<button class="btn btn-sm btn-primary">Edit</button>
-													<button class="btn btn-sm btn-danger">Delete</button>
+													<button data-id="{{ value.id }}" data-page="people/staff" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
 										{% endfor %}
@@ -50,11 +59,12 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 		$(document).ready(function () {
 		    $('#example').DataTable();
 		});
+</script>
+<script src="{% static 'js/deleteData.js' %}">
 </script>
 {% endblock %}

@@ -11,6 +11,7 @@ def researchByArea(request):
     if request.method == "GET":
         data = research_by_area.objects.all().order_by('research_title')
         return render(request, 'researchApp/researchByarea.html',context={'data':data})
+
 def addResearchByArea(request):
     if request.method == "POST":
        new_research_by_area = research_by_area()
@@ -25,6 +26,17 @@ def addResearchByArea(request):
 
        messages.success(request, 'New Data added!')
        return HttpResponseRedirect(reverse('research_by_area'))
+
+#delete research data
+@login_required
+def DeleteResearchByArea(request,id):
+    if request.method == "POST":
+        research_by_area.objects.filter(id=id).delete()
+        messages.success(request, 'Research Data Deleted!')
+        return HttpResponseRedirect(reverse('research_by_area'))
+    else:
+        return HttpResponseRedirect(reverse('home'))
+
 @login_required
 def researchByDirection(request):
     pass

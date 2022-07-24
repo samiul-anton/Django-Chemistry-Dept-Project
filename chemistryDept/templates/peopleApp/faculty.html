@@ -45,7 +45,7 @@
 				                <td>
 													<button class="btn btn-sm btn-info">View</button>
 				                	<button class="btn btn-sm btn-primary">Edit</button>
-													<button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+													<button  data-id="{{ value.id }}" data-page="people/faculty" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
 										{% endfor %}
@@ -68,6 +68,9 @@
 		    $('#example').DataTable();
 		});
 </script>
-<script type="text/javascript" src="{% static 'css/app.css' %}">
+
+
+<script src="{% static 'js/deleteData.js' %}">
+
 </script>
 {% endblock %}
