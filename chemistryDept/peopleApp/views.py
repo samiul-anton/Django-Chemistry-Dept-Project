@@ -21,7 +21,8 @@ def addFaculty(request):
        new_faculty.name = request.POST.get('faculty_name')
        new_faculty.email = request.POST.get('faculty_email')
        new_faculty.designation = request.POST.get('faculty_designation')
-       new_faculty.about = request.POST.get('facutly_about')
+       new_faculty.about = request.POST.get('faculty_about')
+       new_faculty.url = request.POST.get('faculty_url')
        new_faculty.experience = request.POST.get('faculty_experience')
        new_faculty.faculty_image = request.FILES["faculty_image"]
        new_faculty.save()
@@ -38,6 +39,11 @@ def deleteFaculty(request,id):
         return HttpResponseRedirect(reverse('faculty'))
     else:
         return HttpResponseRedirect(reverse('home'))
+#view single faculty data
+@login_required
+def singleFaculty(request,id):
+    faculty = all_faculty.objects.get(id=id)
+    return render(request, 'peopleApp/singleFaculty.html',context={'faculty':faculty})
 
 
 #admin staff view

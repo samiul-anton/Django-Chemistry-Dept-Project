@@ -1,0 +1,51 @@
+{% extends "layouts/admin.html" %}
+{% load static %}
+{% block links %}
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<main class="content">
+	<div class="container-fluid p-0">
+		  <div class="d-flex justify-content-between pb-2">
+		  	<h1 class="h3 mb-3"><strong>Faculty:</strong> {{ faculty.name }}</h1>
+        <a href="{% url 'faculty' %}"> <button  class="btn btn-sm btn-info" >View All Faculties</button></a>
+		  </div>
+      <div class="row">
+            <div class="col-sm-4" >
+              <div class="card" style="height: 600px !important">
+                <img src="/media/{{ BASIC_DIR }}/{{faculty.faculty_image}}" class="card-img-top p-4" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{ faculty.name }} - {{faculty.designation}}</h5>
+                  <p class="card-text">Email: {{ faculty.email }}</p>
+                  <a href="{{ faculty.url }}" class="btn btn-primary" target="_blank">Profile Link</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card" style="height: 600px !important">
+                <div class="card-body">
+                  <h5 class="card-title">About</h5>
+                  <p class="card-text">{{ faculty.about }}</p>
+                  <h5 class="card-title">Experience</h5>
+                  <p class="card-text">{{ faculty.experience|safe }}</p>
+                </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</main>
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+{% endblock %}
