@@ -39,31 +39,31 @@
       <div class="navbar-inner">
         <div class="container">
           <!-- logo -->
-          <a class="brand logo" href="{% url 'index' %}"><img src="{% static '/img/logo.png' %}" alt=""></a>
+          <a class="brand logo" href="{% url "index" %}"><img src="{% static '/img/logo.png' %}" alt=""></a>
           <!-- end logo -->
           <!-- top menu -->
           <div class="navigation">
             <nav>
               <ul class="nav topnav">
                 <li class="dropdown active">
-                  <a href="{% url 'index' %}">Home</a>
+                  <a href="{% url "index" %}">Home</a>
                 </li>
                 <li class="dropdown">
                   <a href="#">Academic Programs</a>
                   <ul class="dropdown-menu">
-                    <li><a href="{% url 'bschemistry'%}">BS Chemistry</a></li>
-                    <li><a href="{% url 'bschemical'%}">BS Chemical Engineering</a></li>
-                    <li><a href="{% url 'mschemistry'%}">MS Chemistry</a></li>
-                    <li><a href="{% url 'msbiomedical'%}">MS Biomedical Engineering</a></li>
-                    <li><a href="{% url 'certificateprograms'%}">Certificate Programs</a></li>
+                    <li><a href="{% url "bschemistry" %}">BS Chemistry</a></li>
+                    <li><a href="{% url "bschemical" %}">BS Chemical Engineering</a></li>
+                    <li><a href="{% url "mschemistry" %}">MS Chemistry</a></li>
+                    <li><a href="{% url "msbiomedical" %}">MS Biomedical Engineering</a></li>
+                    <li><a href="{% url "certificateprograms" %}">Certificate Programs</a></li>
                   </ul>
                 </li>
                 <li class="dropdown">
                   <a href="#">People</a>
                   <ul class="dropdown-menu">
-                    <li><a href="{% url 'view_faculty' %}">Faculty</a></li>
-                    <li><a href="{% url 'view_staff' %}">Staff</a></li>
-                    <li><a href="#">Student</a></li>
+                    <li><a href="{% url "view_faculty" %}">Faculty</a></li>
+                    <li><a href="{% url "view_staff" %}">Staff</a></li>
+                    <li><a href="{% url "view_student" %}">Student</a></li>
                   </ul>
                 </li>
                 <li class="dropdown">
@@ -78,8 +78,8 @@
                     </li>
                     <li class="dropdown"><a href="#">By Direction</a>
                       <ul class="dropdown-menu sub-menu">
-                        <li><a href="#">Sustainability Energy</a></li>
-                        <li><a href="#">Medical</a></li>
+                        <li><a href="{% url "research_s_energy"%}">Sustainability Energy</a></li>
+                        <li><a href="{% url "research_medical"%}">Medical</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -87,20 +87,20 @@
                 <li class="dropdown">
                   <a href="#">Teaching Events</a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Course Announcements</a></li>
-                    <li><a href="#">Seminars</a></li>
+                    <li><a href="{% url "course_announcements"%}">Course Announcements</a></li>
+                    <li><a href="{% url "seminars" %}">Seminars</a></li>
                   </ul>
                 </li>
                 <li class="dropdown">
                   <a href="#">Resources</a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Lab Facility</a></li>
-                    <li><a href="#">Computing</a></li>
-                    <li><a href="#">Student Services</a></li>
+                    <li><a href="{% url "lab_facilites" %}">Lab Facility</a></li>
+                    <li><a href="{% url "computing" %}">Computing</a></li>
+                    <li><a href="{% url "student_services"%}">Student Services</a></li>
                   </ul>
                 </li>
                 <li>
-                  <a href="#">News</a>
+                  <a href="{% url "news"%}">News</a>
                 </li>
                 <li>
                   <a href="{% url 'contact'%}">About & Contact</a>

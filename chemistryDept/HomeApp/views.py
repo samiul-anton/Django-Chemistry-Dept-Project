@@ -26,6 +26,12 @@ def staffs(request):
     data = staff.objects.order_by('name')
     return render(request,'HomeApp/staff.html',context={'staff':data})
 
+#Student page view
+
+def students(request):
+    data = staff.objects.order_by('name')
+    return render(request,'HomeApp/student.html',context={'staff':data})
+
 #bschemistry page view
 
 def bschemistry(request):
@@ -62,3 +68,28 @@ def researchChemical(request):
 def researchBiomedical(request):
     data = research_by_area.objects.filter(research_fields="Biomedical Engineering")
     return render(request, 'HomeApp/research-area.html' , context={'title':"Biomedical Engineering Research",'research': data})
+
+
+#Research by direction view page
+def researchSustainabilityEnergy(request):
+    return render(request, 'HomeApp/research-direction.html')
+def researchMedical(request):
+    return render(request, 'HomeApp/research-direction.html')
+
+#Events view Page
+def courseAnnouncements(request):
+    return render(request, 'HomeApp/courseAnnouncements.html')
+def seminars(request):
+    return render(request, 'HomeApp/seminars.html')
+
+#Resources view page
+def labFacilites(request):
+    return render(request, 'HomeApp/labFacilites.html')
+def computing(request):
+    return render(request, 'HomeApp/computing.html')
+def studentServices(request):
+    return render(request, 'HomeApp/seminars.html')
+
+#News view page
+def news(request):
+    return render(request, 'HomeApp/news.html')
