@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'peopleApp',
     'chemistryAdmin',
     'researchApp',
+    'eventsApp',
 
     'crispy_forms',
     'django.contrib.admin',

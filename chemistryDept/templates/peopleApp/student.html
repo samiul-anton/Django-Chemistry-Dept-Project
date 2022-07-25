@@ -8,34 +8,43 @@
 	<div class="container-fluid p-0">
 		  <div class="d-flex justify-content-between pb-5">
 		  	<h1 class="h3 mb-3"><strong>People:</strong> Student</h1>
-				<button class="btn btn-sm btn-info">Add Student</button>
+				<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#StudentModal">Add Student</button>
 		  </div>
-
+			{% if messages %}
+							{% for message in messages %}
+							<div {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible  show "{% endif %} role="alert">
+									{{ message }}
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+							</div>
+							{% endfor %}
+			{% endif %}
       <div>
 						<table id="example" class="display" style="width:100%">
 				        <thead>
 				            <tr>
 				                <th>#</th>
 				                <th>Name</th>
-				                <th>Designation</th>
+				                <th>Student Type</th>
 				                <th>Email</th>
 				                <th>Action</th>
 				            </tr>
 				        </thead>
 				        <tbody>
-									{% for value in faculty%}
+									{% for value in student %}
 				            <tr>
 				                <td>{{ forloop.counter }}</td>
 				                <td>
-													<img src="/media/{{ BASIC_DIR }}/{{value.faculty_image}}" alt="" style="height:30px; width:30px; border-radius: 8px; "/>
+													<img src="/media/{{ BASIC_DIR }}/{{value.student_image}}" alt="" style="height:30px; width:30px; border-radius: 8px; "/>
 													{{ value.name}}
 												</td>
-				                <td>{{ value.designation}}</td>
+				                <td>{{ value.student_type}}</td>
 				                <td>{{ value.email }}</td>
 				                <td>
 													<a class="btn btn-sm btn-info" href="#">View</a>
 				                	<button class="btn btn-sm btn-primary">Edit</button>
-													<button class="btn btn-sm btn-danger">Delete</button>
+													<button data-id="{{ value.id }}" data-page="people/student" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
 										{% endfor %}
@@ -45,7 +54,8 @@
       </div>
   </div>
 </main>
-
+{% include '../modals/addStudent.html' %}
+{% include '../modals/deleteModal.html' %}
 {% endblock %}
 
 {% block scripts %}
@@ -55,5 +65,8 @@
 		$(document).ready(function () {
 		    $('#example').DataTable();
 		});
+</script>
+<script src="{% static 'js/deleteData.js' %}">
+
 </script>
 {% endblock %}

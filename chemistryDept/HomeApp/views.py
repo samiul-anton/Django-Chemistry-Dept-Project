@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from researchApp.models import research_by_area
-from peopleApp.models import faculty,staff
+from peopleApp.models import faculty,staff,student
 #Home page view
 
 def index(request):
@@ -29,8 +29,9 @@ def staffs(request):
 #Student page view
 
 def students(request):
-    data = staff.objects.order_by('name')
-    return render(request,'HomeApp/student.html',context={'staff':data})
+    undergrad_student = student.objects.filter(student_type="Undergrad").order_by('name')
+    grad_student = student.objects.filter(student_type="Graduate").order_by('name')
+    return render(request,'HomeApp/student.html',context={'undergrad_student':undergrad_student,'grad_student':grad_student})
 
 #bschemistry page view
 

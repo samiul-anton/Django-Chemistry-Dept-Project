@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import faculty as all_faculty
 from .models import staff as all_staff
+from .models import student as all_student
 from django.contrib import messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect,HttpResponse
@@ -29,6 +30,8 @@ def addFaculty(request):
 
        messages.success(request, 'New faculty added!')
        return HttpResponseRedirect(reverse('faculty'))
+    else:
+       return HttpResponseRedirect(reverse('index'))
 
 #delete faculty data
 @login_required
@@ -64,6 +67,8 @@ def addStaff(request):
 
        messages.success(request, 'New Staff added!')
        return HttpResponseRedirect(reverse('staff'))
+    else:
+       return HttpResponseRedirect(reverse('index'))
 
 #delete staff data
 @login_required
@@ -78,4 +83,30 @@ def deleteStaff(request,id):
 @login_required
 def student(request):
     if request.method == "GET":
-        return render(request, 'peopleApp/student.html',context={})
+        data = all_student.objects.all().order_by('name')
+        return render(request, 'peopleApp/student.html',context={'student':data})
+#add student data
+@login_required
+def addStudents(request):
+    if request.method == "POST":
+       new_student = all_student()
+       new_student.name = request.POST.get('student_name')
+       new_student.email = request.POST.get('student_email')
+       new_student.student_type = request.POST.get('student_type')
+       new_student.student_image = request.FILES["student_image"]
+       new_student.save()
+
+       messages.success(request, 'New Student added!')
+       return HttpResponseRedirect(reverse('student'))
+    else:
+       return HttpResponseRedirect(reverse('index'))
+
+#delete student data
+@login_required
+def deleteStudent(request,id):
+    if request.method == "POST":
+        all_student.objects.filter(id=id).delete()
+        messages.success(request, 'Student Data Deleted!')
+        return HttpResponseRedirect(reverse('student'))
+    else:
+        return HttpResponseRedirect(reverse('home'))

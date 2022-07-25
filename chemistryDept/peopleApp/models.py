@@ -19,3 +19,15 @@ class staff(models.Model):
 
     def __str__(self):
         return self.name
+class student(models.Model):
+    student_type = (
+         ("Graduate","Graduate"),
+         ("Undergrad","Undergrad"),
+        )
+    name = models.TextField(max_length=100)
+    student_image = models.ImageField(null=True, blank=True, upload_to="Images/")
+    email = models.EmailField(max_length=50)
+    student_type = models.TextField(choices=student_type)
+
+    def __str__(self):
+        return self.name
