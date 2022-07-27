@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'chemistryAdmin',
     'researchApp',
     'eventsApp',
+    'resourceApp',
 
     'crispy_forms',
     'django.contrib.admin',
