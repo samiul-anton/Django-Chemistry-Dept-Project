@@ -91,7 +91,7 @@ def labFacilites(request):
 def computing(request):
     return render(request, 'HomeApp/computing.html')
 def studentServices(request):
-    return render(request, 'HomeApp/seminars.html')
+    return render(request, 'HomeApp/studentServices.html')
 
 #News view page
 def news(request):

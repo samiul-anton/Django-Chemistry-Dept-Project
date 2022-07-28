@@ -1,0 +1,93 @@
+{% extends "layouts/guest.html" %}
+{% load static %}
+{% block content %}
+  <section id="subintro">
+    <div class="jumbotron subhead" id="overview">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="centered">
+              <h3>Seminars</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="breadcrumb">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <ul class="breadcrumb notop">
+            <li><a href="#">Home</a><span class="divider">/</span></li>
+            <li class="active">Seminars</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="maincontent">
+    <div class="container">
+      <div class="row">
+        <!-- Article start -->
+        <div class="span8">
+          <article class="blog-post">
+            <div class="post-heading">
+              <h3><a href="#">Seminar Name</a></h3>
+              <p><b>Date: </b>Mon 3, 2002</p>
+            </div>
+          <!-- start flexslider -->
+          <div class="flexslider">
+            <ul class="slides">
+              <li>
+                <img src="{% static 'img/slides/flexslider/img1.jpg' %}" alt="" />
+              </li>
+              <li>
+                <img src="{% static 'img/slides/flexslider/img2.jpg' %}" alt="" />
+              </li>
+              <li>
+                <img src="{% static 'img/slides/flexslider/img3.jpg' %}" alt="" />
+              </li>
+            </ul>
+          </div><hr>
+          <!-- end flexslider -->
+            <blockquote>
+              <p>
+                <span><b>Seminar Details:</b></span> Our Student Success Advisors are eager to work one-on-one with your students to help set personal and academic goals that will contribute to their success, Success Advisors motivate students to reach their full potential. By working individually with one of our advisors, students can develop skills and strategies to overcome academic challenges if and when they arise.</p>
+            </blockquote>
+            <div class="post-heading">
+              <h3><b>Details</b></h3>
+            </div>
+            <ol>
+              <li>Learn About career opportunities</li>
+              <li>Chemisrty World</li>
+              <li>Study options</li>
+              <li>Course offerings</li>
+            </ol>
+          </article>
+            <!-- article END -->
+        </div>
+        <!-- ASIDE BAR -->
+        <div class="span4">
+          <aside>
+            <div class="project-widget">
+              <h4><i class="icon-48 contact"></i> CONTACT US</h4>
+              <ul class="project-detail">
+                <li><label>Email :</label> chemistryDepartment@unh.newhaven.edu</li>
+                <li><label>Phone :</label> +1(475) 287 3252</li>
+              </ul>
+              <h4> HOURS</h4>
+              <ul class="project-detail">
+                <li> Mon. - Fri., 8:30 a.m. - 4:30 p.m.</li>
+                <li><p style="color: red;">To ensure staff availability, we strongly recommend making an appointment by email or phone.</p></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+        <!-- END ASIDE BAR -->
+      </div>
+
+      </div>
+    </div>
+  </section>
+ {% endblock content %}
