@@ -17,7 +17,7 @@ def deleteLabFacility(request,id):
     if request.method == "POST":
         all_labfacilites.objects.filter(id=id).delete()
         messages.success(request, 'Data Deleted!')
-        return HttpResponseRedirect(reverse('lab_facilites'))
+        return HttpResponseRedirect(reverse('admin_lab_facilites'))
     else:
         return HttpResponseRedirect(reverse('home'))
 @login_required
@@ -53,3 +53,11 @@ def addComputing(request):
        return HttpResponseRedirect(reverse('admin_computing'))
     else:
        return HttpResponseRedirect(reverse('index'))
+@login_required
+def deleteComputing(request,id):
+    if request.method == "POST":
+        all_computing.objects.filter(id=id).delete()
+        messages.success(request, 'Data Deleted!')
+        return HttpResponseRedirect(reverse('admin_computing'))
+    else:
+        return HttpResponseRedirect(reverse('home'))
