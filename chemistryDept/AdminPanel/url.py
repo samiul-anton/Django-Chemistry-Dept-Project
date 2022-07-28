@@ -7,4 +7,5 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('people/', include('peopleApp.url')),
     path('research/', include('researchApp.url')),
+    path('resource/', include('resourceApp.url')),
 ]

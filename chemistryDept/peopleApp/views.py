@@ -110,3 +110,4 @@ def deleteStudent(request,id):
         return HttpResponseRedirect(reverse('student'))
     else:
         return HttpResponseRedirect(reverse('home'))
+    

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from researchApp.models import research_by_area
 from peopleApp.models import faculty,staff,student
+from resourceApp.models import labFacility
 #Home page view
 
 def index(request):
@@ -85,11 +86,12 @@ def seminars(request):
 
 #Resources view page
 def labFacilites(request):
-    return render(request, 'HomeApp/labFacilites.html')
+    data = labFacility.objects.all()
+    return render(request, 'HomeApp/labFacilites.html',context={'data':data})
 def computing(request):
     return render(request, 'HomeApp/computing.html')
 def studentServices(request):
-    return render(request, 'HomeApp/seminars.html')
+    return render(request, 'HomeApp/studentServices.html')
 
 #News view page
 def news(request):

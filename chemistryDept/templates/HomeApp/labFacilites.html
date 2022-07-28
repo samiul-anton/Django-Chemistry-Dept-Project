@@ -1,7 +1,7 @@
 {% extends "layouts/guest.html" %}
 {% load static %}
 {% block content %}
-================================================== -->
+<! ================================================== -->
   <section id="subintro">
     <div class="jumbotron subhead" id="overview">
       <div class="container">
@@ -23,7 +23,7 @@
       <div class="row">
         <div class="span12">
           <ul class="breadcrumb notop">
-            <li><a href="#">Home</a><span class="divider">/</span></li>
+            <li><a href="{% url 'index' %}">Home</a><span class="divider">/</span></li>
             <li class="active">LAB Facilities</li>
           </ul>
         </div>
@@ -34,96 +34,23 @@
     <div class="container">
       <div class="row">
         <ul class="portfolio-area da-thumbs">
-          <li class="portfolio-item2" data-id="id-0" data-type="web">
-            <div class="span4">
-              <div class="thumbnail">
-                <div class="image-wrapp">
-                  <img src="{% static '/img/dummies/dem1.jpg' %}" alt="Portfolio name" title="" />
-                  <article class="da-animate da-slideFromRight" style="display: block;">
-                    <h4>UNH LAB</h4>
-                    <em style="color: white;">
-                      Student can practice their HW anytime in the LAB.
-                    </em>
-                  </article>
+          {% for value in data %}
+            <li class="portfolio-item2" data-id="id-0" data-type="web">
+              <div class="span4">
+                <div class="thumbnail">
+                  <div class="image-wrapp">
+                    <img src="/media/{{ BASIC_DIR }}/{{value.lab_image}}" alt="Portfolio name" title="" />
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                      <h4>{{value.image_heading}}</h4>
+                      <em style="color: white;">
+                        {{value.image_caption}}
+                      </em>
+                    </article>
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-          <li class="portfolio-item2" data-id="id-0" data-type="web">
-            <div class="span4">
-              <div class="thumbnail">
-                <div class="image-wrapp">
-                  <img src="{% static '/img/dummies/dem2.jpg' %}" alt="Portfolio name" title="" />
-                  <article class="da-animate da-slideFromRight" style="display: block;">
-                    <h4>UNH LAB</h4>
-                    <em style="color: white;">
-                      Student can practice their HW anytime in the LAB.
-                    </em>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="portfolio-item2" data-id="id-0" data-type="brand">
-            <div class="span4">
-              <div class="thumbnail">
-                <div class="image-wrapp">
-                  <img src="{% static '/img/dummies/dem3.jpg' %}" alt="Portfolio name" title="" />
-                  <article class="da-animate da-slideFromRight" style="display: block;">
-                    <h4>UNH LAB</h4>
-                    <em style="color: white;">
-                      Student can practice their HW anytime in the LAB.
-                    </em>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="portfolio-item2" data-id="id-0" data-type="photo">
-            <div class="span4">
-              <div class="thumbnail">
-                <div class="image-wrapp">
-                  <img src="{% static '/img/dummies/dem4.jpg' %}" alt="Portfolio name" title="" />
-                  <article class="da-animate da-slideFromRight" style="display: block;">
-                    <h4>UNH LAB</h4>
-                    <em style="color: white;">
-                      Student can practice their HW anytime in the LAB.
-                    </em>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="portfolio-item2" data-id="id-0" data-type="graphic">
-            <div class="span4">
-              <div class="thumbnail">
-                <div class="image-wrapp">
-                  <img src="{% static '/img/dummies/dem5.jpg' %}" alt="Portfolio name" title="" />
-                  <article class="da-animate da-slideFromRight" style="display: block;">
-                    <h4>UNH LAB</h4>
-                    <em style="color: white;">
-                      Student can practice their HW anytime in the LAB.
-                    </em>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="portfolio-item2" data-id="id-0" data-type="graphic">
-            <div class="span4">
-              <div class="thumbnail">
-                <div class="image-wrapp">
-                  <img src="{% static '/img/dummies/dem6.jpg' %}" alt="Portfolio name" title="" />
-                  <article class="da-animate da-slideFromRight" style="display: block;">
-                    <h4>UNH LAB</h4>
-                    <em style="color: white;">
-                      Student can practice their HW anytime in the LAB.
-                    </em>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </li>
+            </li>
+            {% endfor %}
         </ul>
       </div>
     </div>
