@@ -116,59 +116,52 @@
   {% block content %}
 
   {% endblock %}
-  <!-- Footer
- ================================================== -->
+  <!-- =================== Footer ============================ -->
   <footer class="footer">
     <div class="container">
       <div class="row">
         <div class="span4">
           <div class="widget">
             <ul class="regular">
-              <h6>DEPARTMENT</h6>
-              <li><a href="#">Safety</a></li>
-              <li><a href="#">Finance & Research</a></li><br>
-              <h6>LIBRARY</h6>
-              <li><a href="#">Safety</a></li>
-              <li><a href="#">Finance & Research</a></li><br>
-              <h6>ACADEMICS</h6>
-              <li><a href="#">Safety</a></li>
-              <li><a href="#">Finance & Research</a></li><br>
+              <li><a href="https://www.newhaven.edu/covid19/index.php">COVID-19 Info</a></li>
+              <li><a href="https://www.newhaven.edu/news/">News</a></li>
+              <li><a href="https://www.newhaven.edu/about/campus-locations/index.php">Campus Locations and Maps</a></li>
+              <li><a href="https://www.newhaven.edu/academics/library/">Library</a></li>
+              <li><a href="https://www.newhaven.edu/about/employment/">Employment</a></li>
             </ul>
           </div>
         </div>
         <div class="span4">
           <div class="widget">
             <ul class="regular">
-              <h6>OPPORTUNITIES</h6>
-              <li><a href="#">Jobs @ CCB</a></li>
-              <li><a href="#">Corporate & Academic Recruiting</a></li>
-              <li><a href="#">Apply</a></li><br>
-              <h6>ABOUT CCB</h6>
-              <li><a href="#">News & Events</a></li>
-              <li><a href="#">Calender</a></li>
-              <li><a href="#">Directions</a></li>
-              <li><a href="#">Digital Accessibility Policy</a></li>
-              <li><a href="#">CCB Community Committe</a></li><br>
+              <li><a href="https://www.newhaven.edu/directory/">Faculty & Staff Directory</a></li>
+              <li><a href="https://www.newhaven.edu/about/departments/information-technology/support.php">Information Technology Support</a></li>
+              <li><a href="https://mycharger.newhaven.edu/">MyCharger</a></li>
+              <li><a href="https://blackboard.newhaven.edu/">Blackboard</a></li>
+              <li><a href="https://portal.office.com/">Alumni Email</a></li>
             </ul>
           </div>
         </div>
-        <div class="span4">
+        <div class="span2">
           <div class="widget">
             <!-- logo -->
             <a class="brand logo" href="#">
-                            <img src="{% static 'img/University_of_New_Haven_logo.png' %}" alt="" style="width: 130px; height: 110px;">
-                        </a>
+              <img src="{% static 'img/University_of_New_Haven_logo.png' %}" alt="" style="width: 130px; height: 110px;">
+            </a>
             <!-- end logo -->
+          </div>
+        </div>
+        <div class="span2">
+          <div class="widget">
             <address>
-                            <strong>University of New Haven</strong><br>
-                             300 Boston Post Rd.<br>
-                             West Haven, CT 06516<br>
-                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                        </address>
+              <strong>University of New Haven</strong><br>
+              300 Boston Post Rd.<br>
+              West Haven, CT 06516<br>
+              <abbr title="Phone">P:</abbr> (123) 456-7890
+            </address>
           </div>
           <div>
-            <button class="btn btn-mini" style="vertical-align:middle"><span><a href="{% url 'login_page' %}" target="_blank">Admin Login</a></span>
-            </button>
+            <a class="btn btn-success" href="{% url 'login_page' %}" target="_blank">Admin Login</a>
           </div>
         </div>
       </div>
@@ -208,7 +201,6 @@
   <!-- Template Custom JavaScript File -->
   <script src="{% static '/js/custom.js' %}"></script>
   {% block script %}
-
   {% endblock %}
 </body>
 </html>
