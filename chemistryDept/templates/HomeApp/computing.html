@@ -8,9 +8,9 @@
         <div class="row">
           <div class="span12">
             <div class="centered">
-              <h3>404</h3>
+              <h3>Computing</h3>
               <p>
-                Lorem ipsum dolor sit amet, modus salutatus honestatis ex mea. Sit cu probo putant. Nam ne impedit atomorum.
+                Chemistry Department
               </p>
             </div>
           </div>
@@ -23,8 +23,8 @@
       <div class="row">
         <div class="span12">
           <ul class="breadcrumb notop">
-            <li><a href="#">Home</a><span class="divider">/</span></li>
-            <li class="active">error</li>
+            <li><a href="{% url "index"%}">Home</a><span class="divider">/</span></li>
+            <li class="active">Computing</li>
           </ul>
         </div>
       </div>
@@ -33,20 +33,51 @@
   <section id="maincontent">
     <div class="container">
       <div class="row">
+        <div>
+          <h3 style="padding-bottom:50px; padding-left:40px;">Image Gallary</h3>
+        </div>
+        <ul class="portfolio-area da-thumbs">
+          {% for value in image_data %}
+            <li class="portfolio-item2" data-id="id-0" data-type="web">
+              <div class="span4">
+                <div class="thumbnail">
+                  <div class="image-wrapp">
+                    <img src="/media/{{ BASIC_DIR }}/{{value.computing_image}}" alt="Portfolio name" title="" />
+                    <article class="da-animate da-slideFromRight" style="display: block;">
+                      <h4>{{value.computing_heading}}</h4>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="maincontent">
+    <div class="container">
+      <div class="row">
+        <div>
+          <h3 style="padding-bottom:50px; padding-left:40px;">Video Gallary</h3>
+
+        </div>
+        {% for value in video_data %}
         <div class="span4">
           <div class="well">
             <div class="centered">
               <iframe width="332" height="289"
-              src="https://www.youtube.com/embed/tgbNymZ7vqY">
+              src="{{ value.computing_url}}">
               </iframe>
               <div class="dotted_line">
               </div>
               <p>
-                Mel virtute efficiantur ne, zril omnes sed no, sit eu duis semper.
+                {{ value.computing_heading }}
               </p>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </section>

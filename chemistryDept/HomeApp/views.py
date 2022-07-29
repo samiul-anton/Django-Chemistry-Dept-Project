@@ -2,6 +2,7 @@ from django.shortcuts import render
 from researchApp.models import research_by_area
 from peopleApp.models import faculty,staff,student
 from resourceApp.models import labFacility
+from resourceApp.models import computing as all_computing
 #Home page view
 
 def index(request):
@@ -89,7 +90,9 @@ def labFacilites(request):
     data = labFacility.objects.all()
     return render(request, 'HomeApp/labFacilites.html',context={'data':data})
 def computing(request):
-    return render(request, 'HomeApp/computing.html')
+    image_data = all_computing.objects.filter(computing_type="Image")
+    video_data = all_computing.objects.filter(computing_type="Video")
+    return render(request, 'HomeApp/computing.html',context={"image_data":image_data,"video_data":video_data})
 def studentServices(request):
     return render(request, 'HomeApp/studentServices.html')
 
