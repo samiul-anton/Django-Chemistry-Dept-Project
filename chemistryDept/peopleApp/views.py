@@ -70,6 +70,8 @@ def addStaff(request):
     else:
        return HttpResponseRedirect(reverse('index'))
 
+
+
 #delete staff data
 @login_required
 def deleteStaff(request,id):
@@ -110,4 +112,3 @@ def deleteStudent(request,id):
         return HttpResponseRedirect(reverse('student'))
     else:
         return HttpResponseRedirect(reverse('home'))
-    
