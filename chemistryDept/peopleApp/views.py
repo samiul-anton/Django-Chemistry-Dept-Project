@@ -96,6 +96,26 @@ def addStaff(request):
     else:
        return HttpResponseRedirect(reverse('index'))
 
+#edit staff data
+def editStaff(request,id):
+    if request.method == "POST":
+       new_staff = all_staff.objects.get(id=id)
+       new_staff.name = request.POST.get('staff_name')
+       new_staff.email = request.POST.get('staff_email')
+       new_staff.designation = request.POST.get('staff_designation')
+       if bool(request.FILES.get('staff_image', False)) == True:
+         new_staff.staff_image = request.FILES["staff_image"]
+       new_staff.save()
+
+       messages.success(request, 'Staff Data Updated!')
+       return HttpResponseRedirect(reverse('staff'))
+    else:
+       return HttpResponseRedirect(reverse('index'))
+def staffGetdata(request,id):
+    staffData = all_staff.objects.get(id=id)
+    data = json.dumps(staffData.staff_info())
+    return JsonResponse({'data': data})
+
 
 
 #delete staff data

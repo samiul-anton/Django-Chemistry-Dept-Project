@@ -22,6 +22,9 @@ class staff(models.Model):
 
     def __str__(self):
         return self.name
+    def staff_info(self):
+        staff_info = [self.name , str(self.staff_image), self.email, self.designation]
+        return staff_info
 class student(models.Model):
     student_type = (
          ("Graduate","Graduate"),
