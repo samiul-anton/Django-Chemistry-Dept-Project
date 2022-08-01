@@ -5,13 +5,13 @@ from .models import staff as all_staff
 from .models import student as all_student
 from django.contrib import messages
 from django.urls import reverse
-from django.http import HttpResponseRedirect,HttpResponse
+from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
+import json
 
 
 #admin faculty view
 @login_required
 def faculty(request):
-    if request.method == "GET":
         data = all_faculty.objects.all().order_by('name')
         return render(request, 'peopleApp/faculty.html',context={'faculty':data})
 
@@ -48,6 +48,32 @@ def singleFaculty(request,id):
     faculty = all_faculty.objects.get(id=id)
     return render(request, 'peopleApp/singleFaculty.html',context={'faculty':faculty})
 
+#Getting a single faculty data
+@login_required
+def facultyGetdata(request,id):
+    facultyData = all_faculty.objects.get(id=id)
+    data = json.dumps(facultyData.faculty_info())
+    return JsonResponse({'data': data})
+
+#edit a single faculty
+@login_required
+def editFaculty(request,id):
+    if request.method == "POST":
+       faculty = all_faculty.objects.get(id=id)
+       faculty.name = request.POST.get('faculty_name')
+       faculty.email = request.POST.get('faculty_email')
+       faculty.designation = request.POST.get('faculty_designation')
+       faculty.about = request.POST.get('faculty_about')
+       faculty.url = request.POST.get('faculty_url')
+       faculty.experience = request.POST.get('faculty_experience')
+       #filepath = request.FILES["faculty_image"].name
+       if bool(request.FILES.get('faculty_image', False)) == True:
+         faculty.faculty_image = request.FILES["faculty_image"]
+       faculty.save()
+       messages.success(request, 'Faculty data Saved!')
+       return HttpResponseRedirect(reverse('faculty'))
+    else:
+       return HttpResponseRedirect(reverse('index'))
 
 #admin staff view
 @login_required

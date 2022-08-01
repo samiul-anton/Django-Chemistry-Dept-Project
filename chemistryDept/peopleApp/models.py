@@ -11,6 +11,9 @@ class faculty(models.Model) :
 
     def __str__(self):
         return self.name
+    def faculty_info(self):
+        faculty_info = [self.name , str(self.faculty_image), self.email, self.designation , self.experience , self.about , self.url]
+        return faculty_info
 class staff(models.Model):
     name = models.TextField(max_length=100)
     staff_image = models.ImageField(null=True, blank=True, upload_to="Images/")
