@@ -21,7 +21,9 @@ urlpatterns =[
   path('staff/<int:id>/delete', views.deleteStaff, name='delete_staff'),
   #student urls
   path('all-students/', views.student, name='student'),
+  path('student/getData/<int:id>', views.studentGetdata, name='get_data_student'),
   path('add-students/', views.addStudents, name='add_student'),
   path('student/<int:id>/delete', views.deleteStudent, name='delete_student'),
+  path('edit-student/<int:id>', views.editStudent, name='edit_student'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -149,6 +149,13 @@ def addStudents(request):
     else:
        return HttpResponseRedirect(reverse('index'))
 
+#getting student data for edit modal
+@login_required
+def studentGetdata(request,id):
+    studentData = all_student.objects.get(id=id)
+    data = json.dumps(studentData.student_info())
+    return JsonResponse({'data': data})
+
 #delete student data
 @login_required
 def deleteStudent(request,id):
@@ -158,3 +165,20 @@ def deleteStudent(request,id):
         return HttpResponseRedirect(reverse('student'))
     else:
         return HttpResponseRedirect(reverse('home'))
+
+#Edit the student data
+@login_required
+def editStudent(request,id):
+    if request.method == "POST":
+       student = all_student.objects.get(id=id)
+       student.name = request.POST.get('student_name')
+       student.email = request.POST.get('student_email')
+       student.student_type = request.POST.get('student_type')
+       if bool(request.FILES.get('student_image', False)) == True:
+         student.student_image = request.FILES["student_image"]
+       student.save()
+
+       messages.success(request, 'Student Data Updated!')
+       return HttpResponseRedirect(reverse('student'))
+    else:
+       return HttpResponseRedirect(reverse('index'))

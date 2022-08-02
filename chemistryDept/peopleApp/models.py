@@ -37,3 +37,6 @@ class student(models.Model):
 
     def __str__(self):
         return self.name
+    def student_info(self):
+        student_info = [self.name , str(self.student_image), self.email, self.student_type]
+        return student_info
