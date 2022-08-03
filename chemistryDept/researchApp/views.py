@@ -5,13 +5,13 @@ from django.contrib import messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect,HttpResponse
 
-# Admin Reseach By Area View
+# Admin Research By Area View
 @login_required
 def researchByArea(request):
     if request.method == "GET":
         data = research_by_area.objects.all().order_by('research_title')
         return render(request, 'researchApp/researchByarea.html',context={'data':data})
-
+#add new research by area
 def addResearchByArea(request):
     if request.method == "POST":
        new_research_by_area = research_by_area()
@@ -27,7 +27,7 @@ def addResearchByArea(request):
        messages.success(request, 'New Data added!')
        return HttpResponseRedirect(reverse('research_by_area'))
 
-#delete research data
+#delete research by area data
 @login_required
 def DeleteResearchByArea(request,id):
     if request.method == "POST":
@@ -36,6 +36,11 @@ def DeleteResearchByArea(request,id):
         return HttpResponseRedirect(reverse('research_by_area'))
     else:
         return HttpResponseRedirect(reverse('index'))
+
+@login_required
+def singleResearchByArea(request,id):
+    data = research_by_area.objects.get(id=id);
+    return render(request, 'researchApp/SingleResearchByarea.html',context={'data':data})
 
 @login_required
 def researchByDirection(request):
@@ -70,3 +75,7 @@ def DeleteResearchByDirection(request,id):
         return HttpResponseRedirect(reverse('research_by_direction'))
     else:
         return HttpResponseRedirect(reverse('index'))
+@login_required
+def singleResearchByDirection(request,id):
+    data = research_by_direction.objects.get(id=id);
+    return render(request, 'researchApp/SingleResearchBydirection.html',context={'data':data})

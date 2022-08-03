@@ -41,7 +41,7 @@
 												</td>
 				                <td>{{ value.research_fields}}</td>
 				                <td>
-													<button class="btn btn-sm btn-info">View</button>
+													<a href="{{ value.id }}/view">	<button  class="btn btn-sm btn-info">View</button> </a>
 				                	<button class="btn btn-sm btn-primary">Edit</button>
 													<button  data-id="{{ value.id }}" data-page="research/by-direction" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>

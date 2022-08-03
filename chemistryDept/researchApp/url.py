@@ -6,11 +6,15 @@ from django.conf.urls.static import static
 
 
 urlpatterns =[
+  #Research By area URL
   path('by-area/', views.researchByArea, name='research_by_area'),
   path('by-area/add', views.addResearchByArea, name='add_research_by_area'),
   path('by-area/<int:id>/delete', views.DeleteResearchByArea, name='delete_research_by_area'),
+  path('by-area/<int:id>/view', views.singleResearchByArea, name='single_research_by_area'),
+  #Research By direction URL
   path('by-direction/', views.researchByDirection, name='research_by_direction'),
   path('by-direction/add', views.addResearchByDirection, name='add_research_by_direction'),
   path('by-direction/<int:id>/delete', views.DeleteResearchByDirection, name='delete_research_by_direction'),
+  path('by-direction/<int:id>/view', views.singleResearchByDirection, name='single_research_by_direction'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
