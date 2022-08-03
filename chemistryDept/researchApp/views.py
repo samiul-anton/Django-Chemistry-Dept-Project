@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import research_by_area
+from .models import research_by_area,research_by_direction
 from django.contrib import messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect,HttpResponse
@@ -35,8 +35,38 @@ def DeleteResearchByArea(request,id):
         messages.success(request, 'Research Data Deleted!')
         return HttpResponseRedirect(reverse('research_by_area'))
     else:
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse('index'))
 
 @login_required
 def researchByDirection(request):
-    pass
+    if request.method == "GET":
+        data = research_by_direction.objects.all().order_by('project_name')
+        return render(request, 'researchApp/researchBydirection.html',context={'data':data})
+
+@login_required
+def addResearchByDirection(request):
+    if request.method == "POST":
+        new_research_by_direction = research_by_direction()
+        new_research_by_direction.project_name = request.POST.get('project_name')
+        new_research_by_direction.research_fields = request.POST.get('research_fields')
+        new_research_by_direction.project_description = request.POST.get('project_description')
+        new_research_by_direction.project_date = request.POST.get('project_date')
+        new_research_by_direction.project_link = request.POST.get('project_link')
+        new_research_by_direction.project_category = request.POST.get('project_category')
+        new_research_by_direction.research_cover_1 = request.FILES["research_cover_1"]
+        if request.FILES["research_cover_2"]:
+            new_research_by_direction.research_cover_2 = request.FILES["research_cover_2"]
+        if request.FILES["research_cover_3"]:
+            new_research_by_direction.research_cover_3 = request.FILES["research_cover_3"]
+        new_research_by_direction.save()
+
+        messages.success(request, 'New Data added!')
+        return HttpResponseRedirect(reverse('research_by_direction'))
+@login_required
+def DeleteResearchByDirection(request,id):
+    if request.method == "POST":
+        research_by_direction.objects.filter(id=id).delete()
+        messages.success(request, 'Research Data Deleted!')
+        return HttpResponseRedirect(reverse('research_by_direction'))
+    else:
+        return HttpResponseRedirect(reverse('index'))

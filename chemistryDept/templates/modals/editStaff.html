@@ -1,0 +1,60 @@
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+<style>
+ .tox-notification{
+   display:none !important;
+ }
+</style>
+<script src="https://cdn.tiny.cloud/1/30h4n7mvg0u2p41o4jsx8y4fb4ev21mqq6j8xbs3nmbgf236/tinymce/6/tinymce.min.js"></script>
+<div class="modal fade" id="editStaffModal" tabindex="-1" aria-labelledby="editStaffModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Staff</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- form starts -->
+        <form id="edit_form" method="POST" action="{% url 'add_staff'%}" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Staff Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="staff_name" >
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputPassword1">Staff Email</label>
+                <input type="email" class="form-control" id="exampleInputPassword1" name="staff_email" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Staff Designation</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="staff_designation" >
+              </div>
+            </div>
+
+          </div>
+            <div class="form-group">
+              <div><img id="staff_image" src="" alt="" style="height:100px; width:100px; object-fit:cover"></div>
+              <label for="exampleFormControlFile1">Staff Profile Image </label>
+              <input type="file"   onchange="document.getElementById('staff_image').src = window.URL.createObjectURL(this.files[0])" class="form-control-file" name="staff_image" >
+            </div>
+           <div class="float-right">
+             <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button type="submit"  class="btn btn-primary">Save Data</button>
+           </div>
+        </form>
+        <!-- form ends -->
+      </div>
+    </div>
+  </div>
+</div>
