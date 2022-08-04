@@ -1,0 +1,61 @@
+{% extends "layouts/admin.html" %}
+{% load static %}
+{% block links %}
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<main class="content">
+	<div class="container-fluid p-0">
+		  <div class="d-flex justify-content-between pb-2">
+		  	<h1 class="h3 mb-3"><strong>Research Direction:</strong> {{ data.research_fields }}</h1>
+        <a href="{% url 'research_by_direction' %}"> <button  class="btn btn-sm btn-info" >View All</button></a>
+		  </div>
+      <div class="row">
+            <div class="col-sm-4" >
+              <div class="card" style="height: 600px !important">
+                <div class="card-body">
+                  <h3 class="card-title">Project Titile: {{ data.project_name }}</h3>
+                  <p class="card-text"> <b>Category:</b>  {{ data.research_fields }}</p>
+                  <p class="card-text"> <b>Project Date:</b>  {{ data.project_date }}</p>
+                  <a href="{{data.project_link}}" class="btn btn-primary btn-sm">Project Link</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card" style="height: 600px !important">
+                <div class="card-body">
+                  <h5 class="card-title">Project Description:</h5>
+                  <p class="card-text">{{ data.project_description }}</p>
+                  <h5 class="card-title">Project Cover:</h5>
+                  <div class="row">
+                    <div class="col-4">
+                        <img src="/media/{{ BASIC_DIR }}/{{data.research_cover_1}}" class="card-img-top p-4" alt="...">
+                    </div>
+                    <div class="col-4">
+                        <img src="/media/{{ BASIC_DIR }}/{{data.research_cover_2}}" class="card-img-top p-4" alt="...">
+                    </div>
+                    <div class="col-4">
+                        <img src="/media/{{ BASIC_DIR }}/{{data.research_cover_3}}" class="card-img-top p-4" alt="...">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</main>
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+{% endblock %}

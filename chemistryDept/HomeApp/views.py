@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from researchApp.models import research_by_area
+from researchApp.models import research_by_area, research_by_direction
 from peopleApp.models import faculty,staff,student
 from resourceApp.models import labFacility
 from resourceApp.models import computing as all_computing
@@ -64,20 +64,22 @@ def certificateprograms(request):
 
 def researchChemistry(request):
     data = research_by_area.objects.filter(research_fields="Chemistry")
-    return render(request, 'HomeApp/research-area.html' , context={'title':"Chemistry Research",'research': data})
+    return render(request, 'HomeApp/research-area.html' , context={'title':"Chemistry",'research': data})
 def researchChemical(request):
     data = research_by_area.objects.filter(research_fields="Chemical Engineering")
-    return render(request, 'HomeApp/research-area.html' , context={'title':"Chemical Engineering Research",'research': data})
+    return render(request, 'HomeApp/research-area.html' , context={'title':"Chemical Engineering",'research': data})
 def researchBiomedical(request):
     data = research_by_area.objects.filter(research_fields="Biomedical Engineering")
-    return render(request, 'HomeApp/research-area.html' , context={'title':"Biomedical Engineering Research",'research': data})
+    return render(request, 'HomeApp/research-area.html' , context={'title':"Biomedical Engineering",'research': data})
 
 
 #Research by direction view page
 def researchSustainabilityEnergy(request):
-    return render(request, 'HomeApp/research-direction.html')
+    data = research_by_direction.objects.filter(research_fields="Sustainability Energy")
+    return render(request, 'HomeApp/research-direction.html',context={'title':"Sustainability Energy",'research': data})
 def researchMedical(request):
-    return render(request, 'HomeApp/research-direction.html')
+    data = research_by_direction.objects.filter(research_fields="Medical")
+    return render(request, 'HomeApp/research-direction.html',context={'title':"Medical",'research': data})
 
 #Events view Page
 def courseAnnouncements(request):

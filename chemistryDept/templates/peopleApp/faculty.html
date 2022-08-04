@@ -44,7 +44,7 @@
 				                <td>{{ value.email }}</td>
 				                <td>
 													<a class="btn btn-sm btn-info" href="{% url 'single_faculty' id=value.id %}">View</a>
-				                	<button class="btn btn-sm btn-primary">Edit</button>
+				                	<button data-id="{{ value.id }}" class="btn btn-sm btn-primary edit-btn" data-toggle="modal" data-target="#editfacultyModal">Edit</button>
 													<button  data-id="{{ value.id }}" data-page="people/faculty" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
@@ -55,8 +55,11 @@
       </div>
   </div>
 </main>
+
+
 {% include '../modals/addFaculty.html' %}
 {% include '../modals/deleteModal.html' %}
+{% include '../modals/editFaculty.html' %}
 {% endblock %}
 
 
@@ -68,7 +71,7 @@
 		});
 </script>
 
-
+<script src="{% static 'js/editFaculty.js' %}">
 <script src="{% static 'js/deleteData.js' %}">
 
 </script>

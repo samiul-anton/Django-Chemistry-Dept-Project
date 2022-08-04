@@ -45,10 +45,10 @@
           <div class="navigation">
             <nav>
               <ul class="nav topnav">
-                <li class="dropdown active">
+                <li class="dropdown {% if request.resolver_match.url_name == "index" %}active{% endif %}">
                   <a href="{% url 'index' %}">Home</a>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown {% if request.resolver_match.url_name == 'bschemistry' or request.resolver_match.url_name == 'bschemical' or request.resolver_match.url_name == 'msbiomedical' or request.resolver_match.url_name == 'certificateprograms' or request.resolver_match.url_name == 'mschemistry' %}active{% endif %}">
                   <a href="#">Academic Programs</a>
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'bschemistry' %}">BS Chemistry</a></li>
@@ -58,7 +58,7 @@
                     <li><a href="{% url 'certificateprograms' %}">Certificate Programs</a></li>
                   </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown {% if request.resolver_match.url_name == 'view_faculty' or request.resolver_match.url_name == 'view_staff' or request.resolver_match.url_name == 'view_student' %}active{% endif %}">
                   <a href="#">People</a>
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'view_faculty' %}">Faculty</a></li>
@@ -66,7 +66,7 @@
                     <li><a href="{% url 'view_student' %}">Student</a></li>
                   </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown {% if request.resolver_match.url_name == 'research_chemistry' or request.resolver_match.url_name == 'research_chemical' or request.resolver_match.url_name == 'research_biomedical' or request.resolver_match.url_name == 'research_s_energy' or request.resolver_match.url_name == 'research_medical' %}active{% endif %}">
                   <a href="#">Research</a>
                   <ul class="dropdown-menu">
                     <li class="dropdown"><a href="#">By Areas</a>
@@ -84,14 +84,14 @@
                     </li>
                   </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown {% if request.resolver_match.url_name == 'course_announcements' or request.resolver_match.url_name == 'seminars' %}active{% endif %}">
                   <a href="#">Teaching Events</a>
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'course_announcements'%}">Course Announcements</a></li>
                     <li><a href="{% url 'seminars' %}">Seminars</a></li>
                   </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown {% if request.resolver_match.url_name == 'lab_facilites' or request.resolver_match.url_name == 'computing' or request.resolver_match.url_name == 'student_services'  %}active{% endif %}">
                   <a href="#">Resources</a>
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'lab_facilites' %}">Lab Facility</a></li>
@@ -99,10 +99,10 @@
                     <li><a href="{% url 'student_services'%}">Student Services</a></li>
                   </ul>
                 </li>
-                <li>
+                <li class="{% if request.resolver_match.url_name == "news" %}active{% endif %}">
                   <a href="{% url 'news'%}">News</a>
                 </li>
-                <li>
+                <li class="{% if request.resolver_match.url_name == "contact" %}active{% endif %}">
                   <a href="{% url 'contact'%}">About & Contact</a>
                 </li>
               </ul>

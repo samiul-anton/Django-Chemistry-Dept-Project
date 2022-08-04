@@ -42,8 +42,7 @@
 				                <td>{{ value.designation}}</td>
 				                <td>{{ value.email }}</td>
 				                <td>
-													<button class="btn btn-sm btn-info">View</button>
-				                	<button class="btn btn-sm btn-primary">Edit</button>
+				                	<button data-id="{{ value.id }}" class="btn btn-sm btn-primary edit-btn" data-toggle="modal" data-target="#editStaffModal">Edit</button>
 													<button data-id="{{ value.id }}" data-page="people/staff" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
@@ -56,6 +55,7 @@
 </main>
 {% include '../modals/addStaff.html' %}
 {% include '../modals/deleteModal.html' %}
+{% include '../modals/editStaff.html' %}
 {% endblock %}
 
 {% block scripts %}
@@ -65,6 +65,7 @@
 		    $('#example').DataTable();
 		});
 </script>
+<script src="{% static 'js/editStaff.js' %}">
 <script src="{% static 'js/deleteData.js' %}">
 </script>
 {% endblock %}
