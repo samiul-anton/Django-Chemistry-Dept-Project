@@ -18,6 +18,9 @@ class research_by_area(models.Model):
 
     def __str__(self):
         return self.research_title+":"+self.research_fields
+    def research_area_info(self):
+        data_info = [self.research_fields , str(self.research_cover), self.research_title, self.research_description , self.project_include , self.publication_video , self.publication_details]
+        return data_info
 
 class research_by_direction(models.Model):
     research_fields_choice = (
@@ -36,3 +39,6 @@ class research_by_direction(models.Model):
 
     def __str__(self):
         return self.project_name+":"+self.research_fields
+    def research_direction_info(self):
+        data_info = [self.research_fields , str(self.research_cover_1), str(self.research_cover_2), str(self.research_cover_3), self.project_name, self.project_category , self.project_date , self.project_link , self.project_description]
+        return data_info
