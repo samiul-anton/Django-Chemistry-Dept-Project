@@ -1,0 +1,56 @@
+{% extends "layouts/admin.html" %}
+{% load static %}
+{% block links %}
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<main class="content">
+	<div class="container-fluid p-0">
+		  <div class="d-flex justify-content-between pb-2">
+		  	<h1 class="h3 mb-3"><strong>Research Area:</strong> {{ data.research_fields }}</h1>
+        <a href="{% url 'research_by_area' %}"> <button  class="btn btn-sm btn-info" >View All</button></a>
+		  </div>
+      <div class="row">
+            <div class="col-sm-4" >
+              <div class="card" style="height: 1000px !important">
+                <img src="/media/{{ BASIC_DIR }}/{{data.research_cover}}" class="card-img-top p-4" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Research Titile: {{ data.research_title }}</h5>
+                  <p class="card-text"> <b>Category:</b>  {{ data.research_fields }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card" style="height: 1000px !important">
+                <div class="card-body">
+                  <h5 class="card-title">Research Description:</h5>
+                  <p class="card-text">{{ data.research_description }}</p>
+                  <h5 class="card-title">Project Include:</h5>
+                  <p class="card-text">{{ data.project_include|safe }}</p>
+                  <h5 class="card-title">Publication Details:</h5>
+                  <p class="card-text">{{ data.publication_details|safe }}</p>
+                  <h5 class="card-title">Publication Video:</h5>
+                  <iframe width="560" height="315" src="{{ data.publication_video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+                  </iframe>
+                </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</main>
+
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+
+{% endblock %}

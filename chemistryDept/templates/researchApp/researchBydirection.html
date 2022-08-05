@@ -41,8 +41,8 @@
 												</td>
 				                <td>{{ value.research_fields}}</td>
 				                <td>
-													<button class="btn btn-sm btn-info">View</button>
-				                	<button class="btn btn-sm btn-primary">Edit</button>
+													<a href="{{ value.id }}/view">	<button  class="btn btn-sm btn-info">View</button> </a>
+				                	<button  data-id="{{ value.id }}" data-toggle="modal" data-target="#EditresearchDirectionModel" class="btn btn-sm btn-primary edit-btn">Edit</button>
 													<button  data-id="{{ value.id }}" data-page="research/by-direction" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
@@ -55,6 +55,8 @@
 </main>
 {% include '../modals/addResearchDirection.html' %}
 {% include '../modals/deleteModal.html' %}
+{% include '../modals/editResearchDirection.html' %}
+
 {% endblock %}
 
 
@@ -66,5 +68,7 @@
 		});
 </script>
 <script type="text/javascript" src="{% static 'js/deleteData.js' %}">
+</script>
+<script type="text/javascript" src="{% static 'js/editResearchDirectionData.js' %}">
 </script>
 {% endblock %}
