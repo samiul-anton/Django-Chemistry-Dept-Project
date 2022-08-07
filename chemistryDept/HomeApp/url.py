@@ -36,5 +36,8 @@ urlpatterns =[
   # News url
   path('news/', views.news, name='news'),
 
+  #DummyTest
+  path('dummy/', views.dummy, name='dummy'),
+
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
