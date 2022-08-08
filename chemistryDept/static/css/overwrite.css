@@ -40,8 +40,8 @@ p {
 }
 
 .well ul {
-	list-style:none;
-	margin-left:0
+  list-style:none;
+  margin-left:0
 }
 
 a {
@@ -50,16 +50,16 @@ a {
 }
 
 a:hover {
-	color: #005580;
-	text-decoration: underline;
+  color: #005580;
+  text-decoration: underline;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color:#333;
-	font-family: 'Open Sans', sans-serif;
-	font-weight:600;
-	line-height:1.5em;
-	margin-top:0;
+  color:#333;
+  font-family: 'Open Sans', sans-serif;
+  font-weight:600;
+  line-height:1.5em;
+  margin-top:0;
 }
 
 h1 {
@@ -155,11 +155,11 @@ pre code {
 }
 
 blockquote {
-	padding: 0;
+  padding: 0;
     border: none;
     page-break-inside: avoid;
 }
-  
+
 fieldset {
   padding: 0;
   margin: 0;
@@ -348,7 +348,7 @@ select:focus:invalid:focus {
 }
 
 .input-append .form-search input,.input-append .form-search button {
-	border:none;
+  border:none;
 }
 
 .input-append input,
@@ -630,7 +630,7 @@ input.search-query {
 }
 
 .well {
-	border:none;
+  border:none;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -818,11 +818,11 @@ button.close {
 /* header */
 
 .navbar .nav li.active a {
-	font-weight:bold;
+  font-weight:bold;
 }
 header .navbar-primary .navbar-inner nav li.blob  {
-	border-top: 5px solid #0072c6;
-	margin-top:-5px;
+  border-top: 5px solid #0072c6;
+  margin-top:-5px;
 }
 
 .navbar-inner {
@@ -1128,7 +1128,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .btn-link {
-	border:none;
+  border:none;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -1628,8 +1628,8 @@ input[type="submit"].btn.btn-mini {
 
 
 .breadcrumb li span {
-	color:#aaa;
-	padding:0 5px;
+  color:#aaa;
+  padding:0 5px;
 }
 
 .pagination ul {

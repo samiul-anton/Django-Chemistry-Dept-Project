@@ -1,0 +1,168 @@
+{% extends "layouts/guest.html" %}
+{% load static %}
+
+{% block content %}
+  <section id="subintro">
+    <div class="jumbotron subhead" id="overview">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="centered">
+              <h3>About</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="breadcrumb">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <ul class="breadcrumb notop">
+            <li><a href="#">Home</a><span class="divider">/</span></li>
+            <li class="active">About</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="maincontent">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th style="width: 100px;">
+                Faculty
+              </th>
+              <th style="width: 25px;">
+                Sustainability
+              </th>
+              <th style="width: 25px;">
+                Energy
+              </th>
+              <th  style="width: 25px;">
+                Bio Medical
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>
+                backdrop
+              </td>
+              <td>
+                boolean
+              </td>
+              <td>
+                true
+              </td>
+              <td>
+                Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                keyboard
+              </td>
+              <td>
+                boolean
+              </td>
+              <td>
+                true
+              </td>
+              <td>
+                Closes the modal when escape key is pressed
+              </td>
+            </tr>
+            <tr>
+              <td>
+                show
+              </td>
+              <td>
+                boolean
+              </td>
+              <td>
+                true
+              </td>
+              <td>
+                Shows the modal when initialized.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                remote
+              </td>
+              <td>
+                path
+              </td>
+              <td>
+                false
+              </td>
+              <td>
+                <p>
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        {% for value in research %}
+        <div class="span12">
+          <!-- start article 2 -->
+          <article class="blog-post">
+            <div class="row">
+              <div class="post-heading">
+                <h3 style="text-align: center;">{{ value.research_title }}</h3>
+              </div>
+              <div class="span3">
+                <div class="post-image">
+                  <a href="#"><img src="/media/{{ BASIC_DIR }}/{{value.research_cover}}" alt="" style="height: 200px; width:220px; border-radius: 8px; "/></a>
+                </div>
+              </div><br>
+              <div class="span6">
+                <div class="clearfix">
+                  <p>{{ value.research_description }}</p>
+                  <!-- popup content 2 -->
+                  <div id="myModal{{value.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h3 id="myModalLabel">Publications</h3>
+                    </div>
+                    <div class="modal-body">
+                      <iframe width="500" height="300" src="{{value.publication_video}}"></iframe>
+                      <h4>Publication Details</h4>
+                        {{ value.publication_details|safe }}
+
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                  <a data-toggle="modal" href="#myModal{{value.id}}" class="btn btn-success btn-small">Publication</a>
+                  <!-- END popup content 2 -->
+                </div>
+              </div>
+              <div class="span3">
+                <h6 style="text-align: center;">Projects include:</h6>
+                {{ value.project_include|safe }}
+              </div>
+              <div class="popup" id="popup">
+                <img src="emergency.png">
+                <h2>Research</h2>
+                <p>The research details will be here!!!!</p>
+                <button class="btn btn-small btn-success" type="button" onclick="closePopup()">ok</button>
+		    </div>
+            </div>
+          </article>
+          <!-- end article 1 -->
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+ {% endblock content %}
