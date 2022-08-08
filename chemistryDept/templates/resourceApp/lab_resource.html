@@ -41,8 +41,7 @@
 												</td>
 				                <td>{{ value.image_caption}}</td>
 				                <td>
-													<a class="btn btn-sm btn-info" href="{% url 'single_faculty' id=value.id %}">View</a>
-				                	<button class="btn btn-sm btn-primary">Edit</button>
+				                	<button  data-id="{{ value.id }}" data-toggle="modal" data-target="#editLabresource" class="btn btn-sm btn-primary edit-btn">Edit</button>
 													<button  data-id="{{ value.id }}" data-page="resource/all-lab-facility" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
@@ -55,6 +54,7 @@
 </main>
 {% include '../modals/allLabresource.html'%}
 {% include '../modals/deleteModal.html' %}
+{% include '../modals/editLabresource.html' %}
 {% endblock %}
 
 
@@ -68,6 +68,7 @@
 
 
 <script src="{% static 'js/deleteData.js' %}">
-
+</script>
+<script src="{% static 'js/editlabresource.js' %}">
 </script>
 {% endblock %}

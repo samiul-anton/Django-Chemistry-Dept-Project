@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse
-from django.http import HttpResponseRedirect,HttpResponse
+from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
 from .models import labFacility as all_labfacilites
 from .models import computing as all_computing
+import json
 
 # View All lab facility image.
 @login_required
@@ -61,3 +62,24 @@ def deleteComputing(request,id):
         return HttpResponseRedirect(reverse('admin_computing'))
     else:
         return HttpResponseRedirect(reverse('home'))
+
+@login_required
+def editLabFacility(request,id):
+    if request.method == "POST":
+       labFacility = all_labfacilites.objects.get(id=id)
+       labFacility.image_heading = request.POST.get('image_heading_edit')
+       labFacility.image_caption = request.POST.get('image_caption_edit')
+       if bool(request.FILES.get('image_edit', False)) == True:
+           labFacility.lab_image = request.FILES["image_edit"]
+       labFacility.save()
+
+       messages.success(request, 'Data Updated!')
+       return HttpResponseRedirect(reverse('admin_lab_facilites'))
+    else:
+       return HttpResponseRedirect(reverse('index'))
+
+@login_required
+def getLabResource(request ,id ):
+    labFacility = all_labfacilites.objects.get(id=id)
+    get_data = json.dumps(labFacility.all_labfacilites_data())
+    return JsonResponse({'data': get_data})

@@ -959,33 +959,33 @@ ul.post-meta li span {
 
 
 .contactForm {
-	margin:0 0 30px 0;
+  margin:0 0 30px 0;
 }
 
 .comment-form  label, .contactForm label{
-	margin-bottom:10px;
-	font-size:13px;
-	font-weight:bold;
+  margin-bottom:10px;
+  font-size:13px;
+  font-weight:bold;
 }
 
 .comment-form input, .contactForm input{
-	background:#fff;
-	margin-bottom:20px;
-	font-size:13px;
+  background:#fff;
+  margin-bottom:20px;
+  font-size:13px;
 
 }
 
 .comment-form input,.contactForm input{
-	width:100%;
-	height:30px;
+  width:100%;
+  height:30px;
 }
 
 .comment-form textarea, .contactForm textarea {
-	margin-bottom:25px;
-	font-size:13px;
-	background:#fff;
-	width:100%;
-	padding-top:10px;
+  margin-bottom:25px;
+  font-size:13px;
+  background:#fff;
+  width:100%;
+  padding-top:10px;
  }
 
 .contactForm .form-group {
@@ -1022,7 +1022,7 @@ ul.post-meta li span {
 }
 
 #sendmessage.show, #errormessage.show, .show {
-	display:block;
+  display:block;
 }
 
 /* Google Map */

@@ -28,7 +28,6 @@
   <link rel="apple-touch-icon-precomposed" href="{% static '/ico/apple-touch-icon-57-precomposed.png' %}">
 
 
-
 </head>
 
 <body>
@@ -45,7 +44,7 @@
           <div class="navigation">
             <nav>
               <ul class="nav topnav">
-                <li class="dropdown {% if request.resolver_match.url_name == "index" %}active{% endif %}">
+                <li class="dropdown {% if request.resolver_match.url_name == 'index' %}active{% endif %}">
                   <a href="{% url 'index' %}">Home</a>
                 </li>
                 <li class="dropdown {% if request.resolver_match.url_name == 'bschemistry' or request.resolver_match.url_name == 'bschemical' or request.resolver_match.url_name == 'msbiomedical' or request.resolver_match.url_name == 'certificateprograms' or request.resolver_match.url_name == 'mschemistry' %}active{% endif %}">
@@ -100,11 +99,15 @@
                     <li><a href="{% url 'student_services'%}">Student Services</a></li>
                   </ul>
                 </li>
-                <li class="{% if request.resolver_match.url_name == "news" %}active{% endif %}">
+                <li class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}">
                   <a href="{% url 'news'%}">News</a>
                 </li>
-                <li class="{% if request.resolver_match.url_name == "contact" %}active{% endif %}">
-                  <a href="{% url 'contact'%}">About & Contact</a>
+                <li class="dropdown {% if request.resolver_match.url_name == 'contact' or request.resolver_match.url_name == 'chairletter'  %}active{% endif %}">
+                  <a href="{% url 'contact'%}">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'chairletter' %}">Chair Letter</a></li>
+                    <li><a href="#">Mission & Vision</a></li>
+                  </ul>
                 </li>
               </ul>
             </nav>

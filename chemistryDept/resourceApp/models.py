@@ -8,6 +8,9 @@ class labFacility(models.Model) :
     lab_image = models.ImageField(null=True, blank=True, upload_to="Images/")
     def __str__(self):
         return self.image_heading
+    def all_labfacilites_data(self):
+        data = [self.image_heading , self.image_caption , str(self.lab_image)]
+        return data
 
 class computing(models.Model):
     type = (
