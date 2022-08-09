@@ -42,7 +42,7 @@
 				                <td>{{ value.computing_type}}</td>
 				                <td>
 													<a class="btn btn-sm btn-info" href="#">View</a>
-				                	<button class="btn btn-sm btn-primary">Edit</button>
+				                	<button data-id="{{ value.id }}" data-toggle="modal" data-target="#editComputing" class="btn btn-sm btn-primary edit-btn">Edit</button>
 													<button  data-id="{{ value.id }}" data-page="resource/all-computing" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
@@ -55,6 +55,7 @@
 </main>
 {% include '../modals/addComputing.html'%}
 {% include '../modals/deleteModal.html' %}
+{% include '../modals/editComputing.html' %}
 {% endblock %}
 
 
@@ -70,5 +71,7 @@
 <script src="{% static 'js/deleteData.js' %}">
 </script>
 <script src="{% static 'js/computing.js' %}">
+</script>
+<script src="{% static 'js/editComputing.js' %}">
 </script>
 {% endblock %}

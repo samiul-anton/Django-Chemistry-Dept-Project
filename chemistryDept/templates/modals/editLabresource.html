@@ -1,0 +1,46 @@
+
+<div class="modal fade" id="editLabresource" tabindex="-1" aria-labelledby="editLabresource" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- form starts -->
+        <form id="edit_form" method="POST" action="#" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Image Header</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="image_heading_edit" >
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputPassword1">Image Caption</label>
+                <textarea  class="form-control" id="exampleInputPassword1" name="image_caption_edit" rows=3 ></textarea>
+              </div>
+            </div>
+          </div>
+            <div class="form-group">
+              <div><img id="image_edit" src="" alt="" style="height:100px; width:100px; object-fit:cover"></div>
+              <label for="exampleFormControlFile1">Image Upload</label>
+              <input type="file"  onchange="document.getElementById('image_edit').src = window.URL.createObjectURL(this.files[0])" class="form-control-file"  name="image_edit" >
+            </div>
+           <div class="float-right">
+             <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button type="submit"  class="btn btn-primary">Save Data</button>
+           </div>
+        </form>
+        <!-- form ends -->
+      </div>
+    </div>
+  </div>
+</div>

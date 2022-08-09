@@ -1,0 +1,92 @@
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+<style>
+ .tox-notification{
+   display:none !important;
+ }
+</style>
+<div class="modal fade" id="editresearchModal" tabindex="-1" aria-labelledby="editresearchModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Research By Area</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- form starts -->
+        <form id="edit_form" method="POST" action="#" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Research Title</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="research_title" >
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Research Fields</label>
+                <select class="form-control" id="selectResearchFields" name="research_fields">
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Chemical Engineering">Chemical Engineering</option>
+                  <option value="Biomedical Engineering">Biomedical Engineering</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Research About</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  name="research_description"></textarea >
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="exampleFormControlTextarea1">Research Include</label>
+              <textarea class="form-control" id="research_includee" name="project_include"></textarea>
+          </div>
+          <script>
+            tinymce.init({
+              selector: '#research_includee',
+              height: 200,
+              plugins: 'lists advlist',
+              toolbar: 'bullist',
+              menubar:false,
+              statusbar: false,
+            });
+          </script>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Publication Video</label>
+                <input type="url" class="form-control" id="exampleFormControlTextarea1"   name="publication_video">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Publication Details</label>
+                <textarea class="form-control" id="publication_detailss" name="publication_details"></textarea>
+            </div>
+            <script>
+              tinymce.init({
+                selector: '#publication_detailss',
+                height: 300,
+                plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
+              });
+            </script>
+
+            <div class="form-group">
+              <div><img id="research_cover" src="" alt="" style="height:100px; width:100px; object-fit:cover"></div>
+              <label for="exampleFormControlFile1">Research Cover</label>
+              <input type="file"   onchange="document.getElementById('research_cover').src = window.URL.createObjectURL(this.files[0])" class="form-control-file"  name="research_cover" >
+            </div>
+           <div class="float-right">
+             <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button type="submit"  class="btn btn-primary">Save Data</button>
+           </div>
+        </form>
+        <!-- form ends -->
+      </div>
+    </div>
+  </div>
+</div>

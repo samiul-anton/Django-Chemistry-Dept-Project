@@ -101,3 +101,7 @@ def studentServices(request):
 #News view page
 def news(request):
     return render(request, 'HomeApp/news.html')
+
+#Dummy for test
+def dummy(request):
+    return render(request, 'HomeApp/dummytest.html')
