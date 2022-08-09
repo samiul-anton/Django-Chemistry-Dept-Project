@@ -16,6 +16,9 @@ def contact(request):
     data = {}
     return render(request,'HomeApp/contact.html',context=data)
 
+def chairletter(request):
+    return render(request, 'HomeApp/chairletter.html')
+
 #Faculty page view
 
 def facultys(request):

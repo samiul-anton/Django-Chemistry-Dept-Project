@@ -31,7 +31,6 @@
   <link rel="apple-touch-icon-precomposed" href="{% static '/ico/apple-touch-icon-57-precomposed.png' %}">
 
 
-
 </head>
 
 <body>
@@ -48,7 +47,7 @@
           <div class="navigation">
             <nav>
               <ul class="nav topnav">
-                <li class="dropdown {% if request.resolver_match.url_name == "index" %}active{% endif %}">
+                <li class="dropdown {% if request.resolver_match.url_name == 'index' %}active{% endif %}">
                   <a href="{% url 'index' %}">Home</a>
                 </li>
                 <li class="dropdown {% if request.resolver_match.url_name == 'bschemistry' or request.resolver_match.url_name == 'bschemical' or request.resolver_match.url_name == 'msbiomedical' or request.resolver_match.url_name == 'certificateprograms' or request.resolver_match.url_name == 'mschemistry' %}active{% endif %}">
@@ -72,7 +71,11 @@
                 <li class="dropdown {% if request.resolver_match.url_name == 'research_chemistry' or request.resolver_match.url_name == 'research_chemical' or request.resolver_match.url_name == 'research_biomedical' or request.resolver_match.url_name == 'research_s_energy' or request.resolver_match.url_name == 'research_medical' %}active{% endif %}">
                   <a href="#">Research</a>
                   <ul class="dropdown-menu">
+<<<<<<< HEAD
                     <li class="dropdown"><a href="#">By groups</a>
+=======
+                    <li class="dropdown"><a href="#">By Groups</a>
+>>>>>>> 5b60ee8656c187f13aa6632d5b736df5690eabb5
                       <ul class="dropdown-menu sub-menu">
                         <li><a href="{% url 'research_chemistry' %}">Chemistry</a></li>
                         <li><a href="{% url 'research_chemical' %}">Chemical Engineering</a></li>
@@ -103,11 +106,15 @@
                     <li><a href="{% url 'student_services'%}">Student Services</a></li>
                   </ul>
                 </li>
-                <li class="{% if request.resolver_match.url_name == "news" %}active{% endif %}">
+                <li class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}">
                   <a href="{% url 'news'%}">News</a>
                 </li>
-                <li class="{% if request.resolver_match.url_name == "contact" %}active{% endif %}">
-                  <a href="{% url 'contact'%}">About & Contact</a>
+                <li class="dropdown {% if request.resolver_match.url_name == 'contact' or request.resolver_match.url_name == 'chairletter'  %}active{% endif %}">
+                  <a href="{% url 'contact'%}">About</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'chairletter' %}">Chair Letter</a></li>
+                    <li><a href="#">Mission & Vision</a></li>
+                  </ul>
                 </li>
               </ul>
             </nav>

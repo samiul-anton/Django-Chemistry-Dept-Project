@@ -8,7 +8,6 @@ from django.conf.urls.static import static
 urlpatterns =[
  # Basic urls
   path('', views.index, name='index'),
-  path('contact/', views.contact, name='contact'),
   # People urls
   path('people/faculty/', views.facultys, name='view_faculty'),
   path('people/staff/', views.staffs, name='view_staff'),
@@ -36,6 +35,14 @@ urlpatterns =[
   # News url
   path('news/', views.news, name='news'),
 
+<<<<<<< HEAD
+=======
+  #About
+  path('contact/', views.contact, name='contact'),
+  path('chairletter/', views.chairletter, name='chairletter'),
+
+
+>>>>>>> 5b60ee8656c187f13aa6632d5b736df5690eabb5
   #DummyTest
   path('dummy/', views.dummy, name='dummy'),
 
