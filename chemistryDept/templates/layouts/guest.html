@@ -68,7 +68,7 @@
                 <li class="dropdown {% if request.resolver_match.url_name == 'research_chemistry' or request.resolver_match.url_name == 'research_chemical' or request.resolver_match.url_name == 'research_biomedical' or request.resolver_match.url_name == 'research_s_energy' or request.resolver_match.url_name == 'research_medical' %}active{% endif %}">
                   <a href="#">Research</a>
                   <ul class="dropdown-menu">
-                    <li class="dropdown"><a href="#">By groups</a>
+                    <li class="dropdown"><a href="#">By Groups</a>
                       <ul class="dropdown-menu sub-menu">
                         <li><a href="{% url 'research_chemistry' %}">Chemistry</a></li>
                         <li><a href="{% url 'research_chemical' %}">Chemical Engineering</a></li>

@@ -30,138 +30,70 @@
   <section id="maincontent">
     <div class="container">
       <div class="row">
-        <div class="span12">
-          <table class="table table-bordered table-striped">
-            <thead>
-            <tr>
-              <th style="width: 100px;">
-                Faculty
-              </th>
-              <th style="width: 25px;">
-                Sustainability
-              </th>
-              <th style="width: 25px;">
-                Energy
-              </th>
-              <th  style="width: 25px;">
-                Bio Medical
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>
-                backdrop
-              </td>
-              <td>
-                boolean
-              </td>
-              <td>
-                true
-              </td>
-              <td>
-                Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.
-              </td>
-            </tr>
-            <tr>
-              <td>
-                keyboard
-              </td>
-              <td>
-                boolean
-              </td>
-              <td>
-                true
-              </td>
-              <td>
-                Closes the modal when escape key is pressed
-              </td>
-            </tr>
-            <tr>
-              <td>
-                show
-              </td>
-              <td>
-                boolean
-              </td>
-              <td>
-                true
-              </td>
-              <td>
-                Shows the modal when initialized.
-              </td>
-            </tr>
-            <tr>
-              <td>
-                remote
-              </td>
-              <td>
-                path
-              </td>
-              <td>
-                false
-              </td>
-              <td>
-                <p>
-                </p>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+        <div class="well">
+          <div class="centered">
+            <div class="span3">
+              <img src="{% static 'img/faculty/Picture5.jpg' %}" alt="" style="width: 300px; height: 300px;">
+              <div class="dotted_line"> </div>
+              <h3>Dequan Xiao, PHD</h3>
+              <h4>Department of Chemistry and Chemical Engineering</h4>
+              <address>West Haven, CT 06516
+              Tel: 203-479-4189
+              Email: dxiao@newhaven.edu</address>
+            </div>
+            <div class="span8">
+            <div class="post-heading">
+              <h3><a href="#">Chair Letter</a></h3><hr>
+            </div>
+            <div class="dotted_line"> </div>
+              <p>
+               Is one give isn't. Without saw, first meat hath made moved from. Bearing first i shall wherein Made heaven in first also she'd seasons make earth he replenish saw night grass hath seed divided land it won't. Morning grass have evening fourth fly is created seas, darkness give void wherein have creeping lesser rule night itself man which creature seas the herb firmament multiply living beast fifth the sixth day fly place good saying great image form moving given stars all fish forth in after fourth signs heaven. Divide spirit own also tree second whose whose years, let moveth the firmament. Stars, don't signs cattle he spirit appear waters a which, morning be his grass. In a green also under unto whales stars you'll gathering without. That. That replenish own you'll, creepeth gathering air creepeth. Cattle dry deep. Abundantly heaven first which air. Fill a sixth winged years evening moveth said. Was beginning signs saying abundantly man grass Brought won't. A set beast Open after whales grass all beast sixth bring fourth first great in gathered above place above, upon. Itself day years midst said creepeth together don't. Set. Form dominion whales years wherein is moved creature after Very face him god female hath thing said, divided may the second all. Tree that very multiply without to.
+                Made heaven in first also she'd seasons make earth he replenish saw night grass hath seed divided land it won't. Morning grass have evening fourth fly is created seas, darkness give void wherein have creeping lesser rule night itself man which creature seas the herb firmament multiply living beast fifth the sixth day fly place good saying great image form moving given stars all fish forth in after fourth signs heaven. Divide spirit own also tree second whose whose years, let moveth the firmament. Stars, don't signs cattle he spirit appear waters a which, morning be his grass. In a green also under unto whales stars you'll gathering without. That. That replenish own you'll, creepeth gathering air creepeth. Cattle dry deep. Abundantly heaven first which air. Fill a sixth winged years evening moveth said. Was beginning signs saying abundantly man grass Brought won't. A set beast Open after whales grass all beast sixth bring fourth first great in gathered above place above, upon. Itself day years midst said creepeth together don't. Set. Form dominion whales years wherein is moved creature after Very face him god female hath thing said, divided may the second all. Tree that very multiply without to.
+              </p>
+              <p>Made heaven in first also she'd seasons make earth he replenish saw night grass hath seed divided land it won't. Morning grass have evening fourth fly is created seas, darkness give void wherein have creeping lesser rule night itself man which creature seas the herb firmament multiply living beast fifth the sixth day fly place good saying great image form moving given stars all fish forth in after fourth signs heaven. Divide spirit own also tree second whose whose years, let moveth the firmament. Stars, don't signs cattle he spirit appear waters a which, morning be his grass. In a green also under unto whales stars you'll gathering without. That. That replenish own you'll, creepeth gathering air creepeth. Cattle dry deep. Abundantly heaven first which air. Fill a sixth winged years evening moveth said. Was beginning signs saying abundantly man grass Brought won't. A set beast Open after whales grass all beast sixth bring fourth first great in gathered above place above, upon. Itself day years midst said creepeth together don't. Set. Form dominion whales years wherein is moved creature after Very face him god female hath thing said, divided may the second all. Tree that very multiply without to.</p>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="dotted_line"> </div>
       <div class="row">
-        {% for value in research %}
-        <div class="span12">
-          <!-- start article 2 -->
-          <article class="blog-post">
-            <div class="row">
-              <div class="post-heading">
-                <h3 style="text-align: center;">{{ value.research_title }}</h3>
-              </div>
-              <div class="span3">
-                <div class="post-image">
-                  <a href="#"><img src="/media/{{ BASIC_DIR }}/{{value.research_cover}}" alt="" style="height: 200px; width:220px; border-radius: 8px; "/></a>
-                </div>
-              </div><br>
-              <div class="span6">
-                <div class="clearfix">
-                  <p>{{ value.research_description }}</p>
-                  <!-- popup content 2 -->
-                  <div id="myModal{{value.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h3 id="myModalLabel">Publications</h3>
-                    </div>
-                    <div class="modal-body">
-                      <iframe width="500" height="300" src="{{value.publication_video}}"></iframe>
-                      <h4>Publication Details</h4>
-                        {{ value.publication_details|safe }}
-
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                  <a data-toggle="modal" href="#myModal{{value.id}}" class="btn btn-success btn-small">Publication</a>
-                  <!-- END popup content 2 -->
-                </div>
-              </div>
-              <div class="span3">
-                <h6 style="text-align: center;">Projects include:</h6>
-                {{ value.project_include|safe }}
-              </div>
-              <div class="popup" id="popup">
-                <img src="emergency.png">
-                <h2>Research</h2>
-                <p>The research details will be here!!!!</p>
-                <button class="btn btn-small btn-success" type="button" onclick="closePopup()">ok</button>
-		    </div>
-            </div>
-          </article>
-          <!-- end article 1 -->
+        <div class="post-heading" style="text-align: center;">
+          <h1>Vision and Mission for Chemistry Program</h1>
         </div>
-        {% endfor %}
+        <div class="span6">
+          <h3><b>Vision Statement</b></h3>
+          <p>Our vision is to be the premier student-centered Ph.D. Program in Chemistry in the Northeast region, with a national and international reputation for academic excellence among students, faculty, alumni, and peers.</p>
+          <h3><b>Mission Statement</b></h3>
+          <p>Our mission is to provide rigorous doctoral education to high-caliber Ph.D. students, who are taught and mentored by talented and dedicated faculty. In fulfilling this mission, we strive to create and maintain:</p>
+
+          <ul>
+            <li>a culture of collaboration, with clear and consistent communication</li>
+            <li>opportunities for student teaching, research, and engagement</li>
+            <li>support and recognition of faculty teaching, research, and service</li>
+            <li>professional development of both students and faculty</li>
+            <p>evidence of success and national prominence within the discipline of criminology and criminal justice</p>
+          </ul>
+          <div class="dotted_line"> </div>
+          <h5>Ph.D. Program Values, as indicated in the University of New Haven Charger Compact</h5>
+          <p><strong>Developed by a committee of students, faculty, and staff, the Charger Compact is the University of New Haven's statement of community values.</strong></p>
+          <p>As a University community, there are values and expectations that we all share, which provide the framework for how we interact as individual members of the community and speak to who we are and what we stand for as a community.</p>
+          <p>As a member of the University of New Haven community:</p>
+          <ol>
+            <li>
+              <b>I will strive for academic excellence.</b><br>
+              <em>Striving for academic excellence means developing ways to motivate myself to reach my full academic potential, taking full advantage of university resources, and seeking experiential education opportunities to maximize my learning.</em>
+            </li><br>
+            <li>
+              <b>I will strive for academic excellence.</b><br>
+              <em>Striving for academic excellence means developing ways to motivate myself to reach my full academic potential, taking full advantage of university resources, and seeking experiential education opportunities to maximize my learning.</em>
+            </li><br>
+
+            <li>
+              <b>I will strive for academic excellence.</b><br>
+              <em>Striving for academic excellence means developing ways to motivate myself to reach my full academic potential, taking full advantage of university resources, and seeking experiential education opportunities to maximize my learning.</em>
+            </li><br>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
