@@ -57,6 +57,27 @@ def getLabResource(request ,id ):
     return JsonResponse({'data': get_data})
 
 @login_required
+def editLabFacility(request,id):
+    if request.method == "POST":
+       labFacility = all_labfacilites.objects.get(id=id)
+       labFacility.image_heading = request.POST.get('image_heading_edit')
+       labFacility.image_caption = request.POST.get('image_caption_edit')
+       if bool(request.FILES.get('image_edit', False)) == True:
+           labFacility.lab_image = request.FILES["image_edit"]
+       labFacility.save()
+
+       messages.success(request, 'Data Updated!')
+       return HttpResponseRedirect(reverse('admin_lab_facilites'))
+    else:
+       return HttpResponseRedirect(reverse('index'))
+
+@login_required
+def getLabResource(request ,id ):
+    labFacility = all_labfacilites.objects.get(id=id)
+    get_data = json.dumps(labFacility.all_labfacilites_data())
+    return JsonResponse({'data': get_data})
+
+@login_required
 def computing(request):
     data = all_computing.objects.all()
     return render(request,'resourceApp/computing.html',context={"data":data})
@@ -94,24 +115,3 @@ def editComputing(request ,id ):
 def getComputing(request , id):
     computing = all_computing.objects.get(id=id)
     get_data = json.dumps(computing.all_computing_data())
-
-@login_required
-def editLabFacility(request,id):
-    if request.method == "POST":
-       labFacility = all_labfacilites.objects.get(id=id)
-       labFacility.image_heading = request.POST.get('image_heading_edit')
-       labFacility.image_caption = request.POST.get('image_caption_edit')
-       if bool(request.FILES.get('image_edit', False)) == True:
-           labFacility.lab_image = request.FILES["image_edit"]
-       labFacility.save()
-
-       messages.success(request, 'Data Updated!')
-       return HttpResponseRedirect(reverse('admin_lab_facilites'))
-    else:
-       return HttpResponseRedirect(reverse('index'))
-
-@login_required
-def getLabResource(request ,id ):
-    labFacility = all_labfacilites.objects.get(id=id)
-    get_data = json.dumps(labFacility.all_labfacilites_data())
-    return JsonResponse({'data': get_data})
