@@ -35,14 +35,12 @@ urlpatterns =[
   # News url
   path('news/', views.news, name='news'),
 
-<<<<<<< HEAD
-=======
+
   #About
   path('contact/', views.contact, name='contact'),
   path('chairletter/', views.chairletter, name='chairletter'),
 
 
->>>>>>> 5b60ee8656c187f13aa6632d5b736df5690eabb5
   #DummyTest
   path('dummy/', views.dummy, name='dummy'),
 

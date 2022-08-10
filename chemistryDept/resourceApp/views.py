@@ -84,7 +84,7 @@ def deleteComputing(request,id):
     else:
         return HttpResponseRedirect(reverse('home'))
 
-<<<<<<< HEAD
+
 
 @login_required
 def editComputing(request ,id ):
@@ -94,7 +94,7 @@ def editComputing(request ,id ):
 def getComputing(request , id):
     computing = all_computing.objects.get(id=id)
     get_data = json.dumps(computing.all_computing_data())
-=======
+
 @login_required
 def editLabFacility(request,id):
     if request.method == "POST":
@@ -114,5 +114,4 @@ def editLabFacility(request,id):
 def getLabResource(request ,id ):
     labFacility = all_labfacilites.objects.get(id=id)
     get_data = json.dumps(labFacility.all_labfacilites_data())
->>>>>>> 5b60ee8656c187f13aa6632d5b736df5690eabb5
     return JsonResponse({'data': get_data})

@@ -11,11 +11,11 @@ urlpatterns =[
   path('add/all-lab-facility/', views.addLabFacility, name='add_lab_facilites'),
   path('all-lab-facility/<int:id>/delete', views.deleteLabFacility, name='delete_lab_facilites'),
   path('all-lab-facility/edit/<int:id>', views.editLabFacility, name='edit_lab_facilites'),
-<<<<<<< HEAD
+
   path('all-lab-facility/get/<int:id>', views.getLabResource, name='get_lab_facilites'),
-=======
+
    path('all-lab-facility/get/<int:id>', views.getLabResource, name='get_lab_facilites'),
->>>>>>> 5b60ee8656c187f13aa6632d5b736df5690eabb5
+
   #computing url
   path('all-computing/', views.computing, name='admin_computing'),
   path('add-computing/', views.addComputing, name='add_computing'),
