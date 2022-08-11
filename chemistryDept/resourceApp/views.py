@@ -109,9 +109,25 @@ def deleteComputing(request,id):
 
 @login_required
 def editComputing(request ,id ):
-    pass
+    if request.method == "POST":
+       computing = all_computing.objects.get(id=id)
+       computing.computing_heading = request.POST.get('computing_heading')
+       computing.computing_type = request.POST.get('computing_type')
+       if request.POST.get('computing_type') == "Video":
+           computing.computing_url = request.POST.get('computing_url')
+           computing.computing_image = None
+       else:
+           if bool(request.FILES.get('computing_image_edit', False)) == True:
+               computing.computing_image = request.FILES["computing_image_edit"]
+           computing.computing_url = None
+       computing.save()
+       messages.success(request, 'Data Updated!')
+       return HttpResponseRedirect(reverse('admin_computing'))
+    else:
+       return HttpResponseRedirect(reverse('index'))
 
 @login_required
 def getComputing(request , id):
     computing = all_computing.objects.get(id=id)
     get_data = json.dumps(computing.all_computing_data())
+    return JsonResponse({'data': get_data})
