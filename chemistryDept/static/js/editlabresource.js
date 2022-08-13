@@ -12,6 +12,7 @@ $(window).on("load",function(){
            $('textarea[name="image_caption_edit"]').val(get_data[1])
            $('input[name="lab_image_edit"]').attr("src",get_data[2])
            $("#image_edit").attr("src",`/media/`+get_data[2])
+           $(`#lab_sections_edit option[value="`+get_data[3]+`"]`).attr('selected','selected');
 
           //  faculty_data = JSON.parse(data.data);
           // // console.log(faculty_data);
