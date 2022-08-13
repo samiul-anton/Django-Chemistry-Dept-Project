@@ -11,7 +11,7 @@ import json
 @login_required
 def labFacility(request):
     data = all_labfacilites.objects.all()
-    return render(request,'resourceApp/lab_resource.html',context={"data":data})
+    return render(request, 'resourceApp/lab_resource.html',context={'data':data})
 # Delete All lab facility
 @login_required
 def deleteLabFacility(request,id):
@@ -28,6 +28,7 @@ def addLabFacility(request):
        new_lab_resource.image_heading = request.POST.get('image_heading')
        new_lab_resource.image_caption = request.POST.get('image_caption')
        new_lab_resource.lab_image = request.FILES["lab_image"]
+       new_lab_resource.lab_sections = request.POST.get('lab_sections')
        new_lab_resource.save()
 
        messages.success(request, 'New data added!')
@@ -36,21 +37,6 @@ def addLabFacility(request):
        return HttpResponseRedirect(reverse('index'))
 
 @login_required
-def editLabFacility(request,id):
-    if request.method == "POST":
-       labFacility = all_labfacilites.objects.get(id=id)
-       labFacility.image_heading = request.POST.get('image_heading_edit')
-       labFacility.image_caption = request.POST.get('image_caption_edit')
-       if bool(request.FILES.get('image_edit', False)) == True:
-           labFacility.lab_image = request.FILES["image_edit"]
-       labFacility.save()
-
-       messages.success(request, 'Data Updated!')
-       return HttpResponseRedirect(reverse('admin_lab_facilites'))
-    else:
-       return HttpResponseRedirect(reverse('index'))
-
-@login_required
 def getLabResource(request ,id ):
     labFacility = all_labfacilites.objects.get(id=id)
     get_data = json.dumps(labFacility.all_labfacilites_data())
@@ -62,6 +48,7 @@ def editLabFacility(request,id):
        labFacility = all_labfacilites.objects.get(id=id)
        labFacility.image_heading = request.POST.get('image_heading_edit')
        labFacility.image_caption = request.POST.get('image_caption_edit')
+       labFacility.lab_sections = request.POST.get('lab_sections_edits')
        if bool(request.FILES.get('image_edit', False)) == True:
            labFacility.lab_image = request.FILES["image_edit"]
        labFacility.save()
@@ -70,12 +57,6 @@ def editLabFacility(request,id):
        return HttpResponseRedirect(reverse('admin_lab_facilites'))
     else:
        return HttpResponseRedirect(reverse('index'))
-
-@login_required
-def getLabResource(request ,id ):
-    labFacility = all_labfacilites.objects.get(id=id)
-    get_data = json.dumps(labFacility.all_labfacilites_data())
-    return JsonResponse({'data': get_data})
 
 @login_required
 def computing(request):

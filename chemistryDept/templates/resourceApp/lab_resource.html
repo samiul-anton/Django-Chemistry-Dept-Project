@@ -28,6 +28,7 @@
 				                <th>#</th>
 				                <th>Image Heading</th>
 				                <th>Image Caption</th>
+												<th>Resource Type</th>
 				                <th>Action</th>
 				            </tr>
 				        </thead>
@@ -40,6 +41,7 @@
 													{{ value.image_heading}}
 												</td>
 				                <td>{{ value.image_caption}}</td>
+												<td>{{ value.lab_sections}}</td>
 				                <td>
 				                	<button  data-id="{{ value.id }}" data-toggle="modal" data-target="#editLabresource" class="btn btn-sm btn-primary edit-btn">Edit</button>
 													<button  data-id="{{ value.id }}" data-page="resource/all-lab-facility" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
