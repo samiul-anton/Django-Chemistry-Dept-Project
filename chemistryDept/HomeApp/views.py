@@ -19,6 +19,9 @@ def contact(request):
 def chairletter(request):
     return render(request, 'HomeApp/chairletter.html')
 
+def missionvision(request):
+    return render(request, 'HomeApp/missionvision.html')
+
 #Faculty page view
 
 def facultys(request):
@@ -77,6 +80,8 @@ def researchBiomedical(request):
 
 
 #Research by direction view page
+def researchoverview(request):
+    return render(request, 'HomeApp/researchoverview.html')
 def researchSustainabilityEnergy(request):
     data = research_by_direction.objects.filter(research_fields="Sustainability Energy")
     return render(request, 'HomeApp/research-direction.html',context={'title':"Sustainability Energy",'research': data})
