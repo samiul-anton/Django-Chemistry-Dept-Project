@@ -9,6 +9,7 @@
   <meta name="author" content="">
   <!-- styles -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+  <!-- <link href="{% static '/css/app.css' %}" rel="stylesheet"> -->
   <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
   <link href="{% static '/css/bootstrap-responsive.css' %}" rel="stylesheet">
   <link href="{% static '/css/docs.css' %}" rel="stylesheet">
@@ -19,6 +20,8 @@
   <link href="{% static '/css/style.css' %}" rel="stylesheet">
   <link href="{% static '/color/default.css' %}" rel="stylesheet">
   <link href="{% static '/css/popup.css' %}" rel="stylesheet">
+  <link href="{% static '/css/overwrite.css' %}" rel="stylesheet">
+
 
   <!-- fav and touch icons -->
   <link rel="shortcut icon" href="{% static '/ico/favicon.png' %}">
@@ -68,18 +71,12 @@
                 <li class="dropdown {% if request.resolver_match.url_name == 'research_chemistry' or request.resolver_match.url_name == 'research_chemical' or request.resolver_match.url_name == 'research_biomedical' or request.resolver_match.url_name == 'research_s_energy' or request.resolver_match.url_name == 'research_medical' %}active{% endif %}">
                   <a href="#">Research</a>
                   <ul class="dropdown-menu">
+                    <li class="dropdown"><a href="{% url 'researchoverview'%}">Overview</a></li>
                     <li class="dropdown"><a href="#">By Groups</a>
                       <ul class="dropdown-menu sub-menu">
                         <li><a href="{% url 'research_chemistry' %}">Chemistry</a></li>
                         <li><a href="{% url 'research_chemical' %}">Chemical Engineering</a></li>
                         <li><a href="{% url 'research_biomedical'%}">Biomedical Engineering</a></li>
-                        <li><a href="{% url 'dummy'%}">Dummy test</a></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown"><a href="#">By Direction</a>
-                      <ul class="dropdown-menu sub-menu">
-                        <li><a href="{% url 'research_s_energy'%}">Sustainability Energy</a></li>
-                        <li><a href="{% url 'research_medical'%}">Medical</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -106,7 +103,7 @@
                   <a href="{% url 'contact'%}">About</a>
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'chairletter' %}">Chair Letter</a></li>
-                    <li><a href="#">Mission & Vision</a></li>
+                    <li><a href="{% url 'missionvision' %}">Mission & Vision</a></li>
                   </ul>
                 </li>
               </ul>

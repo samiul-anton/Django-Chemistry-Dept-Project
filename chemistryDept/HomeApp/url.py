@@ -23,6 +23,7 @@ urlpatterns =[
   path('research-by-area/chemical/', views.researchChemical, name='research_chemical'),
   path('research-by-area/biomedical/', views.researchBiomedical, name='research_biomedical'),
   # Research by direction urls
+  path('researchoverview/', views.researchoverview, name='researchoverview'),
   path('research-by-direction/sustainability-Energy/', views.researchSustainabilityEnergy, name='research_s_energy'),
   path('research-by-direction/medical', views.researchMedical, name='research_medical'),
   # Events urls
@@ -35,9 +36,11 @@ urlpatterns =[
   # News url
   path('news/', views.news, name='news'),
 
+
   #About
   path('contact/', views.contact, name='contact'),
   path('chairletter/', views.chairletter, name='chairletter'),
+  path('missionvision/', views.missionvision, name='missionvision'),
 
 
   #DummyTest

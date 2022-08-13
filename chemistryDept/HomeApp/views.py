@@ -19,6 +19,9 @@ def contact(request):
 def chairletter(request):
     return render(request, 'HomeApp/chairletter.html')
 
+def missionvision(request):
+    return render(request, 'HomeApp/missionvision.html')
+
 #Faculty page view
 
 def facultys(request):
@@ -77,6 +80,8 @@ def researchBiomedical(request):
 
 
 #Research by direction view page
+def researchoverview(request):
+    return render(request, 'HomeApp/researchoverview.html')
 def researchSustainabilityEnergy(request):
     data = research_by_direction.objects.filter(research_fields="Sustainability Energy")
     return render(request, 'HomeApp/research-direction.html',context={'title':"Sustainability Energy",'research': data})
@@ -92,8 +97,11 @@ def seminars(request):
 
 #Resources view page
 def labFacilites(request):
-    data = labFacility.objects.all()
-    return render(request, 'HomeApp/labFacilites.html',context={'data':data})
+    class_rooms = labFacility.objects.filter(lab_sections="Classrooms")
+    labs_equipment = labFacility.objects.filter(lab_sections="Labs Equipment")
+    instruments = labFacility.objects.filter(lab_sections="Instruments")
+    return render(request,'HomeApp/labFacilites.html',context={"class_rooms":class_rooms,"labs_equipment":labs_equipment,"instruments":instruments})
+
 def computing(request):
     image_data = all_computing.objects.filter(computing_type="Image")
     video_data = all_computing.objects.filter(computing_type="Video")
