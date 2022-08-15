@@ -1,0 +1,73 @@
+
+<div class="modal fade" id="editResearchOverview" tabindex="-1" aria-labelledby="editResearchOverview" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Research Overview</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- form starts -->
+        <form method="POST" action="{% url 'add_research_overview'%}">
+        {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Faculty Name</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="facutly_id">
+                  {% for data in faculty_data%}
+                    <option value="{{data.id}}">{{data.name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Sustainability:</label>
+                <input type="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="sustainability">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Energy:</label>
+                <input type="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="energy">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Artificial Intelligence:</label>
+                <input type="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="artificial_itelligence">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Education:</label>
+                <input type="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="education">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Biomedical</label>
+                <input type="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="biomedical">
+              </div>
+            </div>
+          </div>
+
+           <div class="float-right">
+             <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button type="submit"  class="btn btn-primary">Save Data</button>
+           </div>
+        </form>
+        <!-- form ends -->
+      </div>
+    </div>
+  </div>
+</div>

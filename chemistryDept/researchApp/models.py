@@ -1,4 +1,5 @@
 from django.db import models
+from peopleApp.models import faculty
 
 # Create your models here.
 class research_by_area(models.Model):
@@ -15,11 +16,25 @@ class research_by_area(models.Model):
     publication_video = models.CharField(max_length=250)
     publication_details = models.TextField(max_length=250)
 
-
     def __str__(self):
         return self.research_title+":"+self.research_fields
     def research_area_info(self):
         data_info = [self.research_fields , str(self.research_cover), self.research_title, self.research_description , self.project_include , self.publication_video , self.publication_details]
+        return
+
+class research_overview(models.Model):
+    overview_facutly = models.ForeignKey(faculty, on_delete=models.CASCADE)
+    Sustainability = models.TextField(max_length=250,null=True)
+    Energy = models.TextField(max_length=250,null=True)
+    Artificial_Intelligence = models.TextField(max_length=250,null=True)
+    Biomedical = models.TextField(max_length=250,null=True)
+    Education = models.TextField(max_length=250,null=True)
+
+
+    def __str__(self):
+        return self.overview_facutly.name
+    def research_overview_info(self):
+        data_info = [self.overview_facutly.id , self.Sustainability ,self.Energy,self.Artificial_Intelligence,self.Education ]
         return data_info
 
 class research_by_direction(models.Model):
