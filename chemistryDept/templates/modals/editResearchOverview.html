@@ -10,13 +10,13 @@
       </div>
       <div class="modal-body">
         <!-- form starts -->
-        <form method="POST" action="{% url 'add_research_overview'%}">
+        <form id="edit_form" method="POST" action="#">
         {% csrf_token %}
           <div class="row">
             <div class="col">
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Faculty Name</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="facutly_id">
+                <select class="form-control" id="overview_facutly" name="facutly_id">
                   {% for data in faculty_data%}
                     <option value="{{data.id}}">{{data.name}}</option>
                   {% endfor %}

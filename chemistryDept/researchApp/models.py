@@ -34,7 +34,7 @@ class research_overview(models.Model):
     def __str__(self):
         return self.overview_facutly.name
     def research_overview_info(self):
-        data_info = [self.overview_facutly.id , self.Sustainability ,self.Energy,self.Artificial_Intelligence,self.Education ]
+        data_info = [self.overview_facutly.id , self.Sustainability ,self.Energy,self.Artificial_Intelligence,self.Education , self.Biomedical]
         return data_info
 
 class research_by_direction(models.Model):

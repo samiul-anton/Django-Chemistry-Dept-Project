@@ -12,6 +12,7 @@ urlpatterns =[
   path('overview/<int:id>/delete', views.DeleteResearchOverview, name='delete_research_overview'),
   path('overview/edit-research-area/<int:id>', views.editResearchByArea, name='edit_research_area'),
   path('overview/getData/<int:id>', views.researchOverviewGetdata, name='research_overview_get_data'),
+  path('overview/edit/<int:id>', views.editResearchOverview, name='edit_research_area'),
   #Research By area URL
   path('by-area/', views.researchByArea, name='research_by_area'),
   path('by-area/add', views.addResearchByArea, name='add_research_by_area'),

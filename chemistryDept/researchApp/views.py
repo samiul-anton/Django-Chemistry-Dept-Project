@@ -41,8 +41,23 @@ def DeleteResearchOverview(request,id):
 @login_required
 def researchOverviewGetdata(request,id):
     researchData = research_overview.objects.get(id=id)
-    data = json.dumps(research_overview.research_overview_info())
+    data = json.dumps(researchData.research_overview_info())
     return JsonResponse({'data': data})
+
+@login_required
+def editResearchOverview(request, id):
+    if request.method == "POST":
+        researchoverview = research_overview.objects.get(id=id)
+        researchoverview.overview_facutly = faculty.objects.get(id=request.POST.get('facutly_id'))
+        researchoverview.Sustainability = request.POST.get('sustainability')
+        researchoverview.Energy = request.POST.get('energy')
+        researchoverview.Artificial_Intelligence = request.POST.get('artificial_itelligence')
+        researchoverview.Education = request.POST.get('education')
+        researchoverview.Biomedical = request.POST.get('biomedical')
+        researchoverview.save()
+
+        messages.success(request, 'Data edited!')
+        return HttpResponseRedirect(reverse('research_overview'))
 
 
 # Admin Research By Area View
