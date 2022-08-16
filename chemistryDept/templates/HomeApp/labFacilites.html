@@ -33,14 +33,16 @@
   <section id="maincontent">
     <div class="container">
       <div class="row">
-        <h5>Instruments</h5>
+        <div class="centered" style="background-color:#94c045; padding:3px;  margin:10px;">
+          <h3>Instruments</h3>
+        </div>
         <ul class="portfolio-area da-thumbs">
           {% for value in instruments %}
             <li class="portfolio-item2" data-id="id-0" data-type="web">
               <div class="span4">
                 <div class="thumbnail">
                   <div class="image-wrapp">
-                    <img src="/media/{{ BASIC_DIR }}/{{value.lab_image}}" alt="Portfolio name" title="" />
+                    <img src="/media/{{ BASIC_DIR }}/{{value.lab_image}}" alt="Portfolio name" title="" style="width:300px; height:300px;"/>
                     <article class="da-animate da-slideFromRight" style="display: block;">
                       <h4>{{value.image_heading}}</h4>
                       <em style="color: white;">
@@ -55,14 +57,16 @@
         </ul>
       </div>
       <div class="row">
-        <h5>Class rooms</h5>
+        <div class="centered" style="background-color:#94c045; padding:3px;  margin:10px;">
+          <h3>Class rooms</h3>
+        </div>
         <ul class="portfolio-area da-thumbs">
           {% for value in class_rooms %}
             <li class="portfolio-item2" data-id="id-0" data-type="web">
               <div class="span4">
                 <div class="thumbnail">
                   <div class="image-wrapp">
-                    <img src="/media/{{ BASIC_DIR }}/{{value.lab_image}}" alt="Portfolio name" title="" />
+                    <img src="/media/{{ BASIC_DIR }}/{{value.lab_image}}" alt="Portfolio name" title=""  style="width:300px; height:300px;"/>
                     <article class="da-animate da-slideFromRight" style="display: block;">
                       <h4>{{value.image_heading}}</h4>
                       <em style="color: white;">
@@ -78,14 +82,16 @@
       </div>
 
       <div class="row">
-        <h5>Lab Equipments</h5>
+        <div class="centered" style="background-color:#94c045; padding:3px;  margin:10px;">
+          <h3>Lab Equipments</h3>
+        </div>
         <ul class="portfolio-area da-thumbs">
           {% for value in labs_equipment %}
             <li class="portfolio-item2" data-id="id-0" data-type="web">
               <div class="span4">
                 <div class="thumbnail">
                   <div class="image-wrapp">
-                    <img src="/media/{{ BASIC_DIR }}/{{value.lab_image}}" alt="Portfolio name" title="" />
+                    <img src="/media/{{ BASIC_DIR }}/{{value.lab_image}}" alt="Portfolio name" title=""  style="width:300px; height:300px;"/>
                     <article class="da-animate da-slideFromRight" style="display: block;">
                       <h4>{{value.image_heading}}</h4>
                       <em style="color: white;">

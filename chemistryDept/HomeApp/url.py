@@ -18,6 +18,7 @@ urlpatterns =[
   path('academic/mschemistry/', views.mschemistry, name='mschemistry'),
   path('academic/msbiomedical/', views.msbiomedical, name='msbiomedical'),
   path('academic/certificateprograms/', views.certificateprograms, name='certificateprograms'),
+  path('academic/phdprogram/', views.phdprogram, name='phdprogram'),
   # Research by area urls
   path('research-by-area/chemistry/', views.researchChemistry, name='research_chemistry'),
   path('research-by-area/chemical/', views.researchChemical, name='research_chemical'),
