@@ -67,6 +67,11 @@ def msbiomedical(request):
 def certificateprograms(request):
     return render(request, 'HomeApp/certificateprograms.html')
 
+#phdprogram page view
+
+def phdprogram(request):
+    return render(request, 'HomeApp/phdprogram.html')
+
 #Research by area view page
 
 def researchChemistry(request):

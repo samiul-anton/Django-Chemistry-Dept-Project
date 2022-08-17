@@ -58,6 +58,7 @@
                     <li><a href="{% url 'mschemistry' %}">MS Chemistry</a></li>
                     <li><a href="{% url 'msbiomedical' %}">MS Biomedical Engineering</a></li>
                     <li><a href="{% url 'certificateprograms' %}">Certificate Programs</a></li>
+                    <li><a href="{% url 'phdprogram' %}">PHD Programs</a></li>
                   </ul>
                 </li>
                 <li class="dropdown {% if request.resolver_match.url_name == 'view_faculty' or request.resolver_match.url_name == 'view_staff' or request.resolver_match.url_name == 'view_student' %}active{% endif %}">
