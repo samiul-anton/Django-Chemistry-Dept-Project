@@ -2,6 +2,7 @@ from django.shortcuts import render
 from researchApp.models import research_overview, research_by_direction,research_by_area
 from peopleApp.models import faculty,staff,student
 from resourceApp.models import labFacility
+from eventsApp.models import  seminer
 from resourceApp.models import computing as all_computing
 #Home page view
 
@@ -95,7 +96,9 @@ def researchMedical(request):
 def courseAnnouncements(request):
     return render(request, 'HomeApp/courseAnnouncements.html')
 def seminars(request):
-    return render(request, 'HomeApp/seminars.html')
+    featured_seminer = seminer.objects.get(featured=1)
+    all_seminar = seminer.objects.all()
+    return render(request, 'HomeApp/seminars.html',context={"featured_seminer":featured_seminer, "all_seminar":all_seminar})
 
 #Resources view page
 def labFacilites(request):
