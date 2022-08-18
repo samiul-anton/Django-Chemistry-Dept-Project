@@ -51,8 +51,8 @@
 				                <td>{{ value.seminer_datetime}}</td>
 				                <td>
 													<a href="{{ value.id }}/view"> <button class="btn btn-sm btn-info">View</button> </a>
-				                	<button data-id="{{ value.id }}"  class="btn btn-sm btn-primary edit-btn" data-toggle="modal" data-target="#editresearchModal">Edit</button>
-													<button  data-id="{{ value.id }}" data-page="research/by-area" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
+				                	<button data-id="{{ value.id }}"  class="btn btn-sm btn-primary edit-btn" data-toggle="modal" data-target="#editSeminersModal">Edit</button>
+													<button  data-id="{{ value.id }}" data-page="events/seminer" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
 										{% endfor %}
@@ -64,7 +64,7 @@
 </main>
 {% include '../modals/addSeminars.html' %}
 {% include '../modals/deleteModal.html' %}
-{% include '../modals/editResearchArea.html' %}
+{% include '../modals/editSeminers.html' %}
 {% endblock %}
 
 
@@ -77,7 +77,7 @@
 </script>
 <script type="text/javascript" src="{% static 'js/deleteData.js' %}">
 </script>
-<script type="text/javascript" src="{% static 'js/editResearchAreaData.js' %}">
+<script type="text/javascript" src="{% static 'js/editSeminer.js' %}">
 </script>
 <!-- date time picker js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
@@ -85,6 +85,9 @@
 <script type="text/javascript">
 				$(function () {
 						$('#datetimepicker1').datetimepicker({
+							format:'YYYY-MM-DD HH:MM',
+						});
+						$('#datetimepicker2').datetimepicker({
 							format:'YYYY-MM-DD HH:MM',
 						});
 				});

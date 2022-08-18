@@ -13,6 +13,7 @@ def allSeminers(request):
     return render(request, 'eventsApp/seminers.html',context={'data':data})
 
 # Add seminer
+@login_required
 def addSeminer(request):
     if request.method == "POST":
        new_seminer = seminer()
@@ -23,8 +24,26 @@ def addSeminer(request):
        new_seminer.seminer_location = request.POST.get('seminer_location')
        new_seminer.seminer_datetime = request.POST.get('seminer_datetime')
        new_seminer.seminar_cover = request.FILES["seminar_cover"]
-       new_seminer.featured = request.POST.get('featured')
+       new_seminer.featured = 0 if  request.POST.get('featured') ==  None else request.POST.get('featured')
        new_seminer.save()
-
        messages.success(request, 'New Seminer added!')
        return HttpResponseRedirect(reverse('seminers'))
+    else:
+       return HttpResponseRedirect(reverse('home'))
+ # Delete Seminer
+@login_required
+def deleteSeminer(request,id):
+    if request.method == "POST":
+         seminer.objects.filter(id=id).delete()
+         messages.success(request, 'Seminer Data Deleted!')
+         return HttpResponseRedirect(reverse('seminers'))
+    else:
+         return HttpResponseRedirect(reverse('home'))
+#edit Seminer
+@login_required
+def editSeminer(request, id):
+    pass
+def getSeminerData(request, id):
+    SeminerData = seminer.objects.get(id=id)
+    data = json.dumps(SeminerData.getSeminerData())
+    return JsonResponse({'data': data})

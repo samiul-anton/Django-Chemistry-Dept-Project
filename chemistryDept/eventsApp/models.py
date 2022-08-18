@@ -13,3 +13,6 @@ class seminer(models.Model):
 
     def __str__(self):
         return self.seminer_title
+    def getSeminerData(self):
+        data = [self.seminer_title , self.seminer_description,self.seminer_details ,self.seminer_speakers,str(self.seminer_datetime),self.seminer_location, str(self.seminar_cover),self.featured]
+        return data

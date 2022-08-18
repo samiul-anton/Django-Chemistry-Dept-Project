@@ -133,46 +133,28 @@
             <div class="post-heading">
               <h3 style="text-align:center;"><a href="#">Seminar Details</a></h3>
             </div><br>
+          {% for value in all_seminar %}
           <!-- start article 3 -->
           <article class="blog-post">
             <div class="row">
               <div class="span3">
-                <div class="video-container">
-                  <img src="https://www.newhaven.edu/_resources/images/news/non-college-specific/2022/charger-athletics-center.jpg">
+                <div class="">
+                  <img style="height:200px ; object-fit:cover;" src="/media/{{ BASIC_DIR }}/{{value.seminar_cover}}">
                 </div>
               </div>
               <div class="span8">
                 <ul class="post-meta">
-                  <li><h3 class="article-title">Support Charger Athletics</h3></li>
+                  <li><h3 class="article-title">{{ value.seminer_title }}</h3></li>
                 </ul>
                 <div class="clearfix">
-                  <p>Support the renovation of the university's Charger Gymnasium that will be dedicated in his honor.</p>
+                  <p>{{ value.seminer_description }}</p>
                   <button class="btn btn-small btn-success" type="button">Read more</button>
                 </div>
               </div>
             </div>
           </article>
           <!-- end article 3 -->
-          <!-- start article 3 -->
-          <article class="blog-post">
-            <div class="row">
-              <div class="span3">
-                <div class="video-container">
-                  <img src="https://www.newhaven.edu/_resources/images/news/non-college-specific/2022/charger-athletics-center.jpg">
-                </div>
-              </div>
-              <div class="span8">
-                <ul class="post-meta">
-                  <li><h3 class="article-title">University of New Haven Benefactor, Former Student-Athlete Makes $3 Million Gift to Support Charger Athletics</h3></li>
-                </ul>
-                <div class="clearfix">
-                  <p>The transformational gift from Jeffery P. Hazell '83, '10 Hon., a member of the University's Board of Governors, will support the renovation of the university's Charger Gymnasium that will be dedicated in his honor.</p>
-                  <button class="btn btn-small btn-success" type="button">Read more</button>
-                </div>
-              </div>
-            </div>
-          </article>
-          <!-- end article 3 -->
+          {% endfor %}
         </div>
       </div>
     </div>
