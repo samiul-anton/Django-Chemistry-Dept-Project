@@ -14,24 +14,17 @@ $(window).on('load',()=>{
 
           seminer_data = JSON.parse(data.data);
          //Checing the response data
-         console.log(seminer_data);
+         //console.log(seminer_data);
          //Setting the existing data into form
          $('input[name="seminer_title_edit"]').attr("value",seminer_data[0])
          $('textarea[name="seminer_description_edit"]').val(seminer_data[1])
          tinymce.get('edit_seminer_details').setContent(seminer_data[2]);
          $('input[name="seminer_speakers_edit"]').attr("value",seminer_data[3])
          $('input[name="seminer_location_edit"]').attr("value",seminer_data[5])
-         //$("#datetimepicker2").data('DateTimePicker').setLocalDate(new Date(seminer_data[4]));
-
-          // $('input[name="faculty_name"]').attr("value",faculty_data[0])
-          // $('input[name="faculty_email"]').attr("value",faculty_data[2])
-          // $('input[name="faculty_designation"]').attr("value",faculty_data[3])
-          // $('input[name="faculty_url"]').attr("value",faculty_data[6])
-          // $('textarea[name="faculty_about"]').val(faculty_data[5])
-          // tinymce.get('faculty_experienceedit').setContent(faculty_data[4]);
-          // $('input[name="faculty_image"]').attr("src",faculty_data[1])
-          // $("#faculty_image").attr("src",`/media/`+faculty_data[1])
-
+          $('textarea[name="seminer_notes_edit"]').val(seminer_data[8])
+         $('#datetimepicker2').data("DateTimePicker").date(seminer_data[4]);
+         $("#seminer_cover").attr("src",`/media/`+seminer_data[6])
+         $('input[name="featured_edit"]').attr("checked",seminer_data[7])
         },
         error: (error) => {
           console.log(error);

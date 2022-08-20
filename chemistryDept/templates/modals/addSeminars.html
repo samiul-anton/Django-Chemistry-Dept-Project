@@ -1,12 +1,9 @@
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button> -->
+
 <style>
  .tox-notification{
    display:none !important;
  }
 </style>
-<script src="https://cdn.tiny.cloud/1/30h4n7mvg0u2p41o4jsx8y4fb4ev21mqq6j8xbs3nmbgf236/tinymce/6/tinymce.min.js"></script>
 <div class="modal fade" id="researchModal" tabindex="-1" aria-labelledby="facultyModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
@@ -38,11 +35,11 @@
           </div>
           <div class="form-group">
               <label for="exampleFormControlTextarea1">Seminar Details</label>
-              <textarea class="form-control" id="research_include" name="seminer_details"></textarea>
+              <textarea class="form-control" id="seminerDetails" name="seminer_details"></textarea>
           </div>
           <script>
             tinymce.init({
-              selector: '#research_include',
+              selector: '#seminerDetails',
               height: 200,
               plugins: 'lists advlist',
               toolbar: 'bullist',
@@ -71,6 +68,14 @@
                   <input type='text' class="form-control" id='datetimepicker1' name="seminer_datetime" required/>
               </div>
 
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Seminar Notes</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required name="seminer_notes"></textarea >
+              </div>
+            </div>
           </div>
           <!-- date and time picker ends -->
 

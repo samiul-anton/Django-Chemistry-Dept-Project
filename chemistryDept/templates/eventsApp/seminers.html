@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/flatly/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.css' %}" >
+<script src="https://cdn.tiny.cloud/1/30h4n7mvg0u2p41o4jsx8y4fb4ev21mqq6j8xbs3nmbgf236/tinymce/6/tinymce.min.js"></script>
 {% endblock %}
 {% block content %}
 <main class="content">
@@ -50,7 +51,7 @@
 												</td>
 				                <td>{{ value.seminer_datetime}}</td>
 				                <td>
-													<a href="{{ value.id }}/view"> <button class="btn btn-sm btn-info">View</button> </a>
+													<!-- <a href="{{ value.id }}/view"> <button class="btn btn-sm btn-info">View</button> </a> -->
 				                	<button data-id="{{ value.id }}"  class="btn btn-sm btn-primary edit-btn" data-toggle="modal" data-target="#editSeminersModal">Edit</button>
 													<button  data-id="{{ value.id }}" data-page="events/seminer" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
