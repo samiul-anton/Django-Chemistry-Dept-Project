@@ -8,4 +8,5 @@ urlpatterns = [
     path('people/', include('peopleApp.url')),
     path('research/', include('researchApp.url')),
     path('resource/', include('resourceApp.url')),
+    path('events/', include('eventsApp.url')),
 ]

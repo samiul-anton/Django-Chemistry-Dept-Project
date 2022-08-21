@@ -1,10 +1,64 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import research_by_area,research_by_direction
+from .models import research_by_direction,research_by_area,research_overview
+from peopleApp.models import faculty
 from django.contrib import messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect,HttpResponse,JsonResponse
 import json
+
+# Admin Research Overview
+@login_required
+def researchOverview(request):
+    if request.method == "GET":
+        data = research_overview.objects.all()
+        faculty_data = faculty.objects.all()
+        return render(request, 'researchApp/researchOverview.html',context={'data':data,'faculty_data':faculty_data})
+@login_required
+def addResearchOverview(request):
+    if request.method == "POST":
+        new_research_overview = research_overview()
+        new_research_overview.overview_facutly = faculty.objects.get(id=request.POST.get('facutly_id'))
+        new_research_overview.Sustainability = request.POST.get('sustainability')
+        new_research_overview.Energy = request.POST.get('energy')
+        new_research_overview.Artificial_Intelligence = request.POST.get('artificial_itelligence')
+        new_research_overview.Education = request.POST.get('education')
+        new_research_overview.Biomedical = request.POST.get('biomedical')
+        new_research_overview.save()
+
+        messages.success(request, 'New Data added!')
+        return HttpResponseRedirect(reverse('research_overview'))
+
+@login_required
+def DeleteResearchOverview(request,id):
+    if request.method == "POST":
+        research_overview.objects.filter(id=id).delete()
+        messages.success(request, 'Overview Data Deleted!')
+        return HttpResponseRedirect(reverse('research_overview'))
+    else:
+        return HttpResponseRedirect(reverse('index'))
+
+@login_required
+def researchOverviewGetdata(request,id):
+    researchData = research_overview.objects.get(id=id)
+    data = json.dumps(researchData.research_overview_info())
+    return JsonResponse({'data': data})
+
+@login_required
+def editResearchOverview(request, id):
+    if request.method == "POST":
+        researchoverview = research_overview.objects.get(id=id)
+        researchoverview.overview_facutly = faculty.objects.get(id=request.POST.get('facutly_id'))
+        researchoverview.Sustainability = request.POST.get('sustainability')
+        researchoverview.Energy = request.POST.get('energy')
+        researchoverview.Artificial_Intelligence = request.POST.get('artificial_itelligence')
+        researchoverview.Education = request.POST.get('education')
+        researchoverview.Biomedical = request.POST.get('biomedical')
+        researchoverview.save()
+
+        messages.success(request, 'Data edited!')
+        return HttpResponseRedirect(reverse('research_overview'))
+
 
 # Admin Research By Area View
 @login_required

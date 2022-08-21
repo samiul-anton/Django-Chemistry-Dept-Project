@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from researchApp.models import research_by_area, research_by_direction
+from researchApp.models import research_overview, research_by_direction,research_by_area
 from peopleApp.models import faculty,staff,student
 from resourceApp.models import labFacility
+from eventsApp.models import  seminer
 from resourceApp.models import computing as all_computing
 #Home page view
 
@@ -66,6 +67,11 @@ def msbiomedical(request):
 def certificateprograms(request):
     return render(request, 'HomeApp/certificateprograms.html')
 
+#phdprogram page view
+
+def phdprogram(request):
+    return render(request, 'HomeApp/phdprogram.html')
+
 #Research by area view page
 
 def researchChemistry(request):
@@ -81,7 +87,8 @@ def researchBiomedical(request):
 
 #Research by direction view page
 def researchoverview(request):
-    return render(request, 'HomeApp/researchoverview.html')
+    data = research_overview.objects.all()
+    return render(request, 'HomeApp/researchoverview.html',context={'data':data})
 def researchSustainabilityEnergy(request):
     data = research_by_direction.objects.filter(research_fields="Sustainability Energy")
     return render(request, 'HomeApp/research-direction.html',context={'title':"Sustainability Energy",'research': data})
@@ -89,11 +96,14 @@ def researchMedical(request):
     data = research_by_direction.objects.filter(research_fields="Medical")
     return render(request, 'HomeApp/research-direction.html',context={'title':"Medical",'research': data})
 
+
 #Events view Page
 def courseAnnouncements(request):
     return render(request, 'HomeApp/courseAnnouncements.html')
 def seminars(request):
-    return render(request, 'HomeApp/seminars.html')
+    featured_seminer = seminer.objects.get(featured=1)
+    all_seminar = seminer.objects.all()
+    return render(request, 'HomeApp/seminars.html',context={"featured_seminer":featured_seminer, "all_seminar":all_seminar})
 
 #Resources view page
 def labFacilites(request):

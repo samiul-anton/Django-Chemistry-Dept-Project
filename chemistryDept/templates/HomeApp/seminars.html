@@ -19,7 +19,7 @@
       <div class="row">
         <div class="span12">
           <ul class="breadcrumb notop">
-            <li><a href="#">Home</a><span class="divider">/</span></li>
+            <li><a href="{% url 'index'%}">Home</a><span class="divider">/</span></li>
             <li class="active">Seminars</li>
           </ul>
         </div>
@@ -33,37 +33,25 @@
         <div class="span8">
           <article class="blog-post">
             <div class="post-heading">
-              <h3><a href="#">Seminar Name</a></h3>
-              <p><b>Date: </b>Mon 3, 2002</p>
+              <h3><a href="#">{{ featured_seminer.seminer_title }}</a></h3>
+              <p><b>Date: </b>{{ featured_seminer.seminer_datetime}}</p>
             </div>
           <!-- start flexslider -->
-          <div class="flexslider">
-            <ul class="slides">
-              <li>
-                <img src="{% static 'img/slides/flexslider/x.jpg' %}" alt="" />
-              </li>
-              <li>
-                <img src="{% static 'img/slides/flexslider/y.jpg' %}" alt="" />
-              </li>
-              <li>
-                <img src="{% static 'img/slides/flexslider/z.jpg' %}" alt="" />
-              </li>
-            </ul>
-          </div><hr>
+          <div>
+                <img style="height:400px ; width:100% ; object-fit:cover;" src="/media/{{ BASIC_DIR }}/{{featured_seminer.seminar_cover}}" alt="" />
+          </div>
+          <hr>
           <!-- end flexslider -->
             <blockquote>
               <p>
-                <span><b>Seminar Details:</b></span> Our Student Success Advisors are eager to work one-on-one with your students to help set personal and academic goals that will contribute to their success, Success Advisors motivate students to reach their full potential. By working individually with one of our advisors, students can develop skills and strategies to overcome academic challenges if and when they arise.</p>
+                <span><b>Seminar Details:</b></span>
+                {{ featured_seminer.seminer_description }}
+              </p>
             </blockquote>
             <div class="post-heading">
               <h3><b>Details</b></h3>
             </div>
-            <ol>
-              <li>Learn About career opportunities</li>
-              <li>Chemisrty World</li>
-              <li>Study options</li>
-              <li>Course offerings</li>
-            </ol>
+            {{ featured_seminer.seminer_details|safe }}
           </article>
             <!-- article END -->
         </div>
@@ -120,146 +108,22 @@
             </tr>
             </thead>
             <tbody>
+            {% for value in all_seminar %}
             <tr style="text-align:center">
               <td>
-                September 9, 2022
+                {{value.seminer_datetime}}
               </td>
               <td>
-                Xiaoji Xu
+                {{value.seminer_speakers}}
               </td>
               <td>
-                Lehigh University
+                {{value.seminer_location}}
               </td>
               <td>
-                In-person; will drive to campus
+                {{value.seminer_notes}}
               </td>
             </tr>
-            <tr style="text-align:center">
-              <td>
-                September 16, 2022
-              </td>
-              <td>
-                Inclusion, academic freedom, and free speech in physical science -- assign Krylov op-ed + Phil Ball / Head-Gordon responses
-              </td>
-              <td>
-                ?
-              </td>
-              <td>
-                Speaker from Myatt Center?
-              </td>
-            </tr>
-            <tr style="text-align:center">
-              <td>
-                September 30, 2022
-              </td>
-              <td>
-                Yongdong Wang
-              </td>
-              <td>
-                Cerno Bioscience
-              </td>
-              <td>
-                Tentative date; in-person
-              </td>
-            </tr>
-            <tr style="text-align:center">
-              <td>
-                October 21, 2022
-              </td>
-              <td>
-                Brett McGuire
-              </td>
-              <td>
-                MIT
-              </td>
-              <td>
-                In-person
-              </td>
-            </tr>
-            <tr style="text-align:center">
-              <td>
-                October 28, 2022
-              </td>
-              <td>
-                Chris Shingledecker
-              </td>
-              <td>
-                Benedictine College
-              </td>
-              <td>
-                Virtual
-              </td>
-            </tr>
-            <tr style="text-align:center">
-              <td>
-                November 4, 2022
-              </td>
-              <td>
-                Jim Cheeseman
-              </td>
-              <td>
-                GAUSSIAN (Wallingford, CT)
-              </td>
-              <td>
-                In-person
-              </td>
-            </tr>
-            <tr style="text-align:center">
-              <td>
-                November 11, 2022
-              </td>
-              <td>
-                Ilsa Cooke
-              </td>
-              <td>
-                University of British Columbia
-              </td>
-              <td>
-                Virtual
-              </td>
-            </tr>
-            <tr style="text-align:center">
-              <td>
-                November 18, 2022
-              </td>
-              <td>
-                Kyle Lambert
-              </td>
-              <td>
-                Old Dominion University
-              </td>
-              <td>
-                In-person
-              </td>
-            </tr>
-            <tr style="text-align:center">
-              <td>
-                December 2, 2022
-              </td>
-              <td>
-                Olivia Dondaldson
-              </td>
-              <td>
-                Pratt & Whitney
-              </td>
-              <td>
-                Maybe in-person
-              </td>
-            </tr>
-            <tr style="text-align:center">
-              <td>
-                December 9, 2022
-              </td>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-            </tr>
+            {% endfor %}
             </tbody>
           </table>
         </div>
@@ -269,46 +133,28 @@
             <div class="post-heading">
               <h3 style="text-align:center;"><a href="#">Seminar Details</a></h3>
             </div><br>
+          {% for value in all_seminar %}
           <!-- start article 3 -->
           <article class="blog-post">
             <div class="row">
               <div class="span3">
-                <div class="video-container">
-                  <img src="https://www.newhaven.edu/_resources/images/news/non-college-specific/2022/charger-athletics-center.jpg">
+                <div class="">
+                  <img style="height:200px ; object-fit:cover;" src="/media/{{ BASIC_DIR }}/{{value.seminar_cover}}">
                 </div>
               </div>
               <div class="span8">
                 <ul class="post-meta">
-                  <li><h3 class="article-title">Support Charger Athletics</h3></li>
+                  <li><h3 class="article-title">{{ value.seminer_title }}</h3></li>
                 </ul>
                 <div class="clearfix">
-                  <p>Support the renovation of the university's Charger Gymnasium that will be dedicated in his honor.</p>
+                  <p>{{ value.seminer_description }}</p>
                   <button class="btn btn-small btn-success" type="button">Read more</button>
                 </div>
               </div>
             </div>
           </article>
           <!-- end article 3 -->
-          <!-- start article 3 -->
-          <article class="blog-post">
-            <div class="row">
-              <div class="span3">
-                <div class="video-container">
-                  <img src="https://www.newhaven.edu/_resources/images/news/non-college-specific/2022/charger-athletics-center.jpg">
-                </div>
-              </div>
-              <div class="span8">
-                <ul class="post-meta">
-                  <li><h3 class="article-title">University of New Haven Benefactor, Former Student-Athlete Makes $3 Million Gift to Support Charger Athletics</h3></li>
-                </ul>
-                <div class="clearfix">
-                  <p>The transformational gift from Jeffery P. Hazell '83, '10 Hon., a member of the University's Board of Governors, will support the renovation of the university's Charger Gymnasium that will be dedicated in his honor.</p>
-                  <button class="btn btn-small btn-success" type="button">Read more</button>
-                </div>
-              </div>
-            </div>
-          </article>
-          <!-- end article 3 -->
+          {% endfor %}
         </div>
       </div>
     </div>

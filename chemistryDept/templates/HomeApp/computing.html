@@ -33,8 +33,8 @@
   <section id="maincontent">
     <div class="container">
       <div class="row">
-        <div>
-          <h3 style="padding-bottom:50px; padding-left:40px;">Image Gallary</h3>
+        <div class="centered" style="background-color:#94c045; padding:3px;  margin:10px;">
+          <h3>Chemistry Computing</h3>
         </div>
         <ul class="portfolio-area da-thumbs">
           {% for value in image_data %}
@@ -42,7 +42,7 @@
               <div class="span4">
                 <div class="thumbnail">
                   <div class="image-wrapp">
-                    <img src="/media/{{ BASIC_DIR }}/{{value.computing_image}}" alt="Portfolio name" title="" />
+                    <img src="/media/{{ BASIC_DIR }}/{{value.computing_image}}" alt="Portfolio name" title=""  style="width:300px; height:300px;"/>
                     <article class="da-animate da-slideFromRight" style="display: block;">
                       <h4>{{value.computing_heading}}</h4>
                     </article>
@@ -58,9 +58,8 @@
   <section id="maincontent">
     <div class="container">
       <div class="row">
-        <div>
-          <h3 style="padding-bottom:50px; padding-left:40px;">Video Gallary</h3>
-
+        <div class="centered" style="background-color:#94c045; padding:3px;  margin:10px;">
+          <h3>Videos</h3>
         </div>
         {% for value in video_data %}
         <div class="span4">
@@ -71,9 +70,9 @@
               </iframe>
               <div class="dotted_line">
               </div>
-              <p>
+              <h4>
                 {{ value.computing_heading }}
-              </p>
+              </h4>
             </div>
           </div>
         </div>

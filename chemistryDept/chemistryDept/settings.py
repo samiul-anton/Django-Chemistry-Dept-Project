@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'HomeApp',
     'AdminPanel',
     'peopleApp',
-    'chemistryAdmin',
     'researchApp',
     'eventsApp',
     'resourceApp',

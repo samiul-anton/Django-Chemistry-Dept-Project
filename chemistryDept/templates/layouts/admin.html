@@ -69,6 +69,7 @@
 						</a>
 
 						<div class="dropdown-menu move2">
+							<a class="dropdown-item" href="{% url 'research_overview'%}"><i class="align-middle me-1" data-feather="user"></i>Research Overview</a>
 							<a class="dropdown-item" href="{% url 'research_by_area'%}"><i class="align-middle me-1" data-feather="user"></i>Research By Area</a>
 							<a class="dropdown-item" href="{% url 'research_by_direction'%}"><i class="align-middle me-1" data-feather="user"></i>Research By Direction</a>
 						</div>
@@ -81,6 +82,15 @@
 							<a class="dropdown-item" href="{% url 'admin_lab_facilites'%}"><i class="align-middle me-1" data-feather="user"></i>Lab Facilities</a>
 							<a class="dropdown-item" href="{% url 'admin_computing'%}"><i class="align-middle me-1" data-feather="user"></i>Computing</a>
 							<a class="dropdown-item" href="{% url 'research_by_direction'%}"><i class="align-middle me-1" data-feather="user"></i>Student Service</a>
+						</div>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#" data-bs-toggle="dropdown">
+              				<i class="align-middle" data-feather="server"></i> <span class="align-middle">Events</span>
+						</a>
+						<div class="dropdown-menu move4">
+							<a class="dropdown-item" href="{% url 'seminers' %}"><i class="align-middle me-1" data-feather="user"></i>Seminars</a>
 						</div>
 					</li>
 

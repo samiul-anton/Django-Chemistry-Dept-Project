@@ -1,6 +1,7 @@
 $(window).on("load",function(){
    $(".edit-btn").on("click",function(){
      var employee_id = $(this).attr('data-id');
+     console.log(employee_id);
      $("#edit_form").attr("action",`../edit-faculty/`+employee_id)
      $.ajax({
          url: `/super-admin/people/faculty/getData/`+employee_id,

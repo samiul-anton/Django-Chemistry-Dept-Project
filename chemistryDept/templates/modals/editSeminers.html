@@ -1,0 +1,101 @@
+
+<style>
+ .tox-notification{
+   display:none !important;
+ }
+</style>
+
+<div class="modal fade" id="editSeminersModal" tabindex="-1" aria-labelledby="editSeminersModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit: Seminar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- form starts -->
+        <form method="POST" id="edit_form" action="#" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Seminer Title</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="seminer_title_edit" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Seminar Description</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required name="seminer_description_edit"></textarea >
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="exampleFormControlTextarea1">Seminar Details</label>
+              <textarea class="form-control" id="edit_seminer_details" name="seminer_details_edit"></textarea>
+          </div>
+          <script>
+            tinymce.init({
+              selector: '#edit_seminer_details',
+              height: 200,
+              plugins: 'lists advlist',
+              toolbar: 'bullist',
+              menubar:false,
+              statusbar: false,
+            });
+          </script>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Seminer speakers:</label>
+                  <input type="text" class="form-control" id="exampleFormControlTextarea1"  required name="seminer_speakers_edit">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Seminer location:</label>
+                  <input type="text" class="form-control" id="exampleFormControlTextarea1"  required name="seminer_location_edit">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Seminar Notes</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required name="seminer_notes_edit"></textarea >
+              </div>
+            </div>
+          </div>
+          <!-- date and time picker starts  -->
+          <div class="row">
+              <div class='col'>
+                  <label for="exampleFormControlFile1">Seminer Data & Time</label>
+                  <input type='text' class="form-control" id='datetimepicker2' name="seminer_datetime_edit" required/>
+              </div>
+
+          </div>
+          <!-- date and time picker ends -->
+
+          <div class="form-group">
+            <div style="margin-top:20px"><img id="seminer_cover" src="" alt="" style="height:100px; width:100px; object-fit:cover"></div>
+            <label for="exampleFormControlFile1">Seminer Cover</label>
+            <input  type="file"   onchange="document.getElementById('seminer_cover').src = window.URL.createObjectURL(this.files[0])" class="form-control-file"  name="seminar_cover_edit" >
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="featured_edit" value=1>
+            <label class="form-check-label" for="exampleCheck1">Feature this seminer</label>
+          </div>
+         <div class="float-right">
+           <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+           <button type="submit"  class="btn btn-primary">Save Data</button>
+         </div>
+        </form>
+        <!-- form ends -->
+      </div>
+    </div>
+  </div>
+</div>
