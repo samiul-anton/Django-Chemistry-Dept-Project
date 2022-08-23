@@ -17,18 +17,21 @@
   </section>
   <section id="breadcrumb">
     <div class="container">
+
       <div class="row">
         <div class="span12">
           <ul class="breadcrumb notop">
-            <li><a href="#">Home</a><span class="divider">/</span></li>
+            <li><a href="{% url 'index'%}">Home</a><span class="divider">/</span></li>
             <li class="active">Student Services</li>
           </ul>
         </div>
       </div>
+
     </div>
   </section>
   <section id="maincontent">
     <div class="container">
+    {% for value in data %}
       <div class="row">
         <!-- Article start -->
         <div class="span12">
@@ -36,19 +39,16 @@
             <div class="row">
               <div class="span8">
                 <div class="post-heading">
-                  <h3><a href="#">Chemistry Community</a></h3>
+                  <h3><a href="#">{{ value.service_name }}</a></h3>
                 </div>
                 <blockquote>
-                  <p>The Dean of Students Office provides support and advocacy for students. We answer questions; provide information about, and referrals to, campus resources; assist in students’ adjustment to the University; promote programs that address student needs, concerns, and interests; and help students in resolving problems of any of issue they may be experiencing.</p>
-                  <br>
-                  <p>We challenge students to conduct themselves with integrity in both personal and academic matters and hold them accountable for their decisions and actions.</p>
+                  {{value.service_description}}
                 </blockquote>
-                <b>Link: <span><a href="www.unh.com">www.unh.com</a></span></b>
+                <b>Link: <span><a href="{{ value.service_link }}">Click Here</a></span></b>
               </div>
               <div class="span4">
                 <figure>
-                  <img src="{% static 'img/slides/flexslider/img1.jpg' %}" alt="" style="width: 300px; height: 250px;" />
-                  <figcaption>Meet The Coordinator</figcaption>
+                  <img src="/media/{{ BASIC_DIR }}/{{value.service_cover}}" alt="" style="width: 300px; height: 250px;" />
                 </figure>
               </div>
             </div>
@@ -56,31 +56,7 @@
             <!-- article END -->
         </div>
       </div>
-
-      <!-- First Row -->
-      <div class="row">
-        <!-- Article start -->
-        <div class="span12">
-          <article class="blog-post">
-            <div class="row">
-              <div class="span4">
-                  <img src="{% static 'img/slides/flexslider/img2.jpg' %}" alt="" />
-              </div>
-              <div class="span8">
-                <div class="post-heading">
-                  <h3><a href="#">Dean of Students Office</a></h3>
-                </div>
-                <blockquote>
-                  <p>We answer questions, provide information about and referrals to campus resources; assist in students’ adjustment to the University; promote programs which address student needs, concerns and interests; and help students in resolving problems of any type.</p>
-                </blockquote>
-                <button class="button"> Learn More </button>
-              </div>
-            </div>
-          </article>
-            <!-- article END -->
-        </div>
-      </div>
-      <!-- END First Row -->
+    {% endfor %}
     </div>
   </section>
  {% endblock content %}
