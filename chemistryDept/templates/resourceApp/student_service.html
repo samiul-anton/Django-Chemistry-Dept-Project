@@ -1,0 +1,72 @@
+{% extends "layouts/admin.html" %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+{% endblock %}
+{% block content %}
+<main class="content">
+	<div class="container-fluid p-0">
+		  <div class="d-flex justify-content-between pb-5">
+		  	<h1 class="h3 mb-3"><strong>Resource:</strong>Student Service</h1>
+				<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#allLabresource">Add Data</button>
+		  </div>
+			{% if messages %}
+							{% for message in messages %}
+							<div {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible  show "{% endif %} role="alert">
+									{{ message }}
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+							</div>
+							{% endfor %}
+			{% endif %}
+
+      <div>
+						<table id="example" class="display" style="width:100%">
+				        <thead>
+				            <tr>
+				                <th>#</th>
+				                <th>Service Name</th>
+				                <th>Action</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+									{% for value in data %}
+				            <tr>
+				                <td>{{ forloop.counter }}</td>
+				                <td>
+													<img src="/media/{{ BASIC_DIR }}/{{value.service_cover}}" alt="" style="height:30px; width:30px; border-radius: 4px; "/>
+													{{ value.service_name}}
+												</td>
+				                <td>
+				                	<button  data-id="{{ value.id }}" data-toggle="modal" data-target="#editLabresource" class="btn btn-sm btn-primary edit-btn">Edit</button>
+													<button  data-id="{{ value.id }}" data-page="resource/all-lab-facility" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
+				                </td>
+				            </tr>
+										{% endfor %}
+				        </tbody>
+				    </table>
+
+      </div>
+  </div>
+</main>
+{% include '../modals/addStudentService.html'%}
+{% include '../modals/deleteModal.html' %}
+{% include '../modals/editLabresource.html' %}
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function () {
+		    $('#example').DataTable();
+		});
+</script>
+
+
+<script src="{% static 'js/deleteData.js' %}">
+</script>
+<script src="{% static 'js/editlabresource.js' %}">
+</script>
+{% endblock %}

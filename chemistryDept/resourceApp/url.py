@@ -22,5 +22,10 @@ urlpatterns =[
   path('all-computing/<int:id>/delete', views.deleteComputing, name='delete_computing'),
   path('all-computing/edit/<int:id>', views.editComputing, name='edit_computing'),
   path('all-computing/get/<int:id>', views.getComputing, name='get_computing'),
+
+  #student service url
+  path('all-student-service/', views.studenService, name='admin_student_service'),
+  path('add-student-service/', views.addStudentService, name='add_student_service'),
+
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

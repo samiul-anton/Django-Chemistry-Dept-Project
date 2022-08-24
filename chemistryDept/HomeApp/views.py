@@ -4,6 +4,7 @@ from peopleApp.models import faculty,staff,student
 from resourceApp.models import labFacility
 from eventsApp.models import  seminer
 from resourceApp.models import computing as all_computing
+from resourceApp.models import studentService as all_student_service
 #Home page view
 
 def index(request):
@@ -117,7 +118,8 @@ def computing(request):
     video_data = all_computing.objects.filter(computing_type="Video")
     return render(request, 'HomeApp/computing.html',context={"image_data":image_data,"video_data":video_data})
 def studentServices(request):
-    return render(request, 'HomeApp/studentServices.html')
+    data = all_student_service.objects.all()
+    return render(request, 'HomeApp/studentServices.html',context={'data':data})
 
 #News view page
 def news(request):
