@@ -1,49 +1,54 @@
-
+{% extends "layouts/guest.html" %}
+{% load static %}
+{% block content %}
+  <section id="subintro">
+    <div class="jumbotron subhead" id="overview">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="centered">
+              <h3>Staffs</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="breadcrumb">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <ul class="breadcrumb notop">
+            <li><a href="{% url 'index'%}">Home</a><span class="divider">/</span></li>
+            <li class="active">Staff</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="maincontent">
     <div class="container">
       <div class="row">
-        <div class="span5">
-            <div class="post-heading">
-              <h3><a href="#">Chemistry, M.S.</a></h3>
+        <div class="span6">
+        {% for value in staff %}
+          <article class="blog-post faculty_card">
+            <div class="row">
+              <div class="span2">
+                <div class="post-image">
+                  <a href="#"><img src="/media/{{ BASIC_DIR }}/{{value.staff_image}}" alt="" style="height:100px; width:100px; border-radius: 8px; "/></a>
+                </div>
+              </div>
+              <div class="span4">
+              <div class="post-heading">
+                <h5><a href="#">{{ value.name}}</a></h5>
+                <i>{{ value.designation}}</i>
+                <em>{{ value.email}}</em>
+              </div>
+              </div>
             </div>
-          <p>
-            Cu cum noster euismod appellantur, mundi vitae vim ut, ea sea scripta expetendis vituperatoribus. Et cibo dicat impetus cum, id his quodsi scripserit. Nec purto habeo recteque eu. Posse oportere accusamus an sit, ex quando phaedrum sapientem ius. Perfecto
-            ocurreret no nam, eu quas cetero qui, vel ea minim nusquam salutatus. Nemore integre his ei, tollit eirmod eam at.
-          </p>
+          </article>
+        {% endfor %}
         </div>
-        <div class="span4">
-          <!-- start flexslider -->
-          <div class="flexslider">
-            <ul class="slides">
-              <li>
-                <img src="{% static 'img/slides/flexslider/img1.jpg' %}" alt="" />
-              </li>
-              <li>
-                <img src="{% static 'img/slides/flexslider/img2.jpg' %}" alt="" />
-              </li>
-              <li>
-                <img src="{% static 'img/slides/flexslider/img3.jpg' %}" alt="" />
-              </li>
-            </ul>
-          </div><hr>
-          <!-- end flexslider -->
-        </div>
-        <div class="span3">
-          <aside>
-            <div class="project-widget">
-              <h4><i class="icon-48 contact"></i> CONTACT US</h4>
-              <ul class="project-detail">
-                <li><label>Email :</label> Very nice project</li>
-                <li><label>Phone :</label> Web design</li>
-              </ul>
-              <h4> HOURS</h4>
-              <ul class="project-detail">
-                <li> Mon. - Fri., 8:30 a.m. - 4:30 p.m.</li>
-                <li><p style="color: red;">To ensure staff availability, we strongly recommend making an appointment by email or phone.</p></li>
-              </ul>
-            </div>
-          </aside>
-        </div><hr>
       </div>
     </div>
   </section>
