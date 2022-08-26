@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'researchApp',
     'eventsApp',
     'resourceApp',
-
+    'newsApp',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

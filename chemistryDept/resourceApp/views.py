@@ -132,3 +132,11 @@ def addStudentService(request):
        return HttpResponseRedirect(reverse('admin_student_service'))
     else:
        return HttpResponseRedirect(reverse('index'))
+@login_required
+def deleteStudentService(request,id):
+    if request.method == "POST":
+        student_service.objects.filter(id=id).delete()
+        messages.success(request, 'Data Deleted!')
+        return HttpResponseRedirect(reverse('admin_student_service'))
+    else:
+        return HttpResponseRedirect(reverse('home'))
