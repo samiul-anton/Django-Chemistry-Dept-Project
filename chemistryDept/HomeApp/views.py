@@ -5,6 +5,7 @@ from resourceApp.models import labFacility
 from eventsApp.models import  seminer
 from resourceApp.models import computing as all_computing
 from resourceApp.models import studentService as all_student_service
+from newsApp.models import new
 #Home page view
 
 def index(request):
@@ -123,7 +124,9 @@ def studentServices(request):
 
 #News view page
 def news(request):
-    return render(request, 'HomeApp/news.html')
+    latest_news = new.objects.latest('id')
+    all_news = new.objects.all()
+    return render(request, 'HomeApp/news.html',context={'latest_news': latest_news , 'all_news':all_news})
 
 #Dummy for test
 def dummy(request):
