@@ -8,7 +8,7 @@
 	<div class="container-fluid p-0">
 		  <div class="d-flex justify-content-between pb-5">
 		  	<h1 class="h3 mb-3"><strong>News:</strong> </h1>
-				<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#facultyModal">Add News</button>
+				<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#addNewsModal">Add News</button>
 		  </div>
 			{% if messages %}
 							{% for message in messages %}
@@ -53,7 +53,7 @@
 </main>
 
 
-{% include '../modals/addFaculty.html' %}
+{% include '../modals/addNews.html' %}
 {% include '../modals/deleteModal.html' %}
 {% include '../modals/editFaculty.html' %}
 {% endblock %}
