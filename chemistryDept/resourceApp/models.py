@@ -45,6 +45,6 @@ class studentService(models.Model):
     def __str__(self):
         return self.service_name
 
-    def all_computing_data(self):
+    def studenService_data(self):
         data = [self.service_name , self.service_description , self.service_link , str(self.service_cover)]
         return data

@@ -39,7 +39,7 @@
 													{{ value.service_name}}
 												</td>
 				                <td>
-				                	<button  data-id="{{ value.id }}" data-toggle="modal" data-target="#editLabresource" class="btn btn-sm btn-primary edit-btn">Edit</button>
+				                	<button  data-id="{{ value.id }}" data-toggle="modal" data-target="#editStudentServiceModal" class="btn btn-sm btn-primary edit-btn">Edit</button>
 													<button  data-id="{{ value.id }}" data-page="resource/all-student-service" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
@@ -52,7 +52,7 @@
 </main>
 {% include '../modals/addStudentService.html'%}
 {% include '../modals/deleteModal.html' %}
-{% include '../modals/editLabresource.html' %}
+{% include '../modals/editStudentService.html' %}
 {% endblock %}
 
 
@@ -67,6 +67,6 @@
 
 <script src="{% static 'js/deleteData.js' %}">
 </script>
-<script src="{% static 'js/editlabresource.js' %}">
+<script src="{% static 'js/editStudentService.js' %}">
 </script>
 {% endblock %}

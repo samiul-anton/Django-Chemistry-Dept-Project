@@ -35,7 +35,7 @@ def addLabFacility(request):
        messages.success(request, 'New data added!')
        return HttpResponseRedirect(reverse('admin_lab_facilites'))
     else:
-       return HttpResponseRedirect(reverse('index'))
+       return HttpResponseRedirect(reverse('home'))
 
 @login_required
 def getLabResource(request ,id ):
@@ -77,7 +77,7 @@ def addComputing(request):
        messages.success(request, 'New data added!')
        return HttpResponseRedirect(reverse('admin_computing'))
     else:
-       return HttpResponseRedirect(reverse('index'))
+       return HttpResponseRedirect(reverse('home'))
 @login_required
 def deleteComputing(request,id):
     if request.method == "POST":
@@ -106,7 +106,7 @@ def editComputing(request ,id ):
        messages.success(request, 'Data Updated!')
        return HttpResponseRedirect(reverse('admin_computing'))
     else:
-       return HttpResponseRedirect(reverse('index'))
+       return HttpResponseRedirect(reverse('home'))
 
 @login_required
 def getComputing(request , id):
@@ -131,7 +131,7 @@ def addStudentService(request):
        messages.success(request, 'New data added!')
        return HttpResponseRedirect(reverse('admin_student_service'))
     else:
-       return HttpResponseRedirect(reverse('index'))
+       return HttpResponseRedirect(reverse('home'))
 @login_required
 def deleteStudentService(request,id):
     if request.method == "POST":
@@ -140,3 +140,22 @@ def deleteStudentService(request,id):
         return HttpResponseRedirect(reverse('admin_student_service'))
     else:
         return HttpResponseRedirect(reverse('home'))
+@login_required
+def getStudentService(request , id):
+    student_service_data = student_service.objects.get(id=id)
+    get_data = json.dumps(student_service_data.studenService_data())
+    return JsonResponse({'data': get_data})
+@login_required
+def editStudentService(request,id):
+    if request.method == "POST":
+       student_service_data = student_service.objects.get(id=id)
+       student_service_data.service_name = request.POST.get('service_name_edit')
+       student_service_data.service_description = request.POST.get('service_description_edit')
+       student_service_data.service_link = request.POST.get('service_link_edit')
+       if bool(request.FILES.get('service_cover_edit', False)) == True:
+            student_service_data.service_cover = request.FILES["service_cover_edit"]
+       student_service_data.save()
+       messages.success(request, 'Data Updated!')
+       return HttpResponseRedirect(reverse('admin_student_service'))
+    else:
+       return HttpResponseRedirect(reverse('home'))

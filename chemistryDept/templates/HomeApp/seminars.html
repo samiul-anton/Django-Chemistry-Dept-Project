@@ -38,7 +38,9 @@
             </div>
           <!-- start flexslider -->
           <div>
+            {% if featured_seminer != None %}
                 <img style="height:400px ; width:100% ; object-fit:cover;" src="/media/{{ BASIC_DIR }}/{{featured_seminer.seminar_cover}}" alt="" />
+            {% endif %}
           </div>
           <hr>
           <!-- end flexslider -->
