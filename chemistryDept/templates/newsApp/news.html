@@ -39,9 +39,8 @@
 													{{ value.news_title}}
 												</td>
 				                <td>
-													<a class="btn btn-sm btn-info" href="{% url 'single_faculty' id=value.id %}">View</a>
-				                	<button data-id="{{ value.id }}" class="btn btn-sm btn-primary edit-btn" data-toggle="modal" data-target="#editfacultyModal">Edit</button>
-													<button  data-id="{{ value.id }}" data-page="people/faculty" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
+				                	<button data-id="{{ value.id }}" class="btn btn-sm btn-primary edit-btn" data-toggle="modal" data-target="#editNewsModal">Edit</button>
+													<button  data-id="{{ value.id }}" data-page="news/news" class="btn btn-sm btn-danger del-btn" data-toggle="modal" data-target="#deleteModal">Delete</button>
 				                </td>
 				            </tr>
 										{% endfor %}
@@ -55,7 +54,7 @@
 
 {% include '../modals/addNews.html' %}
 {% include '../modals/deleteModal.html' %}
-{% include '../modals/editFaculty.html' %}
+{% include '../modals/editNews.html' %}
 {% endblock %}
 
 
@@ -69,6 +68,6 @@
 		});
 </script>
 
-<script src="{% static 'js/editFaculty.js' %}"></script>
+<script src="{% static 'js/editNews.js' %}"></script>
 <script src="{% static 'js/deleteData.js' %}"></script>
 {% endblock %}

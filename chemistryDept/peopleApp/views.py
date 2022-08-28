@@ -70,7 +70,7 @@ def editFaculty(request,id):
        if bool(request.FILES.get('faculty_image', False)) == True:
          faculty.faculty_image = request.FILES["faculty_image"]
        faculty.save()
-       messages.success(request, 'Faculty data Saved!')
+       messages.success(request, 'Faculty data changed!')
        return HttpResponseRedirect(reverse('faculty'))
     else:
        return HttpResponseRedirect(reverse('index'))
@@ -88,6 +88,7 @@ def addStaff(request):
        new_staff.name = request.POST.get('faculty_name')
        new_staff.email = request.POST.get('faculty_email')
        new_staff.designation = request.POST.get('faculty_designation')
+       new_staff.description = request.POST.get('description')
        new_staff.staff_image = request.FILES["faculty_image"]
        new_staff.save()
 
@@ -103,6 +104,7 @@ def editStaff(request,id):
        new_staff.name = request.POST.get('staff_name')
        new_staff.email = request.POST.get('staff_email')
        new_staff.designation = request.POST.get('staff_designation')
+       new_staff.description = request.POST.get('staff_description')
        if bool(request.FILES.get('staff_image', False)) == True:
          new_staff.staff_image = request.FILES["staff_image"]
        new_staff.save()

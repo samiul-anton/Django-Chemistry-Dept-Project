@@ -15,6 +15,7 @@ $(window).on("load",function(){
            $('input[name="staff_designation"]').attr("value",staff_data[3])
            $('input[name="staff_image"]').attr("src",staff_data[1])
            $("#staff_image").attr("src",`/media/`+staff_data[1])
+           $('textarea[name="staff_designation"]').val(staff_data[4])
          },
          error: (error) => {
            console.log(error);

@@ -19,11 +19,12 @@ class staff(models.Model):
     staff_image = models.ImageField(null=True, blank=True, upload_to="Images/")
     email = models.EmailField(max_length=50)
     designation = models.TextField(max_length=100)
+    description = models.TextField(max_length=100)
 
     def __str__(self):
         return self.name
     def staff_info(self):
-        staff_info = [self.name , str(self.staff_image), self.email, self.designation]
+        staff_info = [self.name , str(self.staff_image), self.email, self.designation , self.description]
         return staff_info
 class student(models.Model):
     student_type = (

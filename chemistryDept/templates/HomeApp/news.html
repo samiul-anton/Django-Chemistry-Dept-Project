@@ -24,11 +24,11 @@
           <article class="blog-post">
             <div class="row">
               <div class="video-container">
-                <img style="width:100%; height:400px; object-fit:cover;" src="https://www.newhaven.edu/_resources/images/news/non-college-specific/2022/quad-aerial-1.jpg">
+                <img style="width:100%; height:400px; object-fit:cover;" src="/media/{{ BASIC_DIR }}/{{latest_news.news_cover}}">
               </div>
               <h3>{{ latest_news.news_title }}</h3>
               <p>
-                Read the latest University news, check out feature stories about signature University programs, or see our faculty quoted in some of the most well-known newspapers, TV shows, and radio programs.
+                  {{latest_news.news_description }}
               </p>
             </div>
           </article>
@@ -38,24 +38,26 @@
             <div class="post-heading">
               <h3><a href="#">UNIVERSITY NEWS 2022</a></h3><hr>
             </div>
+            {% for value in all_news %}
             <div class="row">
               <div class="span3">
                 <div class="video-container">
-                  <img src="https://www.newhaven.edu/_resources/images/news/non-college-specific/2022/quad-aerial-1.jpg">
+                  <img src="/media/{{ BASIC_DIR }}/{{value.news_cover}}">
                   </img>
                 </div>
               </div>
               <div class="span5">
                 <ul class="post-meta">
-                  <li><a href="#">University News</a></li>
-                  <li><h3 class="article-title">University of New Haven Announces the Appointment of Steven H. Kaplan as its First Chancellor and CEO; Sheahon Zenger as Interim President</h3></li>
+                  <li><a href="#">{{ value.news_category }}</a></li>
+                  <li><h3 class="article-title">{{ value.news_title }}</h3></li>
                 </ul>
                 <div class="clearfix">
-                  <p class="article-desc">The University is implementing an innovative leadership transition plan that will enable it to continue to grow, build on the momentum of its rich history of success, and strengthen its position as a financially sound, highly regarded, comprehensive University.</p>
-                  <button class="btn btn-small btn-success" type="button">Read more</button>
+                  <p class="article-desc">{{ value.news_description }}</p>
+                  <a href="{{ value.news_url }}"> <button class="btn btn-small btn-success" type="button">Read more</button> </a>
                 </div>
               </div>
             </div>
+            {% endfor %}
           </article>
           <!-- end article 2 -->
           <!-- <div class="pagination">
