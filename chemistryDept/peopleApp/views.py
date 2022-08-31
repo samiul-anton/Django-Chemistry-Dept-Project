@@ -112,7 +112,7 @@ def editStaff(request,id):
        messages.success(request, 'Staff Data Updated!')
        return HttpResponseRedirect(reverse('staff'))
     else:
-       return HttpResponseRedirect(reverse('index'))
+       return HttpResponseRedirect(reverse('home'))
 def staffGetdata(request,id):
     staffData = all_staff.objects.get(id=id)
     data = json.dumps(staffData.staff_info())
