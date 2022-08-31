@@ -7,9 +7,10 @@ class new(models.Model) :
     news_description = models.TextField(max_length=100)
     news_category = models.TextField(max_length=100)
     news_url = models.TextField(max_length=100)
+    featured = models.BooleanField()
 
     def __str__(self):
         return self.news_title
     def news_info(self):
-        news_info = [self.news_title , str(self.news_cover), self.news_description, self.news_category , self.news_url]
+        news_info = [self.news_title , str(self.news_cover), self.news_description, self.news_category , self.news_url,self.featured]
         return news_info

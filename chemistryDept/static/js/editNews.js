@@ -18,6 +18,7 @@ $(window).on("load",function(){
 
            $('input[name="news_cover_edit"]').attr("src",news_data[1])
            $("#newsCover").attr("src",`/media/`+news_data[1])
+           $('input[name="featured_edit"]').attr("checked",news_data[5])
          },
          error: (error) => {
            console.log(error);

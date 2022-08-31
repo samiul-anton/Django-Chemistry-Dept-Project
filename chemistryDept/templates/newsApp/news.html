@@ -2,6 +2,7 @@
 {% load static %}
 {% block links %}
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 {% block content %}
 <main class="content">
@@ -31,9 +32,14 @@
 				            </tr>
 				        </thead>
 				        <tbody>
-									{% for value in data%}
+									{% for value in data %}
 				            <tr>
-				                <td>{{ forloop.counter }}</td>
+				                <td>
+													{% if value.featured == 1 %}
+																	<i class="fa fa-bookmark" aria-hidden="true"></i>
+													{% endif %}
+													{{ forloop.counter }}
+												</td>
 				                <td>
 													<img src="/media/{{ BASIC_DIR }}/{{value.news_cover}}" alt="" style="height:30px; width:30px; border-radius: 4px; "/>
 													{{ value.news_title}}

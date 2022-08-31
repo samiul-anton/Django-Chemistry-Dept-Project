@@ -23,6 +23,7 @@ def addNews(request):
        new_news.news_category = request.POST.get('news_category')
        new_news.news_url = request.POST.get('news_url')
        new_news.news_cover = request.FILES["news_cover"]
+       new_news.featured = 0 if  request.POST.get('featured') ==  None else request.POST.get('featured')
        new_news.save()
 
        messages.success(request, 'New news added!')
@@ -45,15 +46,30 @@ def newsGetdata(request,id):
 @login_required
 def editNews(request,id):
     if request.method == "POST":
-       faculty = new.objects.get(id=id)
-       faculty.news_title = request.POST.get('news_title_edit')
-       faculty.news_description = request.POST.get('news_description_edit')
-       faculty.news_category = request.POST.get('news_category_edit')
-       faculty.news_url = request.POST.get('news_url_edit')
+       update_news = new.objects.get(id=id)
+       update_news.news_title = request.POST.get('news_title_edit')
+       update_news.news_description = request.POST.get('news_description_edit')
+       update_news.news_category = request.POST.get('news_category_edit')
+       update_news.news_url = request.POST.get('news_url_edit')
        if bool(request.FILES.get('news_cover_edit', False)) == True:
-         faculty.news_cover = request.FILES["news_cover_edit"]
-       faculty.save()
-       messages.success(request, 'News data updated!')
-       return HttpResponseRedirect(reverse('all_news'))
+         update_news.news_cover = request.FILES["news_cover_edit"]
+       if request.POST.get('featured_edit') != None :
+           previous_featured_news = new.objects.get(featured=1);
+           previous_featured_news.featured = 0;
+           previous_featured_news.save();
+           update_news.featured = 1
+           update_news.save()
+           messages.success(request, 'News updated!')
+           return HttpResponseRedirect(reverse('all_news'))
+       else:
+           previous_featured_news = new.objects.get(featured=1);
+           if previous_featured_news.id == update_news.id:
+               messages.warning(request, 'At least one news must be featured!')
+               return HttpResponseRedirect(reverse('all_news'))
+           else:
+               update_news.featured = 0
+               update_news.save()
+               messages.success(request, 'News updated!')
+               return HttpResponseRedirect(reverse('all_news'))
     else:
        return HttpResponseRedirect(reverse('index'))

@@ -128,7 +128,7 @@ def studentServices(request):
 #News view page
 def news(request):
     try:
-        latest_news = new.objects.latest('id')
+        latest_news = new.objects.get(featured=1)
     except new.DoesNotExist:
         latest_news = None
     all_news = new.objects.all()
