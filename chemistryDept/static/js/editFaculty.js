@@ -19,24 +19,6 @@ $(window).on("load",function(){
            tinymce.get('faculty_experienceedit').setContent(faculty_data[4]);
            $('input[name="faculty_image"]').attr("src",faculty_data[1])
            $("#faculty_image").attr("src",`/media/`+faculty_data[1])
-
-
-
-           // $("#facultyImageEdit").on("change",function(){
-           //   var url = $(this).val();
-           //    var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
-           //    if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg"))
-           //     {
-           //        var reader = new FileReader();
-           //
-           //        reader.onload = function (e) {
-           //           $('#faculty_image').attr('src', e.target.result);
-           //        }
-           //       reader.readAsDataURL(input.files[0]);
-           //    }
-           //
-           // })
-
          },
          error: (error) => {
            console.log(error);

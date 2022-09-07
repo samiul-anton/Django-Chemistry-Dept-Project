@@ -20,7 +20,7 @@
       <div class="row">
         <div class="span12">
           <ul class="breadcrumb notop">
-            <li><a href="#">Home</a><span class="divider">/</span></li>
+            <li><a href="{% url 'index'%}">Home</a><span class="divider">/</span></li>
             <li class="active">Course Announcement</li>
           </ul>
         </div>
@@ -31,135 +31,28 @@
     <div class="container">
       <div class="row">
         <!-- Article 1 start -->
+        {% for data in all_courses %}
         <div class="span8">
           <article class="blog-post">
             <div class="post-heading">
-              <h3><a href="#">Chemistry, M.S.</a></h3>
+              <h3><a href="#">{{ data.course_name }}</a></h3>
             </div>
             <div class="clearfix">
-              <p>2022-2023 GRADUATE CATALOG</p>
+              <p>Instructor: {{ data.instructor_name }}</p>
             </div>
-            <img src="{% static '/img/latestnews/classroom.jpg' %}" alt="" style="width: 700px; height: 400px;" />
+            <img src='/media/{{ BASIC_DIR }}/{{data.course_cover}}' alt="" style="width: 700px; height: 400px;" />
             <blockquote>
               <p>
-                <i class="icon-64 icon-quote-left left"></i><span><b>STEM Designation:</b></span> This program is STEM (science, technology, engineering, and math)-designated by the Department of Homeland Security. For more information, please see <a href="https://www.newhaven.edu/admissions/stem-designated-programs.php">https://www.newhaven.edu/admissions/stem-designated-programs.php</a>
+                <i class="icon-64 icon-quote-left left"></i>
+                {{ data.course_description|safe }}
               </p>
             </blockquote>
-            <div class="post-heading">
-              <h3>Program Outcomes</h3>
-              <hr>
+            <div>
+              {{ data.course_content|safe }}
             </div>
-            <ol>
-              <li>Demonstrate understanding of the fundamental concepts and techniques of experimental,theoretical, and computational chemistry.</li>
-              <li>Evaluate chemistry literature.</li>
-              <li>Effectively communicate research results in oral and written presentations.</li>
-              <li>Effectively conduct research projects.</li>
-              <li>Integrate theoretical & computational methods with experimental techniques to solve problems.</li>
-              <li>Distinguish acceptable and unacceptable ethical conduct in scientific research.</li>
-            </ol>
           </article>
-            <!-- article 1 END -->
-
-            <!-- Article 2 start -->
-          <article class="blog-post">
-            <div class="post-heading">
-              <h3>Required Courses (18 credits)</h3>
-              <hr>
-            </div>
-            <ul>
-              <li><a href="/course-announcements/">CHEM 6607 - Modern Organic Chemistry</a></li>
-              <li><a href="/course-announcements/">CHEM 6615 - Basics of Computational Chemistry</a></li>
-              <li><a href="/course-announcements/">CHEM 6631 - Advances in Analytic Chemistry</a></li>
-              <li><a href="/course-announcements/">CHEM 6682 - Graduate Seminar</a></li>
-              <li><a href="/course-announcements/">CHEM 6710 - Computational Chemistry</a></li>
-              <li><a href="/course-announcements/">ENGR 6780 - Research Methods, Writing, and Ethics</a></li>
-            </ul>
-          </article>
-            <!-- Article 2 END -->
-
-          <!-- Article 3 START -->
-          <article class="blog-post">
-            <div class="post-heading">
-              <h3>Restricted Elective Courses (3 credits) - select at least one</h3>
-              <hr>
-            </div>
-            <ul>
-              <li><a href="/course-announcements/">CHEM 6685 - Graduate Research Project</a></li>
-              <li><a href="/course-announcements/">CHEM 6688 - Graduate Internship</a></li>
-              <li><a href="/course-announcements/">CHEM 6698 - Thesis I</a></li>
-              <li><a href="/course-announcements/">CHEM 6699 - Thesis II</a></li>
-            </ul>
-          </article>
-          <!-- Article 3 END -->
-
-          <!-- Article 4 END -->
-          <article class="blog-post">
-            <div class="post-heading">
-              <h3>Focus Area Courses (9 credits) select three courses from one of the following areas</h3>
-              <hr>
-            </div>
-            <div class="post-heading">
-              <h3 style="text-align:center;">Analytical and Green Chemistry</h3>
-            </div>
-            <ul>
-              <li><a href="/course-announcements/">BIOM 6610 - Biomedical Polymers</a></li>
-              <li><a href="/course-announcements/">CHEM 6635 - Chromatography and Separation Science</a></li>
-              <li><a href="/course-announcements/">CHEM 6645 - Solid-State Chemistry</a></li>
-              <li><a href="/course-announcements/">CHEM 6670 - Special Topics</a></li>
-              <li><a href="/course-announcements/">CIVL 6601 - Physical-Chemical Treatment of Aqueous Wastes</a></li>
-              <li><a href="/course-announcements/">CIVL 6603 - Contaminant Fate and Transport in the Environment</a></li>
-              <li><a href="/course-announcements/">CIVL 6661 - Air Pollution Fundamentals</a></li>
-            </ul><hr>
-            <div class="post-heading">
-              <h3 style="text-align:center;">Computational and Materials Chemistry</h3>
-            </div>
-            <ul>
-              <li><a href="/course-announcements/">BIOM 6610 - Biomedical Polymers</a></li>
-              <li><a href="/course-announcements/">CHEM 6645 - Solid-State Chemistry</a></li>
-              <li><a href="/course-announcements/">CHEM 6670 - Special Topics</a></li>
-              <li><a href="/course-announcements/">CMBI 6620 - Bioinformatics</a></li>
-              <li><a href="/course-announcements/">CSCI 6604 - Introduction to Programming/C</a></li>
-              <li><a href="/course-announcements/">CSCI 6610 - Intermediate Programming: C/C++</a></li>
-              <li><a href="/course-announcements/">CSCI 6651 - Introduction to Script Programming/Python</a></li>
-              <li><a href="/course-announcements/">MATH 6620 - Numerical Analysis</a></li>
-              <li><a href="/course-announcements/">MATH 6624 - Applied Mathematics</a></li>
-            </ul><hr>
-            <div class="post-heading">
-              <h3 style="text-align:center;">Drug Discovery Chemistry</h3>
-            </div>
-            <ul>
-              <li><a href="/course-announcements/">BIOM 6610 - Biomedical Polymers</a></li>
-              <li><a href="/course-announcements/">CHEM 6635 - Chromatography and Separation Science</a></li>
-              <li><a href="/course-announcements/">CHEM 6650 - Medicinal Chemistry I</a></li>
-              <li><a href="/course-announcements/">CHEM 6655 - Pharmacology</a></li>
-              <li><a href="/course-announcements/">CHEM 6670 - Special Topics</a></li>
-              <li><a href="/course-announcements/">CMBI 6620 - Bioinformatics</a></li>
-            </ul><hr>
-            <div class="post-heading">
-              <h3 style="text-align:center;">General Chemistry</h3>
-            </div>
-            <ul>
-              <li>Any three courses from any of the focus areas listed above</li>
-            </ul><br>
-          </article>
-          <!-- Article 4 END -->
-          <article class="blog-post">
-            <div class="post-heading">
-              <h3>Project Requirement</h3>
-              <hr>
-              <p>Each student must complete a substantial research project. There are three different ways that a student can satisfy the project requirement:</p>
-            </div>
-            <ol>
-              <li><b>CHEM 6685</b> Graduate Research Project (restricted elective).  Students must find an advisor, prepare a project proposal and obtain written approval for the project prior to registration.  This option offers an advantage to students who may choose to explore areas outside the curriculum.</li>
-              <li><b>CHEM 6698 Thesis I</b> and <b>CHEM 6699 Thesis II</b> (restricted electives).  Students who plan to do a thesis should find a thesis advisor in their first or second semester, prepare a thesis proposal, and obtain written approval for the thesis prior to registration.  For this option, both <b>CHEM 6698</b> and <b>CHEM 6699</b> must be completed.</li>
-              <li><b>CHEM 6688 Graduate Internship</b> (restricted elective). Students must find a company or research-related organization that will host students to conduct an internship activity related to chemistry research, such as computational modeling, chemical synthesis, chemical characterization, or chemical processing. An evaluation of the internship performance will be provided by the internship supervisor.</li>
-            </ol>
-          </article>
-
-          <!-- Article 5 START -->
-
-          <!-- Article 5 END -->
         </div>
+        {% endfor %}
         <div class="span4">
           <aside>
             <div class="widget">
