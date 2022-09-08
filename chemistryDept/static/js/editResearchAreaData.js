@@ -8,9 +8,10 @@ $(window).on("load",function(){
          success: (data) => {
 
            research_data = JSON.parse(data.data);
+           console.log(data);
            $('input[name="research_title"]').attr("value",research_data[2])
            $('textarea[name="research_description"]').val(research_data[3])
-           $(`#selectResearchFields option[value=`+research_data[0]+`]`).attr('selected','selected');
+           $(`#selectResearchFields option[value="`+research_data[0]+`"]`).attr('selected','selected');
            $('input[name="publication_video"]').attr("value",research_data[5]);
            tinymce.get('research_includee').setContent(research_data[4]);
            tinymce.get('publication_detailss').setContent(research_data[6]);

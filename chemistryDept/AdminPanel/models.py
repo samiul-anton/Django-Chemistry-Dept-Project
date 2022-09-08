@@ -4,16 +4,19 @@ import datetime
 import os
 # Create your models here.
 
-
-
-"""def filepath(request, filename):
-    old_filename = filename
-    timeNow = datetime.datetime.now().strftime('%m%d%Y')
-    filename = "%s%s", (timeNow, old_filename)
-    return os.path.join(filenam)"""
 class Userinfo(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     admin_image = models.ImageField(null=True, blank=True, upload_to="Images/")
 
     def __str__(self):
         return self.user.username
+class banner(models.Model) :
+    banner_title = models.TextField(max_length=100)
+    banner_description = models.TextField(max_length=100)
+    banner_url = models.TextField(max_length=100)
+    banner_cover = models.ImageField(null=True, blank=True, upload_to="Images/")
+    def __str__(self):
+        return self.banner_title
+    def banner_info(self):
+        banner_info = [self.banner_title , str(self.banner_cover), self.banner_description, self.banner_url]
+        return banner_info

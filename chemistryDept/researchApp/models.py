@@ -20,7 +20,7 @@ class research_by_area(models.Model):
         return self.research_title+":"+self.research_fields
     def research_area_info(self):
         data_info = [self.research_fields , str(self.research_cover), self.research_title, self.research_description , self.project_include , self.publication_video , self.publication_details]
-        return
+        return data_info
 
 class research_overview(models.Model):
     overview_facutly = models.ForeignKey(faculty, on_delete=models.CASCADE)

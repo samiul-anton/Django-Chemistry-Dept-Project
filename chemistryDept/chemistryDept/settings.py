@@ -8,6 +8,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+import json
+
+"""with open('/etc/config.json') as config_file:
+    config = json.load(config_file)"""
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,9 +24,11 @@ TEMPLATES = os.path.join(BASE_DIR,"templates")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-*9ag*-s9p%*^p8h$!3j!af%dn@8%_7bexx5ivsi7_b!$_e1o42'
+#SECRET_KEY = ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','192.168.2.1','discover.newhaven.edu','discover']
 
@@ -37,7 +43,7 @@ INSTALLED_APPS = [
     'researchApp',
     'eventsApp',
     'resourceApp',
-
+    'newsApp',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

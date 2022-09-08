@@ -55,3 +55,8 @@ def dashboard(request):
         return render(request,"AdminPanel/index.html",context={'user':user, 'user_info':user_info})
     else:
         return HttpResponseRedirect(reverse('login_page'))
+
+#Admin settings
+@login_required
+def settings(request):
+    return render(request,"AdminPanel/settings.html")

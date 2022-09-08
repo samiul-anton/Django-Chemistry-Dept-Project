@@ -2,8 +2,10 @@ from django.shortcuts import render
 from researchApp.models import research_overview, research_by_direction,research_by_area
 from peopleApp.models import faculty,staff,student
 from resourceApp.models import labFacility
-from eventsApp.models import  seminer
+from eventsApp.models import  seminer,courseAnnouncemets
 from resourceApp.models import computing as all_computing
+from resourceApp.models import studentService as all_student_service
+from newsApp.models import new
 #Home page view
 
 def index(request):
@@ -99,9 +101,13 @@ def researchMedical(request):
 
 #Events view Page
 def courseAnnouncements(request):
-    return render(request, 'HomeApp/courseAnnouncements.html')
+    all_courses = courseAnnouncemets.objects.all()
+    return render(request, 'HomeApp/courseAnnouncements.html',context={"all_courses":all_courses})
 def seminars(request):
-    featured_seminer = seminer.objects.get(featured=1)
+    try:
+        featured_seminer = seminer.objects.get(featured=1)
+    except seminer.DoesNotExist:
+        featured_seminer = None
     all_seminar = seminer.objects.all()
     return render(request, 'HomeApp/seminars.html',context={"featured_seminer":featured_seminer, "all_seminar":all_seminar})
 
@@ -117,11 +123,17 @@ def computing(request):
     video_data = all_computing.objects.filter(computing_type="Video")
     return render(request, 'HomeApp/computing.html',context={"image_data":image_data,"video_data":video_data})
 def studentServices(request):
-    return render(request, 'HomeApp/studentServices.html')
+    data = all_student_service.objects.all()
+    return render(request, 'HomeApp/studentServices.html',context={'data':data})
 
 #News view page
 def news(request):
-    return render(request, 'HomeApp/news.html')
+    try:
+        latest_news = new.objects.get(featured=1)
+    except new.DoesNotExist:
+        latest_news = None
+    all_news = new.objects.all()
+    return render(request, 'HomeApp/news.html',context={'latest_news': latest_news , 'all_news':all_news})
 
 #Dummy for test
 def dummy(request):

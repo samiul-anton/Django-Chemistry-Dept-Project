@@ -34,3 +34,17 @@ class computing(models.Model):
     def all_computing_data(self):
         data = [self.computing_heading , self.computing_url , self.computing_type , str(self.computing_image)]
         return data
+
+
+class studentService(models.Model):
+    service_name = models.TextField(max_length=100)
+    service_description = models.TextField(max_length=100,null=True ,blank=True)
+    service_link = models.TextField(max_length=100)
+    service_cover = models.ImageField(null=True, blank=True, upload_to="Images/")
+
+    def __str__(self):
+        return self.service_name
+
+    def studenService_data(self):
+        data = [self.service_name , self.service_description , self.service_link , str(self.service_cover)]
+        return data
